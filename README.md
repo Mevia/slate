@@ -89,6 +89,12 @@ Examples of Slate in the Wild
 * [IBM Cloudant](https://docs-testb.cloudant.com/content-review/_design/couchapp/index.html)
 * [Bitrix basis components](http://bbc.bitrix.expert/)
 * [viagogo API Documentation](http://developer.viagogo.net/)
+* [Fidor Bank API Documentation](http://docs.fidor.de/)
+* [Market Prophit API Documentation](http://developer.marketprophit.com/)
+* [OAuth.io API Documentation](http://docs.oauth.io/)
+* [Aircall for Developers](http://developer.aircall.io/)
+* [SupportKit API Docs](http://docs.supportkit.io/)
+* [SocialRadar's LocationKit Docs](https://docs.locationkit.io/)
 
 (Feel free to add your site to this list in a pull request!)
 
@@ -101,7 +107,7 @@ Just [submit a issue](https://github.com/tripit/slate/issues) to the Slate Githu
 Contributors
 --------------------
 
-Slate was built by [Robert Lord](http://lord.io) while at [TripIt](http://tripit.com).
+Slate was built by [Robert Lord](https://lord.io) while at [TripIt](http://tripit.com).
 
 Thanks to the following people who have submitted major pull requests:
 
