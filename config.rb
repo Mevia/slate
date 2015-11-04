@@ -1,6 +1,3 @@
-require 'rack'
-require 'rack/contrib/try_static'
-
 # Markdown
 set :markdown_engine, :redcarpet
 set :markdown,
@@ -40,9 +37,3 @@ configure :build do
   # activate :asset_hash
   # activate :gzip
 end
-
-# Serve files from the build directory
-# use Rack::TryStatic,
-#   root: 'build',
-#   urls: %w[/],
-#   try: ['.html', 'index.html', '/index.html']
