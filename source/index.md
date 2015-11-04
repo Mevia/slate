@@ -1,168 +1,76 @@
 ---
-title: API Reference
+title: Mevia REST API
 
 language_tabs:
-  - shell
-  - ruby
-  - python
+  - json: JSON
 
 toc_footers:
-  - <a href='#'>Sign Up for a Developer Key</a>
-  - <a href='http://github.com/tripit/slate'>Documentation Powered by Slate</a>
+  - <a href='www.mevia.se'>Mevia</a>
+  - <a href='wiki'>Wiki</a>
 
 includes:
-  - errors
+  - prescriptions
+  - mia_modules
+  - events
+  - packages
+  - scheduled_doses
+  - scheduled_dose_schemas
+  - notification_policies
+  - notifications
+  - recipients
+  - taken_pods
+  - flags
+  - flag_policies
+  - event_types
+  - flag_types
+  - notification_types
+  - sequencing
+  - releases
 
 search: true
 ---
+# Overview
 
-# Introduction
+> Api Endpoint
 
-Welcome to the Kittn API! You can use our API to access Kittn API endpoints, which can get information on various cats, kittens, and breeds in our database.
+The API aims to take care of all data related to the MIA module itself, which is sending and receiving information from modules. Developers that use the API can, for instance, obtain all events from a module for a given patient, or register a prescription for a patient which then automatically will set reminders and other logic that interacts with the patient's mobile phone.
 
-We have language bindings in Shell, Ruby, and Python! You can view code examples in the dark area to the right, and you can switch the programming language of the examples with the tabs in the top right.
-
-This example API documentation page was created with [Slate](http://github.com/tripit/slate). Feel free to edit it and use it as a base for your own API's documentation.
-
-# Authentication
-
-> To authorize, use this code:
-
-```ruby
-require 'kittn'
-
-api = Kittn::APIClient.authorize!('meowmeowmeow')
+```
+https://api.mevia.com/v1/
 ```
 
-```python
-import kittn
+The purpose of this setup is that API users will be able to concentrate on their business logic, henceforth not on how the modules work, which is abstracted away through the API. A benefit of this is also that, if the physical module changes, then there will be no impact on API users due to this abstraction.
 
-api = kittn.authorize('meowmeowmeow')
-```
 
-```shell
-# With shell, you can just pass the correct header with each request
-curl "api_endpoint_here"
-  -H "Authorization: meowmeowmeow"
-```
+## Authentication and security
 
-> Make sure to replace `meowmeowmeow` with your API key.
+> Example of how header should look:
 
-Kittn uses API keys to allow access to the API. You can register a new Kittn API key at our [developer portal](http://example.com/developers).
+All API calls are done via HTTPS requests, which means that all data obtained and retrieved from the API is delivered through an encrypted connection. Moreover, an API key must be sent with each request in order to authorize with the API. The key is used to idenfify which user that is connecting to the API and is initially handed out manually by Mevia.
 
-Kittn expects for the API key to be included in all API requests to the server in a header that looks like the following:
-
-`Authorization: meowmeowmeow`
-
-<aside class="notice">
-You must replace <code>meowmeowmeow</code> with your personal API key.
-</aside>
-
-# Kittens
-
-## Get All Kittens
-
-```ruby
-require 'kittn'
-
-api = Kittn::APIClient.authorize!('meowmeowmeow')
-api.kittens.get
-```
-
-```python
-import kittn
-
-api = kittn.authorize('meowmeowmeow')
-api.kittens.get()
-```
-
-```shell
-curl "http://example.com/api/kittens"
-  -H "Authorization: meowmeowmeow"
-```
-
-> The above command returns JSON structured like this:
+In order to authorize with the API, the API key must be sent with each request as a request parameter in the request header.
 
 ```json
-[
-  {
-    "id": 1,
-    "name": "Fluffums",
-    "breed": "calico",
-    "fluffiness": 6,
-    "cuteness": 7
-  },
-  {
-    "id": 2,
-    "name": "Isis",
-    "breed": "unknown",
-    "fluffiness": 5,
-    "cuteness": 10
-  }
-]
+Authorization: Token token="API KEY"
 ```
 
-This endpoint retrieves all kittens.
+> This means that the parameter name is 'Authorization' and the parameter value is 'Token token="API KEY"'.
 
-### HTTP Request
+## Versioning
 
-`GET http://example.com/api/kittens`
+### Major Versions(<span class="red-text">x</span>.y.z)
 
-### Query Parameters
+The major versions will be seperated through API url namespaces, e.g. 
+https://api.mevia.se/v1/:resource and https://api.mevia.se/v2/:resource
 
-Parameter | Default | Description
---------- | ------- | -----------
-include_cats | false | If set to true, the result will also include cats.
-available | true | If set to false, the result will include kittens that have already been adopted.
+Each major version will be supported as long as API users make use of it.
 
-<aside class="success">
-Remember — a happy kitten is an authenticated kitten!
-</aside>
+### Minor Versions(x.<span class="red-text">y</span>.z)
 
-## Get a Specific Kitten
+Includes new requirements, improvements and changes that does not affect API users and their interface with the resources they use. The API might add functionality, but does not change or remove existing API resources.
 
-```ruby
-require 'kittn'
+If an API resource is going to change or be removed, it will be marked as "depricated" long enough for API users to adapt, not breaking any functionality during the transition period for API users.
 
-api = Kittn::APIClient.authorize!('meowmeowmeow')
-api.kittens.get(2)
-```
+### Bug Fixes(x.y.<span class="red-text">z</span>)
 
-```python
-import kittn
-
-api = kittn.authorize('meowmeowmeow')
-api.kittens.get(2)
-```
-
-```shell
-curl "http://example.com/api/kittens/2"
-  -H "Authorization: meowmeowmeow"
-```
-
-> The above command returns JSON structured like this:
-
-```json
-{
-  "id": 2,
-  "name": "Isis",
-  "breed": "unknown",
-  "fluffiness": 5,
-  "cuteness": 10
-}
-```
-
-This endpoint retrieves a specific kitten.
-
-<aside class="warning">If you're not using an administrator API key, note that some kittens will return 403 Forbidden if they are hidden for admins only.</aside>
-
-### HTTP Request
-
-`GET http://example.com/kittens/<ID>`
-
-### URL Parameters
-
-Parameter | Description
---------- | -----------
-ID | The ID of the kitten to retrieve
-
+Includes bug fixes that doesn't change or functionality to the API, only fix behaviour so it works as expected to.

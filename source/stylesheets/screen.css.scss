@@ -522,6 +522,9 @@ html, body {
 // This is all the stuff that appears in the right half of the page
 
 .content {
+  .red-text {
+    color: red;
+  }
   pre, blockquote {
     background-color: $code-bg;
     color: #fff;
