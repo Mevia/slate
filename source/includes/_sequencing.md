@@ -19,6 +19,11 @@
 
 When creating prescriptions, the API user has the option to create scheduled doses according to a package pod sequence. This means that the patient must take their pods according to a specific sequence on the package (tray), which is represented by numbers.
 
+
+<aside class="success">
+Please note that the section below is an example. The API can handle any type of sequence, as can the mia modules.
+</aside>
+
 For example, the package with numbers can look as following:
 
 <img src="images/horizontal-sequence.jpg" width="200">

@@ -76,7 +76,7 @@ Parameter       | Format        | Description
 prescription_id | Integer       | ID of the prescription
 id              | ID1, ID2, ID3 | IDs of the notification policies to fetch
 
-## Create to a NP to a Prescription
+## Create a Notification Policy
 
 > Request structure: (To see all available notification types, please look at that section of this documentation.)
 
