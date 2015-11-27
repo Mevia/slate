@@ -1,6 +1,8 @@
 # Releases
 
-## Development - 1.5.0
+## Development - 1.6.0
+
+## Staging - 1.5.0 
 
 ### Datetimes to prescriptions
 Prescriptions now have two new fields - starts_at and ends_at, both beeing datetimes. The old variables start_date and end_date are still available. Setting start_date=2015-05-05 will behave exactly like setting starts_at=2015-05-05 00:00:00, and setting end_date=2015-05-05 will behave exactly like setting ends_at=2015-05-05 23:59:59. Internally, this is exactly what happens as well.
@@ -22,10 +24,6 @@ Resources fetched through Mapi can be now ordered by any available attribute.
 
 ### RESTful doses
 Doses can now be created without using a dose schema. Doses can be batch-created by sending a array of doses rather than a single resource. WARNING: Using both a dose schema and individual doses is not recommended when using expected pods.
-
-## Staging - 1.4.0 
-
-See production
 
 ## Production - 1.4.0
 
