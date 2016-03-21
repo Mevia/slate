@@ -4,21 +4,94 @@
     <meta charset="utf-8">
     <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <title>API Reference</title>
+    <title>Mevia REST API</title>
 
-    <link href="stylesheets/screen.css" rel="stylesheet" type="text/css" media="screen" />
-    <link href="stylesheets/print.css" rel="stylesheet" type="text/css" media="print" />
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-      <script src="javascripts/all.js" type="text/javascript"></script>
-
-      <script>
-        $(function() {
-          setupLanguages(["shell","ruby","python"]);
-        });
-      </script>
+    <style>
+      .highlight table td { padding: 5px; }
+.highlight table pre { margin: 0; }
+.highlight, .highlight .w {
+  color: #f8f8f2;
+  background-color: #272822;
+}
+.highlight .err {
+  color: #151515;
+  background-color: #ac4142;
+}
+.highlight .c, .highlight .cd, .highlight .cm, .highlight .c1, .highlight .cs {
+  color: #505050;
+}
+.highlight .cp {
+  color: #f4bf75;
+}
+.highlight .nt {
+  color: #f4bf75;
+}
+.highlight .o, .highlight .ow {
+  color: #d0d0d0;
+}
+.highlight .p, .highlight .pi {
+  color: #d0d0d0;
+}
+.highlight .gi {
+  color: #90a959;
+}
+.highlight .gd {
+  color: #ac4142;
+}
+.highlight .gh {
+  color: #6a9fb5;
+  background-color: #151515;
+  font-weight: bold;
+}
+.highlight .k, .highlight .kn, .highlight .kp, .highlight .kr, .highlight .kv {
+  color: #aa759f;
+}
+.highlight .kc {
+  color: #d28445;
+}
+.highlight .kt {
+  color: #d28445;
+}
+.highlight .kd {
+  color: #d28445;
+}
+.highlight .s, .highlight .sb, .highlight .sc, .highlight .sd, .highlight .s2, .highlight .sh, .highlight .sx, .highlight .s1 {
+  color: #90a959;
+}
+.highlight .sr {
+  color: #75b5aa;
+}
+.highlight .si {
+  color: #8f5536;
+}
+.highlight .se {
+  color: #8f5536;
+}
+.highlight .nn {
+  color: #f4bf75;
+}
+.highlight .nc {
+  color: #f4bf75;
+}
+.highlight .no {
+  color: #f4bf75;
+}
+.highlight .na {
+  color: #6a9fb5;
+}
+.highlight .m, .highlight .mf, .highlight .mh, .highlight .mi, .highlight .il, .highlight .mo, .highlight .mb, .highlight .mx {
+  color: #90a959;
+}
+.highlight .ss {
+  color: #90a959;
+}
+    </style>
+    <link href="stylesheets/screen.css" rel="stylesheet" media="screen" />
+    <link href="stylesheets/print.css" rel="stylesheet" media="print" />
+      <script src="javascripts/all.js"></script>
   </head>
 
-  <body class="index">
+  <body class="index" data-languages="[&quot;json&quot;]">
     <a href="#" id="nav-button">
       <span>
         NAV
@@ -28,9 +101,7 @@
     <div class="tocify-wrapper">
       <img src="images/logo.png" />
         <div class="lang-selector">
-              <a href="#" data-language-name="shell">shell</a>
-              <a href="#" data-language-name="ruby">ruby</a>
-              <a href="#" data-language-name="python">python</a>
+              <a href="#" data-language-name="json">JSON</a>
         </div>
         <div class="search">
           <input type="text" class="search" id="input-search" placeholder="Search">
@@ -39,217 +110,261 @@
       <div id="toc">
       </div>
         <ul class="toc-footer">
-            <li><a href='#'>Sign Up for a Developer Key</a></li>
-            <li><a href='http://github.com/tripit/slate'>Documentation Powered by Slate</a></li>
+            <li><a href='http://www.mevia.se'>Mevia</a></li>
+            <li><a href='resources'>Resources</a></li>
         </ul>
     </div>
     <div class="page-wrapper">
       <div class="dark-box"></div>
       <div class="content">
-        <h1 id='introduction'>Introduction</h1>
-<p>Welcome to the Kittn API! You can use our API to access Kittn API endpoints, which can get information on various cats, kittens, and breeds in our database.</p>
-
-<p>We have language bindings in Shell, Ruby, and Python! You can view code examples in the dark area to the right, and you can switch the programming language of the examples with the tabs in the top right.</p>
-
-<p>This example API documentation page was created with <a href="http://github.com/tripit/slate">Slate</a>. Feel free to edit it and use it as a base for your own API&rsquo;s documentation.</p>
-<h1 id='authentication'>Authentication</h1>
-<blockquote>
-<p>To authorize, use this code:</p>
-</blockquote>
-<pre><code class="highlight ruby"><span class="nb">require</span> <span class="s1">'kittn'</span>
-
-<span class="n">api</span> <span class="o">=</span> <span class="no">Kittn</span><span class="o">::</span><span class="no">APIClient</span><span class="p">.</span><span class="nf">authorize!</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">)</span>
-</code></pre>
-<pre><code class="highlight python"><span class="kn">import</span> <span class="nn">kittn</span>
-
-<span class="n">api</span> <span class="o">=</span> <span class="n">kittn</span><span class="o">.</span><span class="n">authorize</span><span class="p">(</span><span class="s">'meowmeowmeow'</span><span class="p">)</span>
-</code></pre>
-<pre><code class="highlight shell"><span class="c"># With shell, you can just pass the correct header with each request</span>
-curl <span class="s2">"api_endpoint_here"</span>
-  -H <span class="s2">"Authorization: meowmeowmeow"</span>
-</code></pre>
+        <h1 id="overview">Overview</h1>
 
 <blockquote>
-<p>Make sure to replace <code class="prettyprint">meowmeowmeow</code> with your API key.</p>
+<p>Api Endpoint</p>
 </blockquote>
 
-<p>Kittn uses API keys to allow access to the API. You can register a new Kittn API key at our <a href="http://example.com/developers">developer portal</a>.</p>
-
-<p>Kittn expects for the API key to be included in all API requests to the server in a header that looks like the following:</p>
-
-<p><code class="prettyprint">Authorization: meowmeowmeow</code></p>
-
-<p><aside class="notice">
-You must replace <code class="prettyprint">meowmeowmeow</code> with your personal API key.
-</aside></p>
-<h1 id='kittens'>Kittens</h1><h2 id='get-all-kittens'>Get All Kittens</h2><pre><code class="highlight ruby"><span class="nb">require</span> <span class="s1">'kittn'</span>
-
-<span class="n">api</span> <span class="o">=</span> <span class="no">Kittn</span><span class="o">::</span><span class="no">APIClient</span><span class="p">.</span><span class="nf">authorize!</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">)</span>
-<span class="n">api</span><span class="p">.</span><span class="nf">kittens</span><span class="p">.</span><span class="nf">get</span>
+<p>The API aims to take care of all data related to the MIA module itself, which is sending and receiving information from modules. Developers that use the API can, for instance, obtain all events from a module for a given patient, or register a prescription for a patient which then automatically will set reminders and other logic that interacts with the patient&rsquo;s mobile phone. This page contains general information about the API, what models are available and what the latest changes are. Documentation about all available resources can be found at <a href="resources/">the resource page</a></p>
+<pre class="highlight plaintext"><code>https://api.mevia.com/v1/
 </code></pre>
-<pre><code class="highlight python"><span class="kn">import</span> <span class="nn">kittn</span>
 
-<span class="n">api</span> <span class="o">=</span> <span class="n">kittn</span><span class="o">.</span><span class="n">authorize</span><span class="p">(</span><span class="s">'meowmeowmeow'</span><span class="p">)</span>
-<span class="n">api</span><span class="o">.</span><span class="n">kittens</span><span class="o">.</span><span class="n">get</span><span class="p">()</span>
-</code></pre>
-<pre><code class="highlight shell">curl <span class="s2">"http://example.com/api/kittens"</span>
-  -H <span class="s2">"Authorization: meowmeowmeow"</span>
-</code></pre>
+<p>The purpose of this setup is that API users will be able to concentrate on their business logic, henceforth not on how the modules work, which is abstracted away through the API. A benefit of this is also that, if the physical module changes, then there will be no impact on API users due to this abstraction.</p>
+
+<h2 id="authentication-and-security">Authentication and security</h2>
 
 <blockquote>
-<p>The above command returns JSON structured like this:</p>
+<p>Example of how header should look:</p>
 </blockquote>
-<pre><code class="highlight json"><span class="p">[</span><span class="w">
-  </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Fluffums"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"breed"</span><span class="p">:</span><span class="w"> </span><span class="s2">"calico"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"fluffiness"</span><span class="p">:</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"cuteness"</span><span class="p">:</span><span class="w"> </span><span class="mi">7</span><span class="w">
-  </span><span class="p">},</span><span class="w">
-  </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Isis"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"breed"</span><span class="p">:</span><span class="w"> </span><span class="s2">"unknown"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"fluffiness"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"cuteness"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="w">
-  </span><span class="p">}</span><span class="w">
-</span><span class="p">]</span><span class="w">
+
+<p>All API calls are done via HTTPS requests, which means that all data obtained and retrieved from the API is delivered through an encrypted connection. Moreover, an API key must be sent with each request in order to authorize with the API. The key is used to idenfify which user that is connecting to the API and is initially handed out manually by Mevia.</p>
+
+<p>In order to authorize with the API, the API key must be sent with each request as a request parameter in the request header.</p>
+<pre class="highlight json"><code><span class="err">Authorization:</span><span class="w"> </span><span class="err">Token</span><span class="w"> </span><span class="err">token=</span><span class="s2">"API KEY"</span><span class="w">
 </span></code></pre>
 
-<p>This endpoint retrieves all kittens.</p>
-<h3 id='http-request'>HTTP Request</h3>
-<p><code class="prettyprint">GET http://example.com/kittens</code></p>
-<h3 id='query-parameters'>Query Parameters</h3>
+<blockquote>
+<p>This means that the parameter name is &lsquo;Authorization&rsquo; and the parameter value is &#39;Token token=&ldquo;API KEY&rdquo;&rsquo;.</p>
+</blockquote>
+
+<h2 id="versioning">Versioning</h2>
+
+<h3 id="major-versions-x-y-z">Major Versions(<span class="red-text">x</span>.y.z)</h3>
+
+<p>The major versions will be seperated through API url namespaces, e.g.
+https://api.mevia.se/v1/:resource and https://api.mevia.se/v2/:resource</p>
+
+<p>Each major version will be supported as long as API users make use of it.</p>
+
+<h3 id="minor-versions-x-y-z">Minor Versions(x.<span class="red-text">y</span>.z)</h3>
+
+<p>Includes new requirements, improvements and changes that does not affect API users and their interface with the resources they use. The API might add functionality, but does not change or remove existing API resources.</p>
+
+<p>If an API resource is going to change or be removed, it will be marked as &ldquo;depricated&rdquo; long enough for API users to adapt, not breaking any functionality during the transition period for API users.</p>
+
+<h3 id="bug-fixes-x-y-z">Bug Fixes(x.y.<span class="red-text">z</span>)</h3>
+
+<p>Includes bug fixes that doesn&rsquo;t change or functionality to the API, only fix behaviour so it works as expected to.</p>
+
+          <h1 id="flag-types">Flag types</h1>
+
+<p>This is a list of all flags that currently exists in the system. Flags are simply events occuring in the system that users can chose to be notified about.</p>
+
 <table><thead>
 <tr>
-<th>Parameter</th>
-<th>Default</th>
+<th>Type</th>
 <th>Description</th>
+<th>When is it sent?</th>
 </tr>
 </thead><tbody>
 <tr>
-<td>include_cats</td>
-<td>false</td>
-<td>If set to true, the result will also include cats.</td>
+<td>LOW_BATTERY</td>
+<td>A module is low on battery.</td>
+<td>When a module has a battery status &lt; 20%</td>
 </tr>
 <tr>
-<td>available</td>
-<td>true</td>
-<td>If set to false, the result will include kittens that have already been adopted.</td>
+<td>SEQUENCE_ANOMALY</td>
+<td>A pod was taken in the wrong order</td>
+<td>When a patient takes a pod that is not the next expected pod</td>
+</tr>
+<tr>
+<td>OUTSIDE_DOSE_INTERVAL</td>
+<td>A pod was taken outside of any existing dose</td>
+<td>When a patient takes a pod outside of any existing scheduled dose</td>
+</tr>
+<tr>
+<td>ADHERENCE_ANOMALY</td>
+<td>Someting went wrong from a adherence perspective</td>
+<td>Whenever a adherence-related flag (currently: OUTSIDE_DOSE_INTERVAL and SEQUENCE_ANOMALY) is created.</td>
 </tr>
 </tbody></table>
 
-<p><aside class="success">
-Remember — a happy kitten is an authenticated kitten!
-</aside></p>
-<h2 id='get-a-specific-kitten'>Get a Specific Kitten</h2><pre><code class="highlight ruby"><span class="nb">require</span> <span class="s1">'kittn'</span>
+          <h1 id="notification-types">Notification Types</h1>
 
-<span class="n">api</span> <span class="o">=</span> <span class="no">Kittn</span><span class="o">::</span><span class="no">APIClient</span><span class="p">.</span><span class="nf">authorize!</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">)</span>
-<span class="n">api</span><span class="p">.</span><span class="nf">kittens</span><span class="p">.</span><span class="nf">get</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-</code></pre>
-<pre><code class="highlight python"><span class="kn">import</span> <span class="nn">kittn</span>
+<p>This is a list of all existing notifications types. A notification type is set on a notification policy, and is used to know when to create notifications. </p>
 
-<span class="n">api</span> <span class="o">=</span> <span class="n">kittn</span><span class="o">.</span><span class="n">authorize</span><span class="p">(</span><span class="s">'meowmeowmeow'</span><span class="p">)</span>
-<span class="n">api</span><span class="o">.</span><span class="n">kittens</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-</code></pre>
-<pre><code class="highlight shell">curl <span class="s2">"http://example.com/api/kittens/3"</span>
-  -H <span class="s2">"Authorization: meowmeowmeow"</span>
-</code></pre>
+<table><thead>
+<tr>
+<th>Type</th>
+<th>Description</th>
+<th>When is the notification sent?</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>BEFORE_DOSE_STARTS</td>
+<td>Used to create notifications before doses starts</td>
+<td>x minutes before the doses start, where x is the minutes variable on the notification policy</td>
+</tr>
+<tr>
+<td>BEFORE_DOSE_ENDS</td>
+<td>Used to create notifications before doses ends</td>
+<td>x minutes before the doses start, where x is the minutes variable on the notification policy</td>
+</tr>
+<tr>
+<td>AFTER_DOSE_END</td>
+<td>Used to create notifications after doses ends</td>
+<td>x minutes before the doses ends, where x is the minutes variable on the notification policy</td>
+</tr>
+</tbody></table>
+
+<p>Example: A notification policy with notification_type: &lsquo;BEFORE_DOSE_ENDS&rsquo; and minutes: 15, and a scheduled_dose_schema with start_time: &#39;10:00&rsquo; and end_time: &#39;11:00&rsquo; will generate a notification that is scheduled to be sent at 10:45 every day that its prescription is active.</p>
+
+          <h1 id="sequencing">Sequencing</h1>
 
 <blockquote>
-<p>The above command returns JSON structured like this:</p>
+<p>Example JSON when posting (creating) prescription:</p>
 </blockquote>
-<pre><code class="highlight json"><span class="p">{</span><span class="w">
-  </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Isis"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"breed"</span><span class="p">:</span><span class="w"> </span><span class="s2">"unknown"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"fluffiness"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"cuteness"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="w">
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"prescriptions"</span><span class="p">:{</span><span class="w">
+    </span><span class="nt">"start_date"</span><span class="p">:</span><span class="s2">"2015-01-01"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"end_date"</span><span class="p">:</span><span class="s2">"2015-03-01"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"pod_sequence"</span><span class="p">:[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">]</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="nt">"linked"</span><span class="p">:{</span><span class="w">
+    </span><span class="err">.</span><span class="w">
+    </span><span class="err">.</span><span class="w">
+    </span><span class="err">.</span><span class="w">
+  </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
-<p>This endpoint retrieves a specific kitten.</p>
+<p>When creating prescriptions, the API user has the option to create scheduled doses according to a package pod sequence. This means that the patient must take their pods according to a specific sequence on the package (tray), which is represented by numbers.</p>
 
-<p><aside class="warning">If you&rsquo;re not using an administrator API key, note that some kittens will return 403 Forbidden if they are hidden for admins only.</aside></p>
-<h3 id='http-request'>HTTP Request</h3>
-<p><code class="prettyprint">GET http://example.com/kittens/&lt;ID&gt;</code></p>
-<h3 id='url-parameters'>URL Parameters</h3>
-<table><thead>
-<tr>
-<th>Parameter</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>ID</td>
-<td>The ID of the cat to retrieve</td>
-</tr>
-</tbody></table>
+<aside class="success">
+Please note that the section below is an example. The API can handle any type of sequence, as can the mia modules.
+</aside>
 
-          <h1 id='errors'>Errors</h1>
-<p><aside class="notice">This error section is stored in a separate file in <code class="prettyprint">includes/_errors.md</code>. Slate allows you to optionally separate out your docs into many files&hellip;just save them to the <code class="prettyprint">includes</code> folder and add them to the top of your <code class="prettyprint">index.md</code>&rsquo;s frontmatter. Files are included in the order listed.</aside></p>
+<p>For example, the package with numbers can look as following:</p>
 
-<p>The Kittn API uses the following error codes:</p>
+<p><img src="images/horizontal-sequence.jpg" width="200">
+<img src="images/vertical-sequence.jpg" width="200"></p>
 
-<table><thead>
-<tr>
-<th>Error Code</th>
-<th>Meaning</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>400</td>
-<td>Bad Request &ndash; Your request sucks</td>
-</tr>
-<tr>
-<td>401</td>
-<td>Unauthorized &ndash; Your API key is wrong</td>
-</tr>
-<tr>
-<td>403</td>
-<td>Forbidden &ndash; The kitten requested is hidden for administrators only</td>
-</tr>
-<tr>
-<td>404</td>
-<td>Not Found &ndash; The specified kitten could not be found</td>
-</tr>
-<tr>
-<td>405</td>
-<td>Method Not Allowed &ndash; You tried to access a kitten with an invalid method</td>
-</tr>
-<tr>
-<td>406</td>
-<td>Not Acceptable &ndash; You requested a format that isn&rsquo;t json</td>
-</tr>
-<tr>
-<td>410</td>
-<td>Gone &ndash; The kitten requested has been removed from our servers</td>
-</tr>
-<tr>
-<td>418</td>
-<td>I&rsquo;m a teapot</td>
-</tr>
-<tr>
-<td>429</td>
-<td>Too Many Requests &ndash; You&rsquo;re requesting too many kittens! Slown down!</td>
-</tr>
-<tr>
-<td>500</td>
-<td>Internal Server Error &ndash; We had a problem with our server. Try again later.</td>
-</tr>
-<tr>
-<td>503</td>
-<td>Service Unavailable &ndash; We&rsquo;re temporarially offline for maintanance. Please try again later.</td>
-</tr>
-</tbody></table>
+<p>For the left package, the sequence is
+<strong>[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28]</strong></p>
+
+<p>For the right package, the sequence is
+<strong>[1,5,9,13,17,21,25,2,6,10,14,18,22,26,3,7,11,15,19,23,27,4,8,12,16,20,24,28]</strong></p>
+
+<p>This represents the order of which the pods should be taken (from left to right in the above arrays). The API user is not restricted to &ldquo;horizontal&rdquo; or &ldquo;vertical&rdquo; package sequences as shown above, this is just an example. The API user can insert any sequence in the packages/trays that can be taken, e.g. [1,3,5,7&hellip;] if the patient should take every second pod from left to right.</p>
+
+<h2 id="practical-assumptions-when-using-sequencing">Practical assumptions when using sequencing</h2>
+
+<blockquote>
+<p>Example JSON when retrieving schedule dose which is based on the prescription above:</p>
+</blockquote>
+
+<ul>
+<li>When taking wrong pods in a sequence, or missing dose completely, the patient moves on to the next set of pods to take for next dose at the next time slot. This means that pods can be untaken when finishing a tray. This does not affect module dose planning, which is very important e.g. for reused modules with set date intervals.</li>
+<li>If no sequence is specified for prescriptions (pod_sequence == null) and no expected pods are given for scheduled doses, then any pod can be taken at any dose time interval in order to complete them. This is the default behavior.</li>
+</ul>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"scheduled_doses"</span><span class="p">:[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"id"</span><span class="p">:</span><span class="s2">"4744"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"period_starts_at"</span><span class="p">:</span><span class="s2">"2015-03-01T05:00:00.000+00:00"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"period_ends_at"</span><span class="p">:</span><span class="s2">"2015-03-01T12:00:00.000+00:00"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"is_taken"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"completed_at"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"nr_remaining_pods"</span><span class="p">:</span><span class="mi">3</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"expected_pods"</span><span class="p">:[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">],</span><span class="w">
+      </span><span class="nt">"links"</span><span class="p">:{</span><span class="w">
+        </span><span class="nt">"prescription"</span><span class="p">:</span><span class="s2">"210"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"id"</span><span class="p">:</span><span class="s2">"4745"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"period_starts_at"</span><span class="p">:</span><span class="s2">"2015-03-01T16:00:00.000+00:00"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"period_ends_at"</span><span class="p">:</span><span class="s2">"2015-03-01T19:00:00.000+00:00"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"is_taken"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"completed_at"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"nr_remaining_pods"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"expected_pods"</span><span class="p">:[</span><span class="mi">4</span><span class="p">],</span><span class="w">
+      </span><span class="nt">"links"</span><span class="p">:{</span><span class="w">
+        </span><span class="nt">"prescription"</span><span class="p">:</span><span class="s2">"210"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"id"</span><span class="p">:</span><span class="s2">"4746"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"period_starts_at"</span><span class="p">:</span><span class="s2">"2015-03-01T20:00:00.000+00:00"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"period_ends_at"</span><span class="p">:</span><span class="s2">"2015-03-01T22:00:00.000+00:00"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"is_taken"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"completed_at"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"nr_remaining_pods"</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"expected_pods"</span><span class="p">:[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">],</span><span class="w">
+      </span><span class="nt">"links"</span><span class="p">:{</span><span class="w">
+        </span><span class="nt">"prescription"</span><span class="p">:</span><span class="s2">"210"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+          <h1 id="releases">Releases</h1>
+
+<h2 id="development-1-7-0">Development - 1.7.0</h2>
+
+<h2 id="staging-1-6-0">Staging - 1.6.0</h2>
+
+<h2 id="production-1-6-0">Production - 1.6.0</h2>
+
+<h3 id="datetimes-to-prescriptions">Datetimes to prescriptions</h3>
+
+<p>Prescriptions now have two new fields - starts_at and ends_at, both beeing datetimes. The old variables start_date and end_date are still available. Setting start_date=2015-05-05 will behave exactly like setting starts_at=2015-05-05 00:00:00, and setting end_date=2015-05-05 will behave exactly like setting ends_at=2015-05-05 23:59:59. Internally, this is exactly what happens as well.</p>
+
+<h3 id="soft-deletes-of-prescriptions">Soft deletes of prescriptions</h3>
+
+<p>Prescriptions deleted will still be stored in the Mevia Database. Resources deleted by the delete-call will be saved as well. As of now, to restore any data, contact Mevia.</p>
+
+<h3 id="offsets">Offsets</h3>
+
+<p>Any call to Mapi fetching more than one resource can now be offset by setting the offset parameter in the call.</p>
+
+<h3 id="limits">Limits</h3>
+
+<p>Any call to Mapi fetching more than one resource can now be limited by setting the limit parameter in the call.</p>
+
+<h3 id="filters-added">Filters added</h3>
+
+<p>Resources with internal dates can now be filtered using date_from and date_to (can be dates or datetimes)</p>
+
+<h3 id="orders">Orders</h3>
+
+<p>Resources fetched through Mapi can be now ordered by any available attribute.</p>
+
+<h3 id="restful-doses">RESTful doses</h3>
+
+<p>Doses can now be created without using a dose schema. Doses can be batch-created by sending a array of doses rather than a single resource. WARNING: Using both a dose schema and individual doses is not recommended when using expected pods.</p>
+
+<h3 id="mia-modules-are-now-independant-from-prescriptions">Mia Modules are now independant from Prescriptions</h3>
+
+<p>Mia Modules no longer need a link to a prescription. Having a module that does not rely on a single prescription allows for fetching all events sent by a given module, as well as updating parameters of a module without having to redo the update every time the module changes user. This update contains a few new available resources under mia_modules.</p>
+
+<h3 id="ability-to-39-sign-in-39-to-user-using-name-and-password">Ability to &lsquo;sign in&rsquo; to user using name and password</h3>
+
+<p>A new resource is available under api_user: login. The route simply returns the specified (by name) api_user together with all linked api_keys. This allows for fetching api_keys programmatically. By default, a user has no password, and can not use this feature. In order to set a password on a given user, contact us at Mevia.</p>
 
       </div>
       <div class="dark-box">
           <div class="lang-selector">
-                <a href="#" data-language-name="shell">shell</a>
-                <a href="#" data-language-name="ruby">ruby</a>
-                <a href="#" data-language-name="python">python</a>
+                <a href="#" data-language-name="json">JSON</a>
           </div>
       </div>
     </div>
