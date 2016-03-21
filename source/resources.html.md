@@ -1,26 +1,35 @@
 ---
-title: Mevia REST API
+title: Resources REST API
 
 language_tabs:
   - json: JSON
 
 toc_footers:
-  - <a href='http://www.mevia.se'>Mevia</a>
-  - <a href='resources'>Resources</a>
+  - <a href='www.mevia.se'>Mevia</a>
+  - <a href='/'>Main page</a>
 
 includes:
-  - flag_types
-  - notification_types
-  - sequencing
-  - releases
+  - resources_prescriptions
+  - resources_mia_modules
+  - resources_events
+  - resources_packages
+  - resources_scheduled_doses
+  - resources_scheduled_dose_schemas
+  - resources_notification_policies
+  - resources_notifications
+  - resources_recipients
+  - resources_taken_pods
+  - resources_flags
+  - resources_flag_policies
 
 search: true
 ---
-# Overview
+# Resources
+
 
 > Api Endpoint
 
-The API aims to take care of all data related to the MIA module itself, which is sending and receiving information from modules. Developers that use the API can, for instance, obtain all events from a module for a given patient, or register a prescription for a patient which then automatically will set reminders and other logic that interacts with the patient's mobile phone. This page contains general information about the API, what models are available and what the latest changes are. Documentation about all available resources can be found at [the resource page](resources.html)
+The API aims to take care of all data related to the MIA module itself, which is sending and receiving information from modules. Developers that use the API can, for instance, obtain all events from a module for a given patient, or register a prescription for a patient which then automatically will set reminders and other logic that interacts with the patient's mobile phone.
 
 ```
 https://api.mevia.com/v1/
