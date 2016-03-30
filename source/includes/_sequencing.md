@@ -17,32 +17,14 @@
 }
 ```
 
-When creating prescriptions, the API user has the option to create scheduled doses according to a package pod sequence. This means that the patient must take their pods according to a specific sequence on the package (tray), which is represented by numbers.
-
-
-<aside class="success">
-Please note that the section below is an example. The API can handle any type of sequence, as can the mia modules.
-</aside>
-
-For example, the package with numbers can look as following:
-
-<img src="images/horizontal-sequence.jpg" width="200">
-<img src="images/vertical-sequence.jpg" width="200">
-
-For the left package, the sequence is
-<strong>[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28]</strong>
-
-For the right package, the sequence is
-<strong>[1,5,9,13,17,21,25,2,6,10,14,18,22,26,3,7,11,15,19,23,27,4,8,12,16,20,24,28]</strong>
-
-This represents the order of which the pods should be taken (from left to right in the above arrays). The API user is not restricted to "horizontal" or "vertical" package sequences as shown above, this is just an example. The API user can insert any sequence in the packages/trays that can be taken, e.g. [1,3,5,7...] if the patient should take every second pod from left to right.
+When creating prescriptions, the API user has the option to create scheduled doses according to a package pod sequence. This means that the patient must take their pods according to a specific sequence on the package (tray), which is represented by numbers. The API, as well as the modules, can handle any kind of sequencing pattern.
 
 ## Practical assumptions when using sequencing
 
 > Example JSON when retrieving schedule dose which is based on the prescription above:
 
 * When taking wrong pods in a sequence, or missing dose completely, the patient moves on to the next set of pods to take for next dose at the next time slot. This means that pods can be untaken when finishing a tray. This does not affect module dose planning, which is very important e.g. for reused modules with set date intervals.
-* If no sequence is specified for prescriptions (pod_sequence == null) and no expected pods are given for scheduled doses, then any pod can be taken at any dose time interval in order to complete them. This is the default behavior.
+* If no sequence is specified for prescriptions and no expected pods are given for scheduled doses, then any pod can be taken at any dose time interval in order to complete them. This is the default behavior.
 
 ```json
 {
