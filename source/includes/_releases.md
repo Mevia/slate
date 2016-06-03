@@ -2,6 +2,9 @@
 
 ## Development - 1.7.0
 
+### Notification muting for non-sequence scheduled doses
+If a pill is taken between the a missed dose interval and its notification, that notification will now be muted.
+
 ## Staging - 1.6.0
 
 ## Production - 1.6.0
