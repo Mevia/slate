@@ -5,6 +5,9 @@
 ### Notification muting for non-sequence scheduled doses
 If a pill is taken between the a missed dose interval and its notification, that notification will now be muted.
 
+### Ability to filter prescriptions by active status
+Prescriptions can now be filtered by active. An active prescription is one that is within its module_activity interval
+
 ## Staging - 1.6.0
 
 ## Production - 1.6.0
