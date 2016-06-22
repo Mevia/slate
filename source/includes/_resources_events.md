@@ -21,7 +21,7 @@ The following resources are used to obtain events from MIA modules. An event is 
       "module_sequence_number": Integer,
       "module_repeated_attempts": Integer,
       "module_network_quality": Integer,
-      "module_network_type": String
+      "module_network_type": String (One of: 'home', 'none_home', 'unknown')
     },
     .
     .
@@ -65,7 +65,7 @@ prescription_id | Integer   | ID of the prescription
       "module_sequence_number": Integer,
       "module_repeated_attempts": Integer,
       "module_network_quality": Integer,
-      "module_network_type": String
+      "module_network_type": String (One of: 'home', 'none_home', 'unknown')
     },
     .
     .
