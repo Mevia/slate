@@ -7,7 +7,7 @@
   "prescriptions":{
     "start_date":"2015-01-01",
     "end_date":"2015-03-01",
-    "pod_sequence":[1,2,3,4]
+    "pod_sequence": "[1,2,3,4]"
   },
   "linked":{
     .

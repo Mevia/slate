@@ -171,6 +171,49 @@ date_to   | YYYY-MM-DD    | Filters all resources included via the include param
 ### URL Parameters
 No parameters
 
+> Request structure
+
+```json
+{
+   "prescriptions":{
+      "id": Integer,
+      "start_date": String (YYYY-MM-DD),
+      "end_date": String (YYYY-MM-DD),
+      "patient_birthdate": String (YYYY-MM-DD) (optional),
+      "patient_gender": String ("male"|"female") (optional),
+      "pod_sequence": String ("[1,2,3,4,5...]") (Optional)
+   },
+   "linked":{
+      "mia_modules":[
+         {
+            "id": Integer,
+            "module_number": String,
+            "name": "String",
+            "mia_module_schedules":[
+               {
+                  "id": Integer,
+                  "start_date": String (YYYY-MM-DD),
+                  "end_date": String (YYYY-MM-DD)
+               }
+            ],
+
+         }
+         .
+         " To see what a certain resource should contain, look at that resource's part of this documentation"
+         .
+      ],
+      "scheduled_dose_schemas":[...],
+      "notification_policies":[...],
+      "flag_policies":[...]
+   },
+   "meta":{
+      "API":{
+         "version": String
+      }
+   }
+}
+```
+
 > Response structure
 
 ```json
@@ -179,7 +222,7 @@ No parameters
       "id": Integer,
       "start_date": String (YYYY-MM-DD),
       "end_date": String (YYYY-MM-DD),
-      "pod_sequence": String,
+      "pod_sequence": String ("[1,2,3,4,5...]") (Optional),
       "patient_reference": String,
       "patient_gender": String,
       "patient_birthdate": String (YYYY-MM-DD),
@@ -218,7 +261,8 @@ No parameters
       "start_date": String (YYYY-MM-DD),
       "end_date": String (YYYY-MM-DD),
       "patient_birthdate": String (YYYY-MM-DD) (optional),
-      "patient_gender": String ("male"|"female") (optional)
+      "patient_gender": String ("male"|"female") (optional),
+      "pod_sequence": String ("[1,2,3,4,5...]") (Optional)
    },
    "linked":{
       "mia_modules":[
