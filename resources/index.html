@@ -333,6 +333,49 @@
 <p>No parameters</p>
 
 <blockquote>
+<p>Request structure</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+   </span><span class="nt">"prescriptions"</span><span class="p">:{</span><span class="w">
+      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="err">Integer</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"start_date"</span><span class="p">:</span><span class="w"> </span><span class="err">String</span><span class="w"> </span><span class="err">(YYYY-MM-DD)</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"end_date"</span><span class="p">:</span><span class="w"> </span><span class="err">String</span><span class="w"> </span><span class="err">(YYYY-MM-DD)</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"patient_birthdate"</span><span class="p">:</span><span class="w"> </span><span class="err">String</span><span class="w"> </span><span class="err">(YYYY-MM-DD)</span><span class="w"> </span><span class="err">(optional)</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"patient_gender"</span><span class="p">:</span><span class="w"> </span><span class="err">String</span><span class="w"> </span><span class="err">(</span><span class="s2">"male"</span><span class="err">|</span><span class="s2">"female"</span><span class="err">)</span><span class="w"> </span><span class="err">(optional)</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"pod_sequence"</span><span class="p">:</span><span class="w"> </span><span class="err">String</span><span class="w"> </span><span class="err">(</span><span class="s2">"[1,2,3,4,5...]"</span><span class="err">)</span><span class="w"> </span><span class="err">(Optional)</span><span class="w">
+   </span><span class="p">},</span><span class="w">
+   </span><span class="nt">"linked"</span><span class="p">:{</span><span class="w">
+      </span><span class="nt">"mia_modules"</span><span class="p">:[</span><span class="w">
+         </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="err">Integer</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"module_number"</span><span class="p">:</span><span class="w"> </span><span class="err">String</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"String"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"mia_module_schedules"</span><span class="p">:[</span><span class="w">
+               </span><span class="p">{</span><span class="w">
+                  </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="err">Integer</span><span class="p">,</span><span class="w">
+                  </span><span class="nt">"start_date"</span><span class="p">:</span><span class="w"> </span><span class="err">String</span><span class="w"> </span><span class="err">(YYYY-MM-DD)</span><span class="p">,</span><span class="w">
+                  </span><span class="nt">"end_date"</span><span class="p">:</span><span class="w"> </span><span class="err">String</span><span class="w"> </span><span class="err">(YYYY-MM-DD)</span><span class="w">
+               </span><span class="p">}</span><span class="w">
+            </span><span class="p">],</span><span class="w">
+
+         </span><span class="err">}</span><span class="w">
+         </span><span class="err">.</span><span class="w">
+         </span><span class="s2">" To see what a certain resource should contain, look at that resource's part of this documentation"</span><span class="w">
+         </span><span class="err">.</span><span class="w">
+      </span><span class="p">],</span><span class="w">
+      </span><span class="nt">"scheduled_dose_schemas"</span><span class="p">:[</span><span class="err">...</span><span class="p">],</span><span class="w">
+      </span><span class="nt">"notification_policies"</span><span class="p">:[</span><span class="err">...</span><span class="p">],</span><span class="w">
+      </span><span class="nt">"flag_policies"</span><span class="p">:[</span><span class="err">...</span><span class="p">]</span><span class="w">
+   </span><span class="p">},</span><span class="w">
+   </span><span class="nt">"meta"</span><span class="p">:{</span><span class="w">
+      </span><span class="nt">"API"</span><span class="p">:{</span><span class="w">
+         </span><span class="nt">"version"</span><span class="p">:</span><span class="w"> </span><span class="err">String</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+   </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<blockquote>
 <p>Response structure</p>
 </blockquote>
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
@@ -340,7 +383,7 @@
       </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="err">Integer</span><span class="p">,</span><span class="w">
       </span><span class="nt">"start_date"</span><span class="p">:</span><span class="w"> </span><span class="err">String</span><span class="w"> </span><span class="err">(YYYY-MM-DD)</span><span class="p">,</span><span class="w">
       </span><span class="nt">"end_date"</span><span class="p">:</span><span class="w"> </span><span class="err">String</span><span class="w"> </span><span class="err">(YYYY-MM-DD)</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"pod_sequence"</span><span class="p">:</span><span class="w"> </span><span class="err">String</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"pod_sequence"</span><span class="p">:</span><span class="w"> </span><span class="err">String</span><span class="w"> </span><span class="err">(</span><span class="s2">"[1,2,3,4,5...]"</span><span class="err">)</span><span class="w"> </span><span class="err">(Optional)</span><span class="p">,</span><span class="w">
       </span><span class="nt">"patient_reference"</span><span class="p">:</span><span class="w"> </span><span class="err">String</span><span class="p">,</span><span class="w">
       </span><span class="nt">"patient_gender"</span><span class="p">:</span><span class="w"> </span><span class="err">String</span><span class="p">,</span><span class="w">
       </span><span class="nt">"patient_birthdate"</span><span class="p">:</span><span class="w"> </span><span class="err">String</span><span class="w"> </span><span class="err">(YYYY-MM-DD)</span><span class="p">,</span><span class="w">
@@ -378,7 +421,8 @@
       </span><span class="nt">"start_date"</span><span class="p">:</span><span class="w"> </span><span class="err">String</span><span class="w"> </span><span class="err">(YYYY-MM-DD)</span><span class="p">,</span><span class="w">
       </span><span class="nt">"end_date"</span><span class="p">:</span><span class="w"> </span><span class="err">String</span><span class="w"> </span><span class="err">(YYYY-MM-DD)</span><span class="p">,</span><span class="w">
       </span><span class="nt">"patient_birthdate"</span><span class="p">:</span><span class="w"> </span><span class="err">String</span><span class="w"> </span><span class="err">(YYYY-MM-DD)</span><span class="w"> </span><span class="err">(optional)</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"patient_gender"</span><span class="p">:</span><span class="w"> </span><span class="err">String</span><span class="w"> </span><span class="err">(</span><span class="s2">"male"</span><span class="err">|</span><span class="s2">"female"</span><span class="err">)</span><span class="w"> </span><span class="err">(optional)</span><span class="w">
+      </span><span class="nt">"patient_gender"</span><span class="p">:</span><span class="w"> </span><span class="err">String</span><span class="w"> </span><span class="err">(</span><span class="s2">"male"</span><span class="err">|</span><span class="s2">"female"</span><span class="err">)</span><span class="w"> </span><span class="err">(optional)</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"pod_sequence"</span><span class="p">:</span><span class="w"> </span><span class="err">String</span><span class="w"> </span><span class="err">(</span><span class="s2">"[1,2,3,4,5...]"</span><span class="err">)</span><span class="w"> </span><span class="err">(Optional)</span><span class="w">
    </span><span class="p">},</span><span class="w">
    </span><span class="nt">"linked"</span><span class="p">:{</span><span class="w">
       </span><span class="nt">"mia_modules"</span><span class="p">:[</span><span class="w">
