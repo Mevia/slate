@@ -12,7 +12,8 @@ The following resources are used to fetch flags. Flags are created automatically
       "id": String,
       "flag_type": String,
       "severity": Integer,
-      "description": String
+      "description": String,
+      "prescription_id": Integer
     }
   ],
   "meta": {
@@ -48,7 +49,8 @@ having_flag_type | type_1,type_2  | Flag types to fetch
       "id": String,
       "flag_type": String,
       "severity": Integer,
-      "description": String
+      "description": String,
+      "prescription_id": Integer
     }
   ],
   "meta": {
@@ -89,7 +91,8 @@ To find out what flag types are available, please see flag_types section of this
       "id": String,
       "flag_type": String,
       "severity": Integer,
-      "description": String
+      "description": String,
+      "prescription_id": Integer
     }
   ],
   "meta": {
