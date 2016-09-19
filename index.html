@@ -195,6 +195,16 @@ https://api.mevia.se/v1/:resource and https://api.mevia.se/v2/:resource</p>
 <td>Someting went wrong from a adherence perspective</td>
 <td>Whenever a adherence-related flag (currently: OUTSIDE_DOSE_INTERVAL and SEQUENCE_ANOMALY) is created.</td>
 </tr>
+<tr>
+<td>DISCONNECTED_DEVICE</td>
+<td>A device was disconnected right before user dose started</td>
+<td>~30 minutes before start of a dose if user has a disconnected device</td>
+</tr>
+<tr>
+<td>DELAYED_COMMUNICATION</td>
+<td>A device failed to communicate for 24.5 hours or more.</td>
+<td>Whenever a device has failed to communicate for an entire day (24 hours)</td>
+</tr>
 </tbody></table>
 
           <h1 id="notification-types">Notification Types</h1>

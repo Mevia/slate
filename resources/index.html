@@ -3571,6 +3571,60 @@ Remember — Include your api key in every request!
 
 <h3 id="http-request">HTTP Request</h3>
 
+<p><code class="prettyprint">GET https://api.mevia.com/v1/flags?having_flag_type=example_flag_type,other_example_type&amp;offset=0&amp;limit=20</code></p>
+
+<h3 id="query-parameters">Query Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Format</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>offset</td>
+<td>Integer</td>
+<td>Number of flags to offset with. Used for pagination</td>
+</tr>
+<tr>
+<td>limit</td>
+<td>Integer</td>
+<td>Maximum number of flags to fetch.</td>
+</tr>
+<tr>
+<td>having_flag_type</td>
+<td>type_1,type_2</td>
+<td>Flag types to fetch</td>
+</tr>
+</tbody></table>
+
+<h2 id="get-all-flags-for-prescription">Get all flags for prescription</h2>
+
+<blockquote>
+<p>Response structure:</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"flags"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="err">String</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"flag_type"</span><span class="p">:</span><span class="w"> </span><span class="err">String</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"severity"</span><span class="p">:</span><span class="w"> </span><span class="err">Integer</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="err">String</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="nt">"meta"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"API"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"version"</span><span class="p">:</span><span class="w"> </span><span class="err">String</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>This endpoint retrieves all flags for the specified prescription.</p>
+
+<h3 id="http-request">HTTP Request</h3>
+
 <p><code class="prettyprint">GET https://api.mevia.com/v1/prescription/:prescription_id/flags</code></p>
 
 <h3 id="query-parameters">Query Parameters</h3>
@@ -3586,6 +3640,21 @@ Remember — Include your api key in every request!
 <td>prescription_id</td>
 <td>Integer</td>
 <td>ID of the prescription</td>
+</tr>
+<tr>
+<td>offset</td>
+<td>Integer</td>
+<td>Number of flags to offset with. Used for pagination</td>
+</tr>
+<tr>
+<td>limit</td>
+<td>Integer</td>
+<td>Maximum number of flags to fetch.</td>
+</tr>
+<tr>
+<td>having_flag_type</td>
+<td>type_1,type_2</td>
+<td>Flag types to fetch</td>
 </tr>
 </tbody></table>
 
@@ -3639,6 +3708,21 @@ To find out what flag types are available, please see flag_types section of this
 <td>id</td>
 <td>id1, id2, id3</td>
 <td>ids of the flags to fetch</td>
+</tr>
+<tr>
+<td>offset</td>
+<td>Integer</td>
+<td>Number of flags to offset with. Used for pagination</td>
+</tr>
+<tr>
+<td>limit</td>
+<td>Integer</td>
+<td>Maximum number of flags to fetch.</td>
+</tr>
+<tr>
+<td>having_flag_type</td>
+<td>type_1,type_2</td>
+<td>Flag types to fetch</td>
 </tr>
 </tbody></table>
 
