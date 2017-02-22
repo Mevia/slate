@@ -16,10 +16,7 @@ These methods are used to set a schedule for taking doses. The recommended way o
       "completed_at": String Timestamp (Formated in ISO 8601),
       "nr_remaining_pods": Integer,
       "expected_pods": [Integer],
-      "is_muted": Boolean,
-      "links": {
-        "notifications": [id1, id2, id3...]
-      }
+      "is_muted": Boolean
     }
   ],
   "meta": {
@@ -36,32 +33,22 @@ This endpoint retrieves all scheduled doses belonging to the given prescription.
 
 `GET https://api.mevia.com/v1/prescriptions/:prescription_id/scheduled_doses`
 
-### Query Parameters
-Parameter       | Format        | Description
----------       | -------       | -----------
-prescription_id | Integer       | ID of the prescription
-
-## Get specific scheduled doses from a Prescription
+## Get a single specific scheduled dose
 
 > Response structure:
 
 ```json
 {
-  "scheduled_doses": [
-    {
-      "id": Integer,
-      "period_starts_at": String Timestamp (Formated in ISO 8601),
-      "period_ends_at": String Timestamp (Formated in ISO 8601),
-      "is_taken": Boolean,
-      "completed_at": String Timestamp (Formated in ISO 8601),
-      "nr_remaining_pods": Integer,
-      "expected_pods": [Integer],
-      "is_muted": Boolean,
-      "links": {
-        "notifications": [id1, id2, id3...]
-      }
-    }
-  ],
+  "scheduled_dose": {
+    "id": Integer,
+    "period_starts_at": String Timestamp (Formated in ISO 8601),
+    "period_ends_at": String Timestamp (Formated in ISO 8601),
+    "is_taken": Boolean,
+    "completed_at": String Timestamp (Formated in ISO 8601),
+    "nr_remaining_pods": Integer,
+    "expected_pods": [Integer],
+    "is_muted": Boolean
+  },
   "meta": {
     "API": {
       "version": "1.4.0"
@@ -70,17 +57,11 @@ prescription_id | Integer       | ID of the prescription
 }
 ```
 
-This endpoint retrieves specific scheduled doses belonging to the given prescription.
+This endpoint retrieves a single specific scheduled dose
 
 ### HTTP Request
 
-`GET https://api.mevia.com/v1/prescriptions/:prescription_id/scheduled_doses/:id`
-
-### Query Parameters
-Parameter       | Format        | Description
----------       | -------       | -----------
-prescription_id | Integer       | ID of the prescription
-id              | id1, id2, id3 | IDs of the scheduled doses to fetch
+`GET https://api.mevia.com/v1/scheduled_doses/:id`
 
 ## Update a scheduled dose
 
@@ -105,21 +86,16 @@ id              | id1, id2, id3 | IDs of the scheduled doses to fetch
 
 ```json
 {
-  "scheduled_doses": [
-    {
-      "id": Integer,
-      "period_starts_at": String Timestamp (Formated in ISO 8601),
-      "period_ends_at": String Timestamp (Formated in ISO 8601),
-      "is_taken": Boolean,
-      "completed_at": String Timestamp (Formated in ISO 8601),
-      "nr_remaining_pods": Integer,
-      "expected_pods": [Integer],
-      "is_muted": Boolean,
-      "links": {
-        "notifications": [id1, id2, id3...]
-      }
-    }
-  ],
+  "scheduled_doses": {
+    "id": Integer,
+    "period_starts_at": String Timestamp (Formated in ISO 8601),
+    "period_ends_at": String Timestamp (Formated in ISO 8601),
+    "is_taken": Boolean,
+    "completed_at": String Timestamp (Formated in ISO 8601),
+    "nr_remaining_pods": Integer,
+    "expected_pods": [Integer],
+    "is_muted": Boolean
+  },
   "meta": {
     "API": {
       "version": "1.4.0"
@@ -132,13 +108,7 @@ This endpoint updates a specific scheduled doses belonging to the given prescrip
 
 ### HTTP Request
 
-`PUT https://api.mevia.com/v1/prescriptions/:prescription_id/scheduled_doses/:id`
-
-### Query Parameters
-Parameter       | Format        | Description
----------       | -------       | -----------
-prescription_id | Integer       | ID of the prescription
-id              | INTEGER       | IDs of the scheduled dose to update
+`PUT https://api.mevia.com/v1/scheduled_doses/:id`
 
 ## Delete a scheduled dose
 
@@ -146,21 +116,16 @@ id              | INTEGER       | IDs of the scheduled dose to update
 
 ```json
 {
-  "scheduled_doses": [
-    {
-      "id": Integer,
-      "period_starts_at": String Timestamp (Formated in ISO 8601),
-      "period_ends_at": String Timestamp (Formated in ISO 8601),
-      "is_taken": Boolean,
-      "completed_at": String Timestamp (Formated in ISO 8601),
-      "nr_remaining_pods": Integer,
-      "expected_pods": [Integer],
-      "is_muted": Boolean,
-      "links": {
-        "notifications": [id1, id2, id3...]
-      }
-    }
-  ],
+  "scheduled_dose": {
+    "id": Integer,
+    "period_starts_at": String Timestamp (Formated in ISO 8601),
+    "period_ends_at": String Timestamp (Formated in ISO 8601),
+    "is_taken": Boolean,
+    "completed_at": String Timestamp (Formated in ISO 8601),
+    "nr_remaining_pods": Integer,
+    "expected_pods": [Integer],
+    "is_muted": Boolean
+  },
   "meta": {
     "API": {
       "version": "1.4.0"
@@ -173,10 +138,4 @@ This endpoint deletes a specific scheduled doses belonging to the given prescrip
 
 ### HTTP Request
 
-`DELETE https://api.mevia.com/v1/prescriptions/:prescription_id/scheduled_doses/:id`
-
-### Query Parameters
-Parameter       | Format         | Description
----------       | -------        | -----------
-prescription_id | Integer        | ID of the prescription
-id              | id1, id2, id3..| IDs of the scheduled doses to delete
+`DELETE https://api.mevia.com/v1/scheduled_doses/:id`

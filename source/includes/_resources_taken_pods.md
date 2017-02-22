@@ -54,14 +54,13 @@ prescription_id | Integer   | ID of the prescription
 }
 ```
 
-This endpoint retrieves specified taken_pods for the specified prescription.
+This endpoint retrieves a specific taken_pod.
 
 ### HTTP Request
 
-`GET https://api.mevia.com/v1/prescription/:prescription_id/taken_pods/id`
+`GET https://api.mevia.com/v1/taken_pods/id`
 
 ### Query Parameters
-Parameter       | Format        | Description
----------       | -------       | -----------
-prescription_id | Integer       | ID of the prescription
-id              | id1, id2, id3 | ids of the taken pods to fetch
+Parameter | Format  | Description
+--------- | ------- | -----------
+id        | Integer | id of the taken pod to fetch

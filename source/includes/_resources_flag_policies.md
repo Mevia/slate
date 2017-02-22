@@ -1,5 +1,5 @@
 # Flag Policies
-The following resources are used to flag policies. A flag policy is used to monitor a specific type of flag.
+The following resources are used to flag policies. A flag policy is used to monitor a specific type of <a href='/#flag-types'>event</a> in the system, and generates a <a href='#flags'>flag</a> for every occurrence.
 
 ## Get all flag policies
 
@@ -11,12 +11,7 @@ The following resources are used to flag policies. A flag policy is used to moni
     {
       "id": Integer,
       "flag_type": String,
-      "message": String,
-      "links": {
-        "recipients": [
-          id1, id2, id3...
-        ]
-      }
+      "message": String
     }
   ],
   "meta": {
@@ -38,28 +33,17 @@ Parameter       | Format    | Description
 ---------       | -------   | -----------
 prescription_id | Integer   | ID of the prescription
 
-<aside class="success">
-To see what flag types are available, please see flag types section of this documentation
-</aside>
-
 ## Get specific flag policies
 
 > Response structure:
 
 ```json
 {
-  "flag_policies": [
-    {
-      "id": Integer,
-      "flag_type": String,
-      "message": String,
-      "links": {
-        "recipients": [
-          id1, id2, id3...
-        ]
-      }
-    }
-  ],
+  "flag_policy": {
+    "id": Integer,
+    "flag_type": String,
+    "message": String
+  },
   "meta": {
     "API": {
       "version": String
@@ -68,39 +52,29 @@ To see what flag types are available, please see flag types section of this docu
 }
 ```
 
-This endpoint retrieves specified flag policies for the specified prescription.
+This endpoint retrieves a single specified flag policy.
 
 ### HTTP Request
 
-`GET https://api.mevia.com/v1/prescription/:prescription_id/flag_policies/id`
+`GET https://api.mevia.com/v1/flag_policies/:id`
 
 ### Query Parameters
-Parameter       | Format        | Description
----------       | -------       | -----------
-prescription_id | Integer       | ID of the prescription
-id              | id1, id2, id3 | ids of the flag policies to fetch
-
-<aside class="success">
-To see what flag types are available, please see flag types section of this documentation
-</aside>
+Parameter | Format  | Description
+--------- | ------- | -----------
+id        | id      | id of the flag policy to fetch
 
 ## Delete specific flag policies
 
-This endpoint deletes the specified flag policies
+This endpoint deletes the specified flag policy
 
 ### HTTP Request
 
-`DELETE https://api.mevia.com/v1/prescription/:prescription_id/flag_policies/id`
+`DELETE https://api.mevia.com/v1/flag_policies/:id`
 
 ### Query Parameters
-Parameter       | Format        | Description
----------       | -------       | -----------
-prescription_id | Integer       | ID of the prescription
-id              | id1, id2, id3 | ids of the flag policies to delete
-
-<aside class="success">
-To see what flag types are available, please see flag types section of this documentation
-</aside>
+Parameter | Format  | Description
+--------- | ------- | -----------
+id        | id      | id of the flag policy to delete
 
 ## Create a flag policy
 
@@ -110,16 +84,7 @@ To see what flag types are available, please see flag types section of this docu
 {
   "flag_policies": {
     "flag_type": String,
-    "message": String,
-    "links": {
-      "recipients": [
-        {"phone": String,
-         "email": String},
-        .
-        .
-        .
-      ]
-    }
+    "message": String
   }
 }
 ```
@@ -128,18 +93,11 @@ To see what flag types are available, please see flag types section of this docu
 
 ```json
 {
-  "flag_policies": [
-    {
-      "id": Integer,
-      "flag_type": String,
-      "message": String,
-      "links": {
-        "recipients": [
-          id1, id2, id3...
-        ]
-      }
-    }
-  ],
+  "flag_policy": {
+    "id": Integer,
+    "flag_type": String,
+    "message": String
+  }
   "meta": {
     "API": {
       "version": String
@@ -159,10 +117,6 @@ Parameter       | Format        | Description
 ---------       | -------       | -----------
 prescription_id | Integer       | ID of the prescription
 
-<aside class="success">
-To see what flag types are available, please see flag types section of this documentation
-</aside>
-
 ## Update a flag policy
 
 > Request structure:
@@ -180,18 +134,11 @@ To see what flag types are available, please see flag types section of this docu
 
 ```json
 {
-  "flag_policies": [
-    {
-      "id": Integer,
-      "flag_type": String,
-      "message": String,
-      "links": {
-        "recipients": [
-          id1, id2, id3...
-        ]
-      }
-    }
-  ],
+  "flag_policy": {
+    "id": Integer,
+    "flag_type": String,
+    "message": String
+  },
   "meta": {
     "API": {
       "version": String
@@ -204,14 +151,9 @@ This endpoint updates a flag policy for the specified prescription.
 
 ### HTTP Request
 
-`PUT https://api.mevia.com/v1/prescription/:prescription_id/flag_policies/:id`
+`PUT https://api.mevia.com/v1/flag_policies/:id`
 
 ### Query Parameters
-Parameter       | Format        | Description
----------       | -------       | -----------
-prescription_id | Integer       | ID of the prescription
-id              | id1           | ID of the flag policy to update
-
-<aside class="success">
-To see what flag types are available, please see flag types section of this documentation
-</aside>
+Parameter | Format  | Description
+--------- | ------- | -----------
+id        | id      | ID of the flag policy to update

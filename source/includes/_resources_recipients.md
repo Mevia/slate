@@ -1,7 +1,7 @@
 # Recipients
-These methods are used to set and remove receivers belonging to a prescription. Recipients are simply recievers of notifications.
+These methods are used to set and remove recipients. Recipients are simply receivers of notifications or flags.
 
-## Get all recipients from a prescription 
+## Get all recipients under a prescription
 
 > Response structure:
 
@@ -11,10 +11,7 @@ These methods are used to set and remove receivers belonging to a prescription. 
     {
       "id": String,
       "email": String,
-      "phone": String,
-      "links": {
-        "notification_policies": [id1, id2, id3...]
-      }
+      "phone": String
     }
   ],
   "meta": {
@@ -31,11 +28,6 @@ This endpoint retrieves all recipients for the specified prescription.
 
 `GET https://api.mevia.com/v1/prescription/:prescription_id/recipients`
 
-### Query Parameters
-Parameter       | Format    | Description
----------       | -------   | -----------
-prescription_id | Integer   | ID of the prescription
-
 ## Get all recipients from a notification policy
 
 > Response structure:
@@ -46,10 +38,7 @@ prescription_id | Integer   | ID of the prescription
     {
       "id": String,
       "email": String,
-      "phone": String,
-      "links": {
-        "notification_policies": [id1, id2, id3...]
-      }
+      "phone": String
     }
   ],
   "meta": {
@@ -62,13 +51,7 @@ prescription_id | Integer   | ID of the prescription
 
 This endpoint retrieves all recipients for the specified notification policy.
 
-`GET https://api.mevia.com/v1/prescription/:prescription_id/notification_policies/:notification_policy_id/recipients`
-
-### Query Parameters
-Parameter              | Format  | Description
----------              | ------- | -----------
-prescription_id        | Integer | ID of the prescription
-notification_policy_id | Integer | ID of the notification policy
+`GET https://api.mevia.com/v1/notification_policies/:notification_policy_id/recipients`
 
 ## Get all recipients from a notification
 
@@ -78,10 +61,7 @@ notification_policy_id | Integer | ID of the notification policy
     {
       "id": String,
       "email": String,
-      "phone": String,
-      "links": {
-        "notification_policies": [id1, id2, id3...]
-      }
+      "phone": String
     }
   ],
   "meta": {
@@ -94,62 +74,19 @@ notification_policy_id | Integer | ID of the notification policy
 
 This endpoint retrieves all recipients for the specified notification.
 
-`GET https://api.mevia.com/v1/prescription/:prescription_id/notifications/:notification_id/recipients`
+`GET https://api.mevia.com/v1/notifications/:notification_id/recipients`
 
-### Query Parameters
-Parameter              | Format  | Description
----------              | ------- | -----------
-prescription_id        | Integer | ID of the prescription
-notification_id        | Integer | ID of the notification
-
-## Get all recipients from a scheduled doses
-
-```json
-{
-  "recipients": [
-    {
-      "id": String,
-      "email": String,
-      "phone": String,
-      "links": {
-        "notification_policies": [id1, id2, id3...]
-      }
-    }
-  ],
-  "meta": {
-    "API": {
-      "version": "1.4.0"
-    }
-  }
-}
-```
-
-This endpoint retrieves all recipients for the specified scheduled dose.
-
-`GET https://api.mevia.com/v1/prescription/:prescription_id/scheduled_doses/:scheduled_dose_id/recipients`
-
-### Query Parameters
-Parameter              | Format  | Description
----------              | ------- | -----------
-prescription_id        | Integer | ID of the prescription
-scheduled_dose_id      | Integer | ID of the scheduled dose
-
-## Get specific recipients from a prescription
+## Get specific recipients
 
 > Response structure:
 
 ```json
 {
-  "recipients": [
-    {
-      "id": String,
-      "email": String,
-      "phone": String,
-      "links": {
-        "notification_policies": [id1, id2, id3...]
-      }
-    }
-  ],
+  "recipient": {
+    "id": String,
+    "email": String,
+    "phone": String
+  },
   "meta": {
     "API": {
       "version": "1.4.0"
@@ -158,122 +95,11 @@ scheduled_dose_id      | Integer | ID of the scheduled dose
 }
 ```
 
-This endpoint retrieves specified recipients for the given prescription.
+This endpoint retrieves a single specified recipient.
 
 ### HTTP Requests
 
-`GET https://api.mevia.com/v1/prescription/:prescription_id/recipients/:id`
-
-### Query Parameters
-Parameter       | Format           | Description
----------       | -------          | -----------
-prescription_id | Integer          | ID of the prescription
-id              | id1, id2, id3... | IDs of the recipients to fetch
-
-## Get specific recipients from a notification policy
-
-> Response structure:
-
-```json
-{
-  "recipients": [
-    {
-      "id": String,
-      "email": String,
-      "phone": String,
-      "links": {
-        "notification_policies": [id1, id2, id3...]
-      }
-    }
-  ],
-  "meta": {
-    "API": {
-      "version": "1.4.0"
-    }
-  }
-}
-```
-
-This endpoint retrieves specified recipients for the given notification policy.
-
-`GET https://api.mevia.com/v1/prescription/:prescription_id/notification_policies/:notification_policy_id/recipients/:id`
-
-### Query Parameters
-Parameter              | Format           | Description
----------              | -------          | -----------
-prescription_id        | Integer          | ID of the prescription
-notification_policy_id | Integer          | ID of the notification policy
-id                     | id1, id2, id3... | IDs of the recipients to fetch
-
-## Get specific recipients from a notification
-
-> Response structure:
-
-```json
-{
-  "recipients": [
-    {
-      "id": String,
-      "email": String,
-      "phone": String,
-      "links": {
-        "notification_policies": [id1, id2, id3...]
-      }
-    }
-  ],
-  "meta": {
-    "API": {
-      "version": "1.4.0"
-    }
-  }
-}
-```
-
-This endpoint retrieves specified recipients for the given notification.
-
-`GET https://api.mevia.com/v1/prescription/:prescription_id/notifications/:notification_id/recipients/:id`
-
-### Query Parameters
-Parameter              | Format           | Description
----------              | -------          | -----------
-prescription_id        | Integer          | ID of the prescription
-notification_id        | Integer          | ID of the notification
-id                     | id1, id2, id3... | IDs of the recipients to fetch
-
-## Get specific recipients from a scheduled dose
-
-> Response structure:
-
-```json
-{
-  "recipients": [
-    {
-      "id": String,
-      "email": String,
-      "phone": String,
-      "links": {
-        "notification_policies": [id1, id2, id3...]
-      }
-    }
-  ],
-  "meta": {
-    "API": {
-      "version": "1.4.0"
-    }
-  }
-}
-```
-
-This endpoint retrieves specified recipients for the given scheduled dose.
-
-`GET https://api.mevia.com/v1/prescription/:prescription_id/scheduled_doses/:scheduled_dose_id/recipients/:id`
-
-### Query Parameters
-Parameter              | Format           | Description
----------              | -------          | -----------
-prescription_id        | Integer          | ID of the prescription
-scheduled_dose_id      | Integer          | ID of the scheduled dose
-id                     | id1, id2, id3... | IDs of the recipients to fetch
+`GET https://api.mevia.com/v1/recipients/:id`
 
 ## Create a recipient to a notification policy
 Creates a recipient and adds it to the specified notification policy. All notifications sent by this policy will be recieved by the recipient.
@@ -285,7 +111,7 @@ Creates a recipient and adds it to the specified notification policy. All notifi
   "recipients": [
     {
       "email": String,
-      "phone": String,
+      "phone": String
     }
   ]
 }
@@ -295,16 +121,11 @@ Creates a recipient and adds it to the specified notification policy. All notifi
 
 ```json
 {
-  "recipients": [
-    {
-      "id": String,
-      "email": String,
-      "phone": String,
-      "links": {
-        "notification_policies": [id1, id2, id3...]
-      }
-    }
-  ],
+  "recipient": {
+    "id": String,
+    "email": String,
+    "phone": String
+  },
   "meta": {
     "API": {
       "version": "1.4.0"
@@ -315,7 +136,7 @@ Creates a recipient and adds it to the specified notification policy. All notifi
 
 ### HTTP Requests
 
-`POST https://api.mevia.com/v1/prescriptions/:prescription_id/notifications/:notification_id/recipients`
+`POST https://api.mevia.com/v1/notifications/:notification_id/recipients`
 
 ### Query Parameters
 Parameter              | Format  | Description
@@ -333,7 +154,7 @@ Creates a recipient and adds it to the specified notification. When the notifica
   "recipients": [
     {
       "email": String,
-      "phone": String,
+      "phone": String
     }
   ]
 }
@@ -343,16 +164,11 @@ Creates a recipient and adds it to the specified notification. When the notifica
 
 ```json
 {
-  "recipients": [
-    {
-      "id": String,
-      "email": String,
-      "phone": String,
-      "links": {
-        "notification_policies": [id1, id2, id3...]
-      }
-    }
-  ],
+  "recipient": {
+    "id": String,
+    "email": String,
+    "phone": String
+  },
   "meta": {
     "API": {
       "version": "1.4.0"
@@ -362,27 +178,19 @@ Creates a recipient and adds it to the specified notification. When the notifica
 ```
 
 ### HTTP Requests
-`POST https://api.mevia.com/v1/prescriptions/:prescription_id/notifications/:notification_id/recipients`
+`POST https://api.mevia.com/v1/notifications/:notification_id/recipients`
 
-### Query Parameters
-Parameter              | Format  | Description
----------              | ------- | -----------
-prescription_id        | Integer | ID of the prescription
-notification_id        | Integer | ID of the notification
-
-## Update a recipient through a prescription
-Updates a recipient found through a prescription
+## Update a recipient
+Updates a single specified recipient
 
 > Request structure:
 
 ```json
 {
-  "recipients": [
-    {
-      "email": String,
-      "phone": String,
-    }
-  ]
+  "recipients": {
+    "email": String,
+    "phone": String,
+  }
 }
 ```
 
@@ -390,16 +198,11 @@ Updates a recipient found through a prescription
 
 ```json
 {
-  "recipients": [
-    {
-      "id": String,
-      "email": String,
-      "phone": String,
-      "links": {
-        "notification_policies": [id1, id2, id3...]
-      }
-    }
-  ],
+  "recipient": {
+    "id": String,
+    "email": String,
+    "phone": String,
+  },
   "meta": {
     "API": {
       "version": "1.4.0"
@@ -409,44 +212,20 @@ Updates a recipient found through a prescription
 ```
 
 ### HTTP Requests
-`PUT https://api.mevia.com/v1/prescriptions/:prescription_id/recipients/:id`
+`PUT https://api.mevia.com/v1/recipients/:id`
 
-### Query Parameters
-Parameter         | Format  | Description
----------         | ------- | -----------
-prescription_id   | Integer | ID of the prescription
-id                | Integer | ID of the recipient
-
-## Update a recipient through a scheduled dose
-Updates a recipient found through a scheduled dose
-
-> Request structure:
-
-```json
-{
-  "recipients": [
-    {
-      "email": String,
-      "phone": String,
-    }
-  ]
-}
-```
+## Delete a recipient
+Deletes a single specified recipient
 
 > Response structure:
 
 ```json
 {
-  "recipients": [
-    {
-      "id": String,
-      "email": String,
-      "phone": String,
-      "links": {
-        "notification_policies": [id1, id2, id3...]
-      }
-    }
-  ],
+  "recipients": {
+    "id": String,
+    "email": String,
+    "phone": String
+  },
   "meta": {
     "API": {
       "version": "1.4.0"
@@ -454,249 +233,3 @@ Updates a recipient found through a scheduled dose
   }
 }
 ```
-
-### HTTP Requests
-`PUT https://api.mevia.com/v1/prescriptions/:prescription_id/scheduled_doses/:scheduled_dose_id/recipients/:id`
-
-### Query Parameters
-Parameter         | Format  | Description
----------         | ------- | -----------
-prescription_id   | Integer | ID of the prescription
-id                | Integer | ID of the recipient
-scheduled_dose_id | Integer | ID of the scheduled dose
-
-## Update a recipient through a notification policy
-Updates a recipient found through a notification policy
-
-> Request structure:
-
-```json
-{
-  "recipients": [
-    {
-      "email": String,
-      "phone": String,
-    }
-  ]
-}
-```
-
-> Response structure:
-
-```json
-{
-  "recipients": [
-    {
-      "id": String,
-      "email": String,
-      "phone": String,
-      "links": {
-        "notification_policies": [id1, id2, id3...]
-      }
-    }
-  ],
-  "meta": {
-    "API": {
-      "version": "1.4.0"
-    }
-  }
-}
-```
-
-### HTTP Requests
-`PUT https://api.mevia.com/v1/prescriptions/:prescription_id/notification_policies/:notification_policy_id/recipients/:id`
-
-### Query Parameters
-Parameter               | Format  | Description
----------               | ------- | -----------
-prescription_id         | Integer | ID of the prescription
-id                      | Integer | ID of the recipient
-notification_policy_id  | Integer | ID of the notification policy
-
-## Update a recipient through a notification
-Updates a recipient found through a notification
-
-> Request structure:
-
-```json
-{
-  "recipients": [
-    {
-      "email": String,
-      "phone": String,
-    }
-  ]
-}
-```
-
-> Response structure:
-
-```json
-{
-  "recipients": [
-    {
-      "id": String,
-      "email": String,
-      "phone": String,
-      "links": {
-        "notification_policies": [id1, id2, id3...]
-      }
-    }
-  ],
-  "meta": {
-    "API": {
-      "version": "1.4.0"
-    }
-  }
-}
-```
-
-### HTTP Requests
-`PUT https://api.mevia.com/v1/prescriptions/:prescription_id/notifications/:notification_id/recipients/:id`
-
-### Query Parameters
-Parameter       | Format  | Description
----------       | ------- | -----------
-prescription_id | Integer | ID of the prescription
-id              | Integer | ID of the recipient
-notification_id | Integer | ID of the notification
-
-## Delete a recipient from a prescription
-Deletes a recipient found through a prescription
-
-> Response structure:
-
-```json
-{
-  "recipients": [
-    {
-      "id": String,
-      "email": String,
-      "phone": String,
-      "links": {
-        "notification_policies": [id1, id2, id3...]
-      }
-    }
-  ],
-  "meta": {
-    "API": {
-      "version": "1.4.0"
-    }
-  }
-}
-```
-
-### HTTP Requests
-`DELETE https://api.mevia.com/v1/prescriptions/:prescription_id/recipients/:id`
-
-### Query Parameters
-Parameter         | Format  | Description
----------         | ------- | -----------
-prescription_id   | Integer | ID of the prescription
-id                | Integer | ID of the recipient
-
-## Delete a recipient from a scheduled dose
-Deletes a recipient found through a scheduled dose
-
-> Response structure:
-
-```json
-{
-  "recipients": [
-    {
-      "id": String,
-      "email": String,
-      "phone": String,
-      "links": {
-        "notification_policies": [id1, id2, id3...]
-      }
-    }
-  ],
-  "meta": {
-    "API": {
-      "version": "1.4.0"
-    }
-  }
-}
-```
-
-### HTTP Requests
-`DELETE https://api.mevia.com/v1/prescriptions/:prescription_id/scheduled_doses/:scheduled_dose_id/recipients/:id`
-
-### Query Parameters
-Parameter         | Format  | Description
----------         | ------- | -----------
-prescription_id   | Integer | ID of the prescription
-id                | Integer | ID of the recipient
-scheduled_dose_id | Integer | ID of the scheduled dose
-
-## Delete a recipient from a notification policy
-Deletes a recipient found through a notification policy
-
-> Response structure:
-
-```json
-{
-  "recipients": [
-    {
-      "id": String,
-      "email": String,
-      "phone": String,
-      "links": {
-        "notification_policies": [id1, id2, id3...]
-      }
-    }
-  ],
-  "meta": {
-    "API": {
-      "version": "1.4.0"
-    }
-  }
-}
-```
-
-### HTTP Requests
-`DELETE https://api.mevia.com/v1/prescriptions/:prescription_id/notification_policies/:notification_policy_id/recipients/:id`
-
-### Query Parameters
-Parameter               | Format  | Description
----------               | ------- | -----------
-prescription_id         | Integer | ID of the prescription
-id                      | Integer | ID of the recipient
-notification_policy_id  | Integer | ID of the notification policy
-
-## Delete a recipient from a notification
-Deletes a recipient found through a notification
-
-> Response structure:
-
-```json
-{
-  "recipients": [
-    {
-      "id": String,
-      "email": String,
-      "phone": String,
-      "links": {
-        "notification_policies": [id1, id2, id3...]
-      }
-    }
-  ],
-  "meta": {
-    "API": {
-      "version": "1.4.0"
-    }
-  }
-}
-```
-
-### HTTP Requests
-`DELETE https://api.mevia.com/v1/prescriptions/:prescription_id/notifications/:notification_id/recipients/:id`
-
-### Query Parameters
-Parameter       | Format  | Description
----------       | ------- | -----------
-prescription_id | Integer | ID of the prescription
-id              | Integer | ID of the recipient
-notification_id | Integer | ID of the notification
-

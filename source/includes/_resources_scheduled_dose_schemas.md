@@ -3,8 +3,6 @@ These methods are used to set a schedule schema, used for generating a daily sch
 
 ## Get all scheduled dose schemas
 
-> Response structure:
-
 ```json
 {
   "scheduled_dose_schemas": [
@@ -13,10 +11,10 @@ These methods are used to set a schedule schema, used for generating a daily sch
       "start_time": String, // In the format of "10:00"
       "end_time": String, // In the format of "10:00"
       "pod_amount": Integer,
-      "links": {
-        "scheduled_doses": [id1, id2, id3...],
-        "notification_policies": [id1, id2, id3...]
-      }
+      "start_date": String (YYYY-MM-DD),
+      "end_date": String (YYYY-MM-DD),
+      "days_between_doses": Integer,
+      "prescription_id": Integer
     }
   ],
   "meta": {
@@ -33,33 +31,22 @@ This endpoint retrieves all scheduled dose schemas belonging to the given prescr
 
 `GET https://api.mevia.com/v1/prescriptions/:prescription_id/scheduled_dose_schemas`
 
-### Query Parameters
-Parameter       | Format        | Description
----------       | -------       | -----------
-prescription_id | Integer       | ID of the prescription
-
-<aside class="success">
-Remember — Include your api key in every request!
-</aside>
-
 ## Get specific scheduled dose schemas
 
 > Response structure:
 
 ```json
 {
-  "scheduled_dose_schemas": [
-    {
-      "id": Integer,
-      "start_time": String, // In the format of "10:00"
-      "end_time": String, // In the format of "10:00"
-      "pod_amount": Integer,
-      "links": {
-        "scheduled_doses": [id1, id2, id3...],
-        "notification_policies": [id1, id2, id3...]
-      }
-    }
-  ],
+  "scheduled_dose_schema": {
+    "id": Integer,
+    "start_time": String, // In the format of "10:00"
+    "end_time": String, // In the format of "10:00"
+    "pod_amount": Integer,
+    "start_date": String (YYYY-MM-DD),
+    "end_date": String (YYYY-MM-DD),
+    "days_between_doses": Integer,
+    "prescription_id": Integer
+  },
   "meta": {
     "API": {
       "version": "1.4.0"
@@ -68,17 +55,11 @@ Remember — Include your api key in every request!
 }
 ```
 
-This endpoint retrieves specific scheduled dose schemas belonging to the given prescription.
+This endpoint retrieves a single specific scheduled dose schema
 
 ### HTTP Request
 
-`GET https://api.mevia.com/v1/prescriptions/:prescription_id/scheduled_dose_schemas/:id`
-
-### Query Parameters
-Parameter       | Format        | Description
----------       | -------       | -----------
-prescription_id | Integer       | ID of the prescription
-id              | id1, id2, id3 | IDs of the scheduled dose schemas to fetch
+`GET https://api.mevia.com/v1/scheduled_dose_schemas/:id`
 
 ## Create a scheduled dose schema
 
@@ -91,6 +72,9 @@ id              | id1, id2, id3 | IDs of the scheduled dose schemas to fetch
       "start_time": String, // In the format of "10:00"
       "end_time": String, // In the format of "10:00"
       "pod_amount": Integer,
+      "start_date": Date, // Optional - Format: YYYY-MM-DD
+      "end_date": Date, // Optional - Format: YYYY-MM-DD
+      "days_between_doses": Integer // Optional
     }
   ]
 }
@@ -106,10 +90,10 @@ id              | id1, id2, id3 | IDs of the scheduled dose schemas to fetch
       "start_time": String, // In the format of "10:00"
       "end_time": String, // In the format of "10:00"
       "pod_amount": Integer,
-      "links": {
-        "scheduled_doses": [id1, id2, id3...],
-        "notification_policies": [id1, id2, id3...]
-      }
+      "start_date": String (YYYY-MM-DD),
+      "end_date": String (YYYY-MM-DD),
+      "days_between_doses": Integer,
+      "prescription_id": Integer
     }
   ],
   "meta": {
@@ -124,12 +108,7 @@ This endpoint creates a scheduled dose schema to the given prescription.
 
 ### HTTP Request
 
-`POST https://api.mevia.com/v1/prescriptions/:prescription_id/scheduled_doses/:id`
-
-### Query Parameters
-Parameter       | Format        | Description
----------       | -------       | -----------
-prescription_id | Integer       | ID of the prescription
+`POST https://api.mevia.com/v1/prescriptions/:prescription_id/scheduled_doses`
 
 ## Update a schduled dose schema
 
@@ -137,13 +116,14 @@ prescription_id | Integer       | ID of the prescription
 
 ```json
 {
-  "scheduled_dose_schema": [
-    {
-      "start_time": String, // In the format of "10:00"
-      "end_time": String, // In the format of "10:00"
-      "pod_amount": Integer,
-    }
-  ]
+  "scheduled_dose_schema": {
+    "start_time": String, // In the format of "10:00"
+    "end_time": String, // In the format of "10:00"
+    "pod_amount": Integer,
+    "start_date": Date, // Optional - Format: YYYY-MM-DD
+    "end_date": Date, // Optional - Format: YYYY-MM-DD
+    "days_between_doses": Integer // Optional
+  }
 }
 ```
 
@@ -151,18 +131,16 @@ prescription_id | Integer       | ID of the prescription
 
 ```json
 {
-  "scheduled_dose_schemas": [
-    {
-      "id": Integer,
-      "start_time": String, // In the format of "10:00"
-      "end_time": String, // In the format of "10:00"
-      "pod_amount": Integer,
-      "links": {
-        "scheduled_doses": [id1, id2, id3...],
-        "notification_policies": [id1, id2, id3...]
-      }
-    }
-  ],
+  "scheduled_dose_schema": {
+    "id": Integer,
+    "start_time": String, // In the format of "10:00"
+    "end_time": String, // In the format of "10:00"
+    "pod_amount": Integer,
+    "start_date": String (YYYY-MM-DD),
+    "end_date": String (YYYY-MM-DD),
+    "days_between_doses": Integer,
+    "prescription_id": Integer
+  },
   "meta": {
     "API": {
       "version": "1.4.0"
@@ -175,13 +153,7 @@ This endpoint updates a scheduled dose schema belonging to the given prescriptio
 
 ### HTTP Request
 
-`PUT https://api.mevia.com/v1/prescriptions/:prescription_id/scheduled_doses/:id`
-
-### Query Parameters
-Parameter       | Format        | Description
----------       | -------       | -----------
-prescription_id | Integer       | ID of the prescription
-id              | id1, id2, id3 | IDs of the scheduled dose schema to update
+`PUT https://api.mevia.com/v1/scheduled_doses/:id`
 
 ## Delete through Prescription
 
@@ -189,18 +161,16 @@ id              | id1, id2, id3 | IDs of the scheduled dose schema to update
 
 ```json
 {
-  "scheduled_dose_schemas": [
-    {
-      "id": Integer,
-      "start_time": String, // In the format of "10:00"
-      "end_time": String, // In the format of "10:00"
-      "pod_amount": Integer,
-      "links": {
-        "scheduled_doses": [id1, id2, id3...],
-        "notification_policies": [id1, id2, id3...]
-      }
-    }
-  ],
+  "scheduled_dose_schema": {
+    "id": Integer,
+    "start_time": String, // In the format of "10:00"
+    "end_time": String, // In the format of "10:00"
+    "pod_amount": Integer,
+    "start_date": String (YYYY-MM-DD),
+    "end_date": String (YYYY-MM-DD),
+    "days_between_doses": Integer,
+    "prescription_id": Integer
+  },
   "meta": {
     "API": {
       "version": "1.4.0"
@@ -213,10 +183,4 @@ This endpoint deletes specific scheduled dose schemas belonging to the given pre
 
 ### HTTP Request
 
-`DELETE https://api.mevia.com/v1/prescriptions/:prescription_id/scheduled_dose_schemas/:id`
-
-### Query Parameters
-Parameter       | Format         | Description
----------       | -------        | -----------
-prescription_id | Integer        | ID of the prescription
-id              | id1, id2, id3..| IDs of the scheduled dose schemas to delete
+`DELETE https://api.mevia.com/v1/scheduled_dose_schemas/:id`

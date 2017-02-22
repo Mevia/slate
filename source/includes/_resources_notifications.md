@@ -1,5 +1,5 @@
 # Notifications
-These methods are used to obtain, update and create the reminders thats beeing sent by the API. Notifications are stored even after beeing sent, and can be fetched like any other.
+These methods are used to obtain, update and create the reminders that are being sent by the API to its end users. Notifications are stored even after being sent, and can be fetched like any other resource.
 
 ## Get all Notifications from a Prescription
 
@@ -13,9 +13,8 @@ These methods are used to obtain, update and create the reminders thats beeing s
       "moment_to_send": String Timestamp (Formated in ISO 8601),
       "sent_at": String Timestamp (Formated in ISO 8601),
       "message": String
-      "links": {
-        "notification_policy": [ID]
-      }
+      "scheduled_dose_id": Integer,
+      "notification_policy_id": Integer
     },
   ],
   "meta": {
@@ -49,9 +48,8 @@ prescription_id | Integer       | ID of the prescription
       "moment_to_send": String Timestamp (Formated in ISO 8601),
       "sent_at": String Timestamp (Formated in ISO 8601),
       "message": String
-      "links": {
-        "notification_policy": [ID]
-      }
+      "scheduled_dose_id": Integer,
+      "notification_policy_id": Integer
     },
   ],
   "meta": {
@@ -62,16 +60,15 @@ prescription_id | Integer       | ID of the prescription
 }
 ```
 
-This endpoint retrieves all notifications belonging to the given prescription and notification policy.
+This endpoint retrieves all notifications belonging to the given notification policy.
 
 ### HTTP Request
 
-`GET https://api.mevia.com/v1/prescriptions/:prescription_id/notification_policies/:notification_policy_id/notifications`
+`GET https://api.mevia.com/v1/notification_policies/:notification_policy_id/notifications`
 
 ### Query Parameters
 Parameter              | Format  | Description
 ---------              | ------- | -----------
-prescription_id        | Integer | ID of the prescription
 notification_policy_id | Integer | ID of the notification policy
 
 ## Get all through notifications from a Scheduled Dose
@@ -86,9 +83,8 @@ notification_policy_id | Integer | ID of the notification policy
       "moment_to_send": String Timestamp (Formated in ISO 8601),
       "sent_at": String Timestamp (Formated in ISO 8601),
       "message": String
-      "links": {
-        "notification_policy": [ID]
-      }
+      "scheduled_dose_id": Integer,
+      "notification_policy_id": Integer
     },
   ],
   "meta": {
@@ -99,35 +95,31 @@ notification_policy_id | Integer | ID of the notification policy
 }
 ```
 
-This endpoint retrieves all notifications belonging to the given prescription and scheduled dose.
+This endpoint retrieves all notifications belonging to the given scheduled dose.
 
 ### HTTP Request
 
-`GET https://api.mevia.com/v1/prescriptions/:prescription_id/scheduled_doses/:scheduled_dose_id/notifications`
+`GET https://api.mevia.com/v1/scheduled_doses/:scheduled_dose_id/notifications`
 
 ### Query Parameters
 Parameter         | Format  | Description
 ---------         | ------- | -----------
-prescription_id   | Integer | ID of the prescription
 scheduled_dose_id | Integer | ID of the scheduled dose
 
-## Get specific notifications from a Prescription
+## Get specific notifications
 
 > Response structure:
 
 ```json
 {
-  "notifications": [
-    {
-      "id": Integer,
-      "moment_to_send": String Timestamp (Formated in ISO 8601),
-      "sent_at": String Timestamp (Formated in ISO 8601),
-      "message": String
-      "links": {
-        "notification_policy": [ID]
-      }
-    },
-  ],
+  "notification": {
+    "id": Integer,
+    "moment_to_send": String Timestamp (Formated in ISO 8601),
+    "sent_at": String Timestamp (Formated in ISO 8601),
+    "message": String
+    "scheduled_dose_id": Integer,
+    "notification_policy_id": Integer
+  },
   "meta": {
     "API": {
       "version": "1.4.0"
@@ -136,94 +128,16 @@ scheduled_dose_id | Integer | ID of the scheduled dose
 }
 ```
 
-This endpoint retrieves specific notifications belonging to the given prescription.
+This endpoint retrieves a single specific notification.
 
 ### HTTP Request
 
-`GET https://api.mevia.com/v1/prescriptions/:prescription_id/notifications/:id`
+`GET https://api.mevia.com/v1/notifications/:id`
 
 ### Query Parameters
-Parameter       | Format        | Description
----------       | -------       | -----------
-prescription_id | Integer       | ID of the prescription
-id              | id1, id2, id3 | IDs of the notifications to fetch
-
-
-## Get specific notifications from a Notification Policy
-
-> Response structure:
-
-```json
-{
-  "notifications": [
-    {
-      "id": Integer,
-      "moment_to_send": String Timestamp (Formated in ISO 8601),
-      "sent_at": String Timestamp (Formated in ISO 8601),
-      "message": String
-      "links": {
-        "notification_policy": [ID]
-      }
-    },
-  ],
-  "meta": {
-    "API": {
-      "version": "1.4.0"
-    }
-  }
-}
-```
-
-This endpoint retrieves specific notifications belonging to the given prescription and notification policy.
-
-### HTTP Request
-
-`GET https://api.mevia.com/v1/prescriptions/:prescription_id/notification_policies/:notification_policy_id/notifications/:id`
-
-### Query Parameters
-Parameter              | Format        | Description
----------              | -------       | -----------
-prescription_id        | Integer       | ID of the prescription
-notification_policy_id | Integer       | ID of the notification policy
-id                     | id1, id2, id3 | IDs of the notifications to fetch
-
-## Get specific notifications from a Scheduled Dose
-
-> Response structure:
-
-```json
-{
-  "notifications": [
-    {
-      "id": Integer,
-      "moment_to_send": String Timestamp (Formated in ISO 8601),
-      "sent_at": String Timestamp (Formated in ISO 8601),
-      "message": String
-      "links": {
-        "notification_policy": [ID]
-      }
-    },
-  ],
-  "meta": {
-    "API": {
-      "version": "1.4.0"
-    }
-  }
-}
-```
-
-This endpoint retrieves specific notifications belonging to the given prescription and scheduled dose.
-
-### HTTP Request
-
-`GET https://api.mevia.com/v1/prescriptions/:prescription_id/scheduled_doses/:scheduled_dose_id/notifications/:id`
-
-### Query Parameters
-Parameter         | Format        | Description
----------         | -------       | -----------
-prescription_id   | Integer       | ID of the prescription
-scheduled_dose_id | Integer       | ID of the scheduled dose
-id                | id1, id2, id3 | IDs of the notifications to fetch
+Parameter | Format  | Description
+--------- | ------- | -----------
+ID        | Integer | ID of the notification to fetch
 
 ## Create a notification on a Scheduled Dose
 
@@ -245,17 +159,14 @@ id                | id1, id2, id3 | IDs of the notifications to fetch
 
 ```json
 {
-  "notifications": [
-    {
-      "id": Integer,
-      "moment_to_send": String Timestamp (Formated in ISO 8601),
-      "sent_at": String Timestamp (Formated in ISO 8601),
-      "message": String
-      "links": {
-        "notification_policy": [ID]
-      }
-    },
-  ],
+  "notification": {
+    "id": Integer,
+    "moment_to_send": String Timestamp (Formated in ISO 8601),
+    "sent_at": String Timestamp (Formated in ISO 8601),
+    "message": String
+    "scheduled_dose_id": Integer,
+    "notification_policy_id": Integer
+  },
   "meta": {
     "API": {
       "version": "1.4.0"
@@ -268,27 +179,24 @@ This endpoint creates a new notification to the given scheduled dose.
 
 ### HTTP Request
 
-`POST https://api.mevia.com/v1/prescriptions/:prescription_id/scheduled_doses/:scheduled_dose_id/notifications`
+`POST https://api.mevia.com/v1/scheduled_doses/:scheduled_dose_id/notifications`
 
 ### Query Parameters
 Parameter         | Format  | Description
 ---------         | ------- | -----------
-prescription_id   | Integer | ID of the prescription the dose belongs to
 scheduled_dose_id | Integer | ID of the scheduled dose
 
-## Update notification on a Prescription
+## Update a notification
 
 > Request structure:
 
 ```json
 {
-  "notifications": [
-    {
-      "moment_to_send": String Timestamp (Formated in ISO 8601),
-      "sent_at": String Timestamp (Formated in ISO 8601),
-      "message": String
-    },
-  ]
+  "notifications": {
+    "moment_to_send": String Timestamp (Formated in ISO 8601),
+    "sent_at": String Timestamp (Formated in ISO 8601),
+    "message": String
+  }
 }
 ```
 
@@ -296,17 +204,14 @@ scheduled_dose_id | Integer | ID of the scheduled dose
 
 ```json
 {
-  "notifications": [
-    {
-      "id": Integer,
-      "moment_to_send": String Timestamp (Formated in ISO 8601),
-      "sent_at": String Timestamp (Formated in ISO 8601),
-      "message": String
-      "links": {
-        "notification_policy": [ID]
-      }
-    },
-  ],
+  "notification": {
+    "id": Integer,
+    "moment_to_send": String Timestamp (Formated in ISO 8601),
+    "sent_at": String Timestamp (Formated in ISO 8601),
+    "message": String
+    "scheduled_dose_id": Integer,
+    "notification_policy_id": Integer
+  },
   "meta": {
     "API": {
       "version": "1.4.0"
@@ -315,50 +220,31 @@ scheduled_dose_id | Integer | ID of the scheduled dose
 }
 ```
 
-This endpoint retrieves updates a notification belonging to the given prescription.
+This endpoint updates a notification
 
 ### HTTP Request
 
-`PUT https://api.mevia.com/v1/prescriptions/:prescription_id/notifications/:id`
+`PUT https://api.mevia.com/v1/notifications/:id`
 
 ### Query Parameters
-Parameter       | Format        | Description
----------       | -------       | -----------
-prescription_id | Integer       | ID of the prescription
-id              | id            | ID of the notification to update
+Parameter | Format  | Description
+--------- | ------- | -----------
+id        | Integer | ID of the notification to update
 
-
-## Update notification on a  Notification Policy
-
-> Request structure:
-
-```json
-{
-  "notifications": [
-    {
-      "moment_to_send": String Timestamp (Formated in ISO 8601),
-      "sent_at": String Timestamp (Formated in ISO 8601),
-      "message": String
-    },
-  ]
-}
-```
+## Delete a notification
 
 > Response structure:
 
 ```json
 {
-  "notifications": [
-    {
-      "id": Integer,
-      "moment_to_send": String Timestamp (Formated in ISO 8601),
-      "sent_at": String Timestamp (Formated in ISO 8601),
-      "message": String
-      "links": {
-        "notification_policy": [ID]
-      }
-    },
-  ],
+  "notification": {
+    "id": Integer,
+    "moment_to_send": String Timestamp (Formated in ISO 8601),
+    "sent_at": String Timestamp (Formated in ISO 8601),
+    "message": String
+    "scheduled_dose_id": Integer,
+    "notification_policy_id": Integer
+  },
   "meta": {
     "API": {
       "version": "1.4.0"
@@ -367,104 +253,13 @@ id              | id            | ID of the notification to update
 }
 ```
 
-This endpoint updates a specific notification belonging to the given prescription and notification policy.
+This endpoint deletes a single specific notification
 
 ### HTTP Request
 
-`PUT https://api.mevia.com/v1/prescriptions/:prescription_id/notification_policies/:notification_policy_id/notifications/:id`
+`DELETE https://api.mevia.com/v1/notifications/:id`
 
 ### Query Parameters
-Parameter              | Format  | Description
----------              | ------- | -----------
-prescription_id        | Integer | ID of the prescription
-notification_policy_id | Integer | ID of the notification policy
-id                     | id      | IDs of the notification to update
-
-## Update a notification on a Scheduled Dose
-
-> Request structure:
-
-```json
-{
-  "notifications": [
-    {
-      "moment_to_send": String Timestamp (Formated in ISO 8601),
-      "sent_at": String Timestamp (Formated in ISO 8601),
-      "message": String
-    },
-  ]
-}
-```
-
-> Response structure:
-
-```json
-{
-  "notifications": [
-    {
-      "id": Integer,
-      "moment_to_send": String Timestamp (Formated in ISO 8601),
-      "sent_at": String Timestamp (Formated in ISO 8601),
-      "message": String
-      "links": {
-        "notification_policy": [ID]
-      }
-    },
-  ],
-  "meta": {
-    "API": {
-      "version": "1.4.0"
-    }
-  }
-}
-```
-
-This endpoint updates a specific notification belonging to the given prescription and scheduled dose.
-
-### HTTP Request
-
-`PUT https://api.mevia.com/v1/prescriptions/:prescription_id/scheduled_doses/:scheduled_dose_id/notifications/:id`
-
-### Query Parameters
-Parameter         | Format        | Description
----------         | -------       | -----------
-prescription_id   | Integer       | ID of the prescription
-scheduled_dose_id | Integer       | ID of the scheduled dose
-id                | id            | ID of the notification to update
-
-## Delete a notification from a Prescription
-
-> Response structure:
-
-```json
-{
-  "notifications": [
-    {
-      "id": Integer,
-      "moment_to_send": String Timestamp (Formated in ISO 8601),
-      "sent_at": String Timestamp (Formated in ISO 8601),
-      "message": String
-      "links": {
-        "notification_policy": [ID]
-      }
-    },
-  ],
-  "meta": {
-    "API": {
-      "version": "1.4.0"
-    }
-  }
-}
-```
-
-This endpoint deletes specific notifications belonging to the given prescription.
-
-### HTTP Request
-
-`DELETE https://api.mevia.com/v1/prescriptions/:prescription_id/notifications/:id`
-
-### Query Parameters
-Parameter       | Format        | Description
----------       | -------       | -----------
-prescription_id | Integer       | ID of the prescription
-id              | id1, id2, id3 | IDs of the notifications to delete
+Parameter | Format  | Description
+--------- | ------- | -----------
+ID        | Integer | ID of the notification to delete

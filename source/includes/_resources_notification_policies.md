@@ -3,7 +3,7 @@ These methods are used handle Notification Policies, used for generating a notif
 
 ## Get all notification policies
 
-> Response structure: (To see all available notification types, please look at that section of this documentation.)
+> Response structure: (To see all available notification types, please look at <a href='/#notification-types'>that</a> section of this documentation.)
 
 ```json
 {
@@ -13,10 +13,9 @@ These methods are used handle Notification Policies, used for generating a notif
       "notification_type": String,
       "message": String,
       "minutes": Integer,
-      "links": {
-        "notifications": [id1, id2, id3...],
-        "recipients": [id1, id2, id3...]
-      }
+      "audio_src": String,
+      "voice_notification": Boolean,
+      "prescription_id": Integer
     }
   ],
   "meta": {
@@ -38,22 +37,21 @@ Parameter       | Format        | Description
 ---------       | -------       | -----------
 prescription_id | Integer       | ID of the prescription
 
-## Get specific notification policies
+## Get a specific notification policy
 
-> Response structure: (To see all available notification types, please look at that section of this documentation.)
+> Response structure: (To see all available notification types, please look at <a href='/#notification-types'>that</a> section of this documentation.)
 
 ```json
 {
-  "notification_policies": [
+  "notification_policy": [
     {
       "id": Integer,
       "notification_type": String,
       "message": String,
       "minutes": Integer,
-      "links": {
-        "notifications": [id1, id2, id3...],
-        "recipients": [id1, id2, id3...]
-      }
+      "audio_src": String,
+      "voice_notification": Boolean,
+      "prescription_id": Integer
     }
   ],
   "meta": {
@@ -68,17 +66,16 @@ This endpoint retrieves specific notification policies belonging to the given pr
 
 ### HTTP Request
 
-`GET https://api.mevia.com/v1/prescriptions/:prescription_id/notification_policies/:id`
+`GET https://api.mevia.com/v1/notification_policies/:id`
 
 ### Query Parameters
-Parameter       | Format        | Description
----------       | -------       | -----------
-prescription_id | Integer       | ID of the prescription
-id              | ID1, ID2, ID3 | IDs of the notification policies to fetch
+Parameter | Format  | Description
+--------- | ------- | -----------
+id        | Integer | ID of the notification policy to fetch
 
 ## Create a Notification Policy
 
-> Request structure: (To see all available notification types, please look at that section of this documentation.)
+> Request structure: (To see all available notification types, please look at <a href='/#notification-types'>that</a> section of this documentation.)
 
 ```json
 {
@@ -87,27 +84,26 @@ id              | ID1, ID2, ID3 | IDs of the notification policies to fetch
       "notification_type": String,
       "message": String,
       "minutes": Integer,
+      "audio_src": String,
+      "voice_notification": Boolean
     }
   ]
 }
 ```
 
-> Response structure: (To see all available notification types, please look at that section of this documentation.)
+> Response structure: (To see all available notification types, please look at <a href='/#notification-types'>that</a> section of this documentation.)
 
 ```json
 {
-  "notification_policies": [
-    {
-      "id": Integer,
-      "notification_type": String,
-      "message": String,
-      "minutes": Integer,
-      "links": {
-        "notifications": [id1, id2, id3...],
-        "recipients": [id1, id2, id3...]
-      }
-    }
-  ],
+  "notification_policy": {
+    "id": Integer,
+    "notification_type": String,
+    "message": String,
+    "minutes": Integer,
+    "audio_src": String,
+    "voice_notification": Boolean,
+    "prescription_id": Integer
+  },
   "meta": {
     "API": {
       "version": "1.4.0"
@@ -116,16 +112,16 @@ id              | ID1, ID2, ID3 | IDs of the notification policies to fetch
 }
 ```
 
-This endpoint creates a notification policy to the given prescription.
+This endpoint creates a notification policy under the specified prescription.
 
 ### HTTP Request
 
-`POST https://api.mevia.com/v1/prescriptions/:prescription_id/notification_policies/`
+`POST https://api.mevia.com/v1/prescriptions/:prescription_id/notification_policies`
 
 ### Query Parameters
-Parameter       | Format        | Description
----------       | -------       | -----------
-prescription_id | Integer       | ID of the prescription
+Parameter       | Format  | Description
+---------       | ------- | -----------
+prescription_id | Integer | ID of the prescription
 
 ## Update a Notification Policy
 
@@ -138,27 +134,26 @@ prescription_id | Integer       | ID of the prescription
       "notification_type": String,
       "message": String,
       "minutes": Integer,
+      "audio_src": String,
+      "voice_notification": Boolean
     }
   ]
 }
 ```
 
-> Response structure: (To see all available notification types, please look at that section of this documentation.)
+> Response structure: (To see all available notification types, please look at <a href='/#notification-types'>that</a> section of this documentation.)
 
 ```json
 {
-  "notification_policies": [
-    {
-      "id": Integer,
-      "notification_type": String,
-      "message": String,
-      "minutes": Integer,
-      "links": {
-        "notifications": [id1, id2, id3...],
-        "recipients": [id1, id2, id3...]
-      }
-    }
-  ],
+  "notification_policy": {
+    "id": Integer,
+    "notification_type": String,
+    "message": String,
+    "minutes": Integer,
+    "audio_src": String,
+    "voice_notification": Boolean,
+    "prescription_id": Integer
+  },
   "meta": {
     "API": {
       "version": "1.4.0"
@@ -167,36 +162,32 @@ prescription_id | Integer       | ID of the prescription
 }
 ```
 
-This endpoint updates a notification policy belonging to the given prescription.
+Update a single notification policy
 
 ### HTTP Request
 
-`PUT https://api.mevia.com/v1/prescriptions/:prescription_id/notification_policies/:id`
+`PUT https://api.mevia.com/v1/notification_policies/:id`
 
 ### Query Parameters
 Parameter       | Format        | Description
 ---------       | -------       | -----------
-prescription_id | Integer       | ID of the prescription
 id              | Integer       | ID of the notification policy to update
 
 ## Delete a Notification Policy
 
-> Response structure: (To see all available notification types, please look at that section of this documentation.)
+> Response structure: (To see all available notification types, please look at <a href='/#notification-types'>that</a> section of this documentation.)
 
 ```json
 {
-  "notification_policies": [
-    {
-      "id": Integer,
-      "notification_type": String,
-      "message": String,
-      "minutes": Integer,
-      "links": {
-        "notifications": [id1, id2, id3...],
-        "recipients": [id1, id2, id3...]
-      }
-    }
-  ],
+  "notification_policy": {
+    "id": Integer,
+    "notification_type": String,
+    "message": String,
+    "minutes": Integer,
+    "audio_src": String,
+    "voice_notification": Boolean,
+    "prescription_id": Integer
+  },
   "meta": {
     "API": {
       "version": "1.4.0"
@@ -209,10 +200,9 @@ This endpoint deletes a notification policy belonging to the given prescription.
 
 ### HTTP Request
 
-`DELETE https://api.mevia.com/v1/prescriptions/:prescription_id/notification_policies/:id`
+`DELETE https://api.mevia.com/v1/notification_policies/:id`
 
 ### Query Parameters
-Parameter       | Format        | Description
----------       | -------       | -----------
-prescription_id | Integer       | ID of the prescription
-id              | Integer       | ID of the notification policy to delete
+Parameter | Format  | Description
+--------- | ------- | -----------
+id        | Integer | ID of the notification policy to delete

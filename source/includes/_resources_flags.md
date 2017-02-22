@@ -1,5 +1,5 @@
 # Flags
-The following resources are used to fetch flags. Flags are created automatically in response to various events occurring in the system. In order to register as a listener to a certain flag, users should use flag policies, described separatly in this document. To find what flags exists currently, please read the flag_types section of this documentation.
+The following resources are used to fetch flags. Flags are created automatically in response to various events occurring in the system. In order to register as a listener to a certain flag, users should use <a href='#flag-policies'>flag policies</a>. To find what flags exists currently, please read the <a href='/#flag-types'>flag types</a> section of this documentation.
 
 ## Get all flags
 
@@ -19,12 +19,17 @@ The following resources are used to fetch flags. Flags are created automatically
   "meta": {
     "API": {
       "version": String
+    },
+    "paging": {
+      "limit": Integer,
+      "offset": Integer,
+      "count": Integer
     }
   }
 }
 ```
 
-This endpoint retrieves all flags for the specified prescription.
+This endpoint retrieves all flags filtered by flag type, with both offset and limit
 
 ### HTTP Request
 
@@ -36,7 +41,6 @@ Parameter        | Format         | Description
 offset           | Integer        | Number of flags to offset with. Used for pagination
 limit            | Integer        | Maximum number of flags to fetch.
 having_flag_type | type_1,type_2  | Flag types to fetch
-
 
 ## Get all flags for prescription
 
@@ -71,30 +75,21 @@ This endpoint retrieves all flags for the specified prescription.
 Parameter        | Format        | Description
 ---------        | -------       | -----------
 prescription_id  | Integer       | ID of the prescription
-offset           | Integer       | Number of flags to offset with. Used for pagination
-limit            | Integer       | Maximum number of flags to fetch.
 having_flag_type | type_1,type_2 | Flag types to fetch
 
-
-<aside class="success">
-To find out what flag types are available, please see flag_types section of this documentation
-</aside>
-
-## Get specific flags
+## Get specific flag
 
 > Response structure:
 
 ```json
 {
-  "flags": [
-    {
-      "id": String,
-      "flag_type": String,
-      "severity": Integer,
-      "description": String,
-      "prescription_id": Integer
-    }
-  ],
+  "flag": {
+    "id": String,
+    "flag_type": String,
+    "severity": Integer,
+    "description": String,
+    "prescription_id": Integer
+  },
   "meta": {
     "API": {
       "version": String
@@ -103,21 +98,13 @@ To find out what flag types are available, please see flag_types section of this
 }
 ```
 
-This endpoint retrieves specified flags for the specified prescription.
+This endpoint retrieves a single specified flag.
 
 ### HTTP Request
 
-`GET https://api.mevia.com/v1/prescription/:prescription_id/flags/id`
+`GET https://api.mevia.com/v1/flags/id`
 
 ### Query Parameters
-Parameter        | Format        | Description
----------        | -------       | -----------
-prescription_id  | Integer       | ID of the prescription
-id               | id1, id2, id3 | ids of the flags to fetch
-offset           | Integer       | Number of flags to offset with. Used for pagination
-limit            | Integer       | Maximum number of flags to fetch.
-having_flag_type | type_1,type_2 | Flag types to fetch
-
-<aside class="success">
-To find out what flag types are available, please see flag_types section of this documentation
-</aside>
+Parameter | Format  | Description
+--------- | ------- | -----------
+id        | Integer | ids of the flags to fetch
