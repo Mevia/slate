@@ -14,11 +14,11 @@
   background-color: #272822;
 }
 .highlight .err {
-  color: #151515;
-  background-color: #ac4142;
+  color: #272822;
+  background-color: #f92672;
 }
 .highlight .c, .highlight .cd, .highlight .cm, .highlight .c1, .highlight .cs {
-  color: #505050;
+  color: #75715e;
 }
 .highlight .cp {
   color: #f4bf75;
@@ -27,45 +27,45 @@
   color: #f4bf75;
 }
 .highlight .o, .highlight .ow {
-  color: #d0d0d0;
+  color: #f8f8f2;
 }
 .highlight .p, .highlight .pi {
-  color: #d0d0d0;
+  color: #f8f8f2;
 }
 .highlight .gi {
-  color: #90a959;
+  color: #a6e22e;
 }
 .highlight .gd {
-  color: #ac4142;
+  color: #f92672;
 }
 .highlight .gh {
-  color: #6a9fb5;
-  background-color: #151515;
+  color: #66d9ef;
+  background-color: #272822;
   font-weight: bold;
 }
 .highlight .k, .highlight .kn, .highlight .kp, .highlight .kr, .highlight .kv {
-  color: #aa759f;
+  color: #ae81ff;
 }
 .highlight .kc {
-  color: #d28445;
+  color: #fd971f;
 }
 .highlight .kt {
-  color: #d28445;
+  color: #fd971f;
 }
 .highlight .kd {
-  color: #d28445;
+  color: #fd971f;
 }
 .highlight .s, .highlight .sb, .highlight .sc, .highlight .sd, .highlight .s2, .highlight .sh, .highlight .sx, .highlight .s1 {
-  color: #90a959;
+  color: #a6e22e;
 }
 .highlight .sr {
-  color: #75b5aa;
+  color: #a1efe4;
 }
 .highlight .si {
-  color: #8f5536;
+  color: #cc6633;
 }
 .highlight .se {
-  color: #8f5536;
+  color: #cc6633;
 }
 .highlight .nn {
   color: #f4bf75;
@@ -77,13 +77,13 @@
   color: #f4bf75;
 }
 .highlight .na {
-  color: #6a9fb5;
+  color: #66d9ef;
 }
 .highlight .m, .highlight .mf, .highlight .mh, .highlight .mi, .highlight .il, .highlight .mo, .highlight .mb, .highlight .mx {
-  color: #90a959;
+  color: #a6e22e;
 }
 .highlight .ss {
-  color: #90a959;
+  color: #a6e22e;
 }
     </style>
     <link href="stylesheets/screen.css" rel="stylesheet" media="screen" />
@@ -95,11 +95,11 @@
     <a href="#" id="nav-button">
       <span>
         NAV
-        <img src="images/navbar.png" />
+        <img src="images/navbar.png" alt="Navbar" />
       </span>
     </a>
     <div class="tocify-wrapper">
-      <img src="images/logo.png" />
+      <img src="images/logo.png" alt="Logo" />
         <div class="lang-selector">
               <a href="#" data-language-name="json">JSON</a>
         </div>
@@ -126,7 +126,6 @@
 <p>The API aims to take care of all data related to the MIA module itself, which is sending and receiving information from modules. Developers that use the API can, for instance, obtain all events from a module for a given patient, or register a prescription for a patient which then automatically will set reminders and other logic that interacts with the patient&rsquo;s mobile phone. This page contains general information about the API, what models are available and what the latest changes are. Documentation about all available resources can be found at <a href="resources/">the resource page</a></p>
 <pre class="highlight plaintext"><code>https://api.mevia.com/v1/
 </code></pre>
-
 <p>The purpose of this setup is that API users will be able to concentrate on their business logic, henceforth not on how the modules work, which is abstracted away through the API. A benefit of this is also that, if the physical module changes, then there will be no impact on API users due to this abstraction.</p>
 
 <h2 id="authentication-and-security">Authentication and security</h2>
@@ -138,9 +137,8 @@
 <p>All API calls are done via HTTPS requests, which means that all data obtained and retrieved from the API is delivered through an encrypted connection. Moreover, an API key must be sent with each request in order to authorize with the API. The key is used to idenfify which user that is connecting to the API and is initially handed out manually by Mevia.</p>
 
 <p>In order to authorize with the API, the API key must be sent with each request as a request parameter in the request header.</p>
-<pre class="highlight json"><code><span class="err">Authorization:</span><span class="w"> </span><span class="err">Token</span><span class="w"> </span><span class="err">token=</span><span class="s2">"API KEY"</span><span class="w">
+<pre class="highlight json"><code><span class="err">Authorization</span><span class="p">:</span><span class="w"> </span><span class="err">Token</span><span class="w"> </span><span class="err">token=</span><span class="s2">"API KEY"</span><span class="w">
 </span></code></pre>
-
 <blockquote>
 <p>This means that the parameter name is &lsquo;Authorization&rsquo; and the parameter value is &#39;Token token=&ldquo;API KEY&rdquo;&rsquo;.</p>
 </blockquote>
@@ -243,19 +241,18 @@ https://api.mevia.se/v1/:resource and https://api.mevia.se/v2/:resource</p>
 <p>Example JSON when posting (creating) prescription:</p>
 </blockquote>
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
-  </span><span class="nt">"prescriptions"</span><span class="p">:{</span><span class="w">
-    </span><span class="nt">"start_date"</span><span class="p">:</span><span class="s2">"2015-01-01"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"end_date"</span><span class="p">:</span><span class="s2">"2015-03-01"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"pod_sequence"</span><span class="p">:</span><span class="w"> </span><span class="s2">"[1,2,3,4]"</span><span class="w">
+  </span><span class="s2">"prescriptions"</span><span class="p">:{</span><span class="w">
+    </span><span class="s2">"start_date"</span><span class="p">:</span><span class="s2">"2015-01-01"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"end_date"</span><span class="p">:</span><span class="s2">"2015-03-01"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"pod_sequence"</span><span class="p">:</span><span class="w"> </span><span class="s2">"[1,2,3,4]"</span><span class="w">
   </span><span class="p">},</span><span class="w">
-  </span><span class="nt">"linked"</span><span class="p">:{</span><span class="w">
+  </span><span class="s2">"linked"</span><span class="p">:{</span><span class="w">
     </span><span class="err">.</span><span class="w">
     </span><span class="err">.</span><span class="w">
     </span><span class="err">.</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-
 <p>When creating prescriptions, the API user has the option to create scheduled doses according to a package pod sequence. This means that the patient must take their pods according to a specific sequence on the package (tray), which is represented by numbers. The API, as well as the modules, can handle any kind of sequencing pattern.</p>
 
 <h2 id="practical-assumptions-when-using-sequencing">Practical assumptions when using sequencing</h2>
@@ -269,98 +266,69 @@ https://api.mevia.se/v1/:resource and https://api.mevia.se/v2/:resource</p>
 <li>If no sequence is specified for prescriptions and no expected pods are given for scheduled doses, then any pod can be taken at any dose time interval in order to complete them. This is the default behavior.</li>
 </ul>
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
-  </span><span class="nt">"scheduled_doses"</span><span class="p">:[</span><span class="w">
+  </span><span class="s2">"scheduled_doses"</span><span class="p">:[</span><span class="w">
     </span><span class="p">{</span><span class="w">
-      </span><span class="nt">"id"</span><span class="p">:</span><span class="s2">"4744"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"period_starts_at"</span><span class="p">:</span><span class="s2">"2015-03-01T05:00:00.000+00:00"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"period_ends_at"</span><span class="p">:</span><span class="s2">"2015-03-01T12:00:00.000+00:00"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"is_taken"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"completed_at"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"nr_remaining_pods"</span><span class="p">:</span><span class="mi">3</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"expected_pods"</span><span class="p">:[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">],</span><span class="w">
-      </span><span class="nt">"links"</span><span class="p">:{</span><span class="w">
-        </span><span class="nt">"prescription"</span><span class="p">:</span><span class="s2">"210"</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="s2">"4744"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"period_starts_at"</span><span class="p">:</span><span class="s2">"2015-03-01T05:00:00.000+00:00"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"period_ends_at"</span><span class="p">:</span><span class="s2">"2015-03-01T12:00:00.000+00:00"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"is_taken"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"completed_at"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"nr_remaining_pods"</span><span class="p">:</span><span class="mi">3</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"expected_pods"</span><span class="p">:[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">],</span><span class="w">
+      </span><span class="s2">"links"</span><span class="p">:{</span><span class="w">
+        </span><span class="s2">"prescription"</span><span class="p">:</span><span class="s2">"210"</span><span class="w">
       </span><span class="p">}</span><span class="w">
     </span><span class="p">},</span><span class="w">
     </span><span class="p">{</span><span class="w">
-      </span><span class="nt">"id"</span><span class="p">:</span><span class="s2">"4745"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"period_starts_at"</span><span class="p">:</span><span class="s2">"2015-03-01T16:00:00.000+00:00"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"period_ends_at"</span><span class="p">:</span><span class="s2">"2015-03-01T19:00:00.000+00:00"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"is_taken"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"completed_at"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"nr_remaining_pods"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"expected_pods"</span><span class="p">:[</span><span class="mi">4</span><span class="p">],</span><span class="w">
-      </span><span class="nt">"links"</span><span class="p">:{</span><span class="w">
-        </span><span class="nt">"prescription"</span><span class="p">:</span><span class="s2">"210"</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="s2">"4745"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"period_starts_at"</span><span class="p">:</span><span class="s2">"2015-03-01T16:00:00.000+00:00"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"period_ends_at"</span><span class="p">:</span><span class="s2">"2015-03-01T19:00:00.000+00:00"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"is_taken"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"completed_at"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"nr_remaining_pods"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"expected_pods"</span><span class="p">:[</span><span class="mi">4</span><span class="p">],</span><span class="w">
+      </span><span class="s2">"links"</span><span class="p">:{</span><span class="w">
+        </span><span class="s2">"prescription"</span><span class="p">:</span><span class="s2">"210"</span><span class="w">
       </span><span class="p">}</span><span class="w">
     </span><span class="p">},</span><span class="w">
     </span><span class="p">{</span><span class="w">
-      </span><span class="nt">"id"</span><span class="p">:</span><span class="s2">"4746"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"period_starts_at"</span><span class="p">:</span><span class="s2">"2015-03-01T20:00:00.000+00:00"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"period_ends_at"</span><span class="p">:</span><span class="s2">"2015-03-01T22:00:00.000+00:00"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"is_taken"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"completed_at"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"nr_remaining_pods"</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"expected_pods"</span><span class="p">:[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">],</span><span class="w">
-      </span><span class="nt">"links"</span><span class="p">:{</span><span class="w">
-        </span><span class="nt">"prescription"</span><span class="p">:</span><span class="s2">"210"</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="s2">"4746"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"period_starts_at"</span><span class="p">:</span><span class="s2">"2015-03-01T20:00:00.000+00:00"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"period_ends_at"</span><span class="p">:</span><span class="s2">"2015-03-01T22:00:00.000+00:00"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"is_taken"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"completed_at"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"nr_remaining_pods"</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"expected_pods"</span><span class="p">:[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">],</span><span class="w">
+      </span><span class="s2">"links"</span><span class="p">:{</span><span class="w">
+        </span><span class="s2">"prescription"</span><span class="p">:</span><span class="s2">"210"</span><span class="w">
       </span><span class="p">}</span><span class="w">
     </span><span class="p">}</span><span class="w">
   </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-
           <h1 id="releases">Releases</h1>
 
-<h2 id="development-1-7-0">Development - 1.7.0</h2>
+<h2 id="development-1-9-0">Development - 1.9.0</h2>
 
-<h3 id="notification-muting-for-non-sequence-scheduled-doses">Notification muting for non-sequence scheduled doses</h3>
+<h2 id="staging-1-8-0">Staging - 1.8.0</h2>
 
-<p>If a pill is taken between the a missed dose interval and its notification, that notification will now be muted.</p>
+<h2 id="production-1-8-0">Production - 1.8.0</h2>
 
-<h3 id="ability-to-filter-prescriptions-by-active-status">Ability to filter prescriptions by active status</h3>
+<h3 id="shallow-scopes">Shallow scopes</h3>
 
-<p>Prescriptions can now be filtered by active. An active prescription is one that is within its module_activity interval</p>
+<p>All resources under v1/ are now as shallow as at all possible. Scoping is only required for POST and GET(index).</p>
 
-<h2 id="staging-1-6-0">Staging - 1.6.0</h2>
+<h3 id="singular-plural-naming">Singular/plural naming</h3>
 
-<h2 id="production-1-6-0">Production - 1.6.0</h2>
+<p>Resources fetched using SHOW, POST, PUT or DELETE will now use singular naming.</p>
 
-<h3 id="datetimes-to-prescriptions">Datetimes to prescriptions</h3>
+<h3 id="common-filters">Common filters</h3>
 
-<p>Prescriptions now have two new fields - starts_at and ends_at, both beeing datetimes. The old variables start_date and end_date are still available. Setting start_date=2015-05-05 will behave exactly like setting starts_at=2015-05-05 00:00:00, and setting end_date=2015-05-05 will behave exactly like setting ends_at=2015-05-05 23:59:59. Internally, this is exactly what happens as well.</p>
-
-<h3 id="soft-deletes-of-prescriptions">Soft deletes of prescriptions</h3>
-
-<p>Prescriptions deleted will still be stored in the Mevia Database. Resources deleted by the delete-call will be saved as well. As of now, to restore any data, contact Mevia.</p>
-
-<h3 id="offsets">Offsets</h3>
-
-<p>Any call to Mapi fetching more than one resource can now be offset by setting the offset parameter in the call.</p>
-
-<h3 id="limits">Limits</h3>
-
-<p>Any call to Mapi fetching more than one resource can now be limited by setting the limit parameter in the call.</p>
-
-<h3 id="filters-added">Filters added</h3>
-
-<p>Resources with internal dates can now be filtered using date_from and date_to (can be dates or datetimes)</p>
-
-<h3 id="orders">Orders</h3>
-
-<p>Resources fetched through Mapi can be now ordered by any available attribute.</p>
-
-<h3 id="restful-doses">RESTful doses</h3>
-
-<p>Doses can now be created without using a dose schema. Doses can be batch-created by sending a array of doses rather than a single resource. WARNING: Using both a dose schema and individual doses is not recommended when using expected pods.</p>
-
-<h3 id="mia-modules-are-now-independant-from-prescriptions">Mia Modules are now independant from Prescriptions</h3>
-
-<p>Mia Modules no longer need a link to a prescription. Having a module that does not rely on a single prescription allows for fetching all events sent by a given module, as well as updating parameters of a module without having to redo the update every time the module changes user. This update contains a few new available resources under mia_modules.</p>
-
-<h3 id="ability-to-39-sign-in-39-to-user-using-name-and-password">Ability to &lsquo;sign in&rsquo; to user using name and password</h3>
-
-<p>A new resource is available under api_user: login. The route simply returns the specified (by name) api_user together with all linked api_keys. This allows for fetching api_keys programmatically. By default, a user has no password, and can not use this feature. In order to set a password on a given user, contact us at Mevia.</p>
+<p>All index calls now share some common filters. Available (for all index routes) filters are:
+* sort_by
+* direction
+* offset
+* limit</p>
 
       </div>
       <div class="dark-box">
