@@ -8,11 +8,6 @@
     "start_date":"2015-01-01",
     "end_date":"2015-03-01",
     "pod_sequence": "[1,2,3,4]"
-  },
-  "linked":{
-    .
-    .
-    .
   }
 }
 ```
@@ -36,10 +31,7 @@ When creating prescriptions, the API user has the option to create scheduled dos
       "is_taken":false,
       "completed_at":null,
       "nr_remaining_pods":3,
-      "expected_pods":[1,2,3],
-      "links":{
-        "prescription":"210"
-      }
+      "expected_pods":[1,2,3]
     },
     {
       "id":"4745",
@@ -48,10 +40,7 @@ When creating prescriptions, the API user has the option to create scheduled dos
       "is_taken":false,
       "completed_at":null,
       "nr_remaining_pods":1,
-      "expected_pods":[4],
-      "links":{
-        "prescription":"210"
-      }
+      "expected_pods":[4]
     },
     {
       "id":"4746",
@@ -60,10 +49,7 @@ When creating prescriptions, the API user has the option to create scheduled dos
       "is_taken":false,
       "completed_at":null,
       "nr_remaining_pods":2,
-      "expected_pods":[1,2],
-      "links":{
-        "prescription":"210"
-      }
+      "expected_pods":[1,2]
     }
   ]
 }
