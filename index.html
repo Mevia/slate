@@ -6,86 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <title>Mevia REST API</title>
 
-    <style>
-      .highlight table td { padding: 5px; }
-.highlight table pre { margin: 0; }
-.highlight, .highlight .w {
-  color: #f8f8f2;
-  background-color: #272822;
-}
-.highlight .err {
-  color: #272822;
-  background-color: #f92672;
-}
-.highlight .c, .highlight .cd, .highlight .cm, .highlight .c1, .highlight .cs {
-  color: #75715e;
-}
-.highlight .cp {
-  color: #f4bf75;
-}
-.highlight .nt {
-  color: #f4bf75;
-}
-.highlight .o, .highlight .ow {
-  color: #f8f8f2;
-}
-.highlight .p, .highlight .pi {
-  color: #f8f8f2;
-}
-.highlight .gi {
-  color: #a6e22e;
-}
-.highlight .gd {
-  color: #f92672;
-}
-.highlight .gh {
-  color: #66d9ef;
-  background-color: #272822;
-  font-weight: bold;
-}
-.highlight .k, .highlight .kn, .highlight .kp, .highlight .kr, .highlight .kv {
-  color: #ae81ff;
-}
-.highlight .kc {
-  color: #fd971f;
-}
-.highlight .kt {
-  color: #fd971f;
-}
-.highlight .kd {
-  color: #fd971f;
-}
-.highlight .s, .highlight .sb, .highlight .sc, .highlight .sd, .highlight .s2, .highlight .sh, .highlight .sx, .highlight .s1 {
-  color: #a6e22e;
-}
-.highlight .sr {
-  color: #a1efe4;
-}
-.highlight .si {
-  color: #cc6633;
-}
-.highlight .se {
-  color: #cc6633;
-}
-.highlight .nn {
-  color: #f4bf75;
-}
-.highlight .nc {
-  color: #f4bf75;
-}
-.highlight .no {
-  color: #f4bf75;
-}
-.highlight .na {
-  color: #66d9ef;
-}
-.highlight .m, .highlight .mf, .highlight .mh, .highlight .mi, .highlight .il, .highlight .mo, .highlight .mb, .highlight .mx {
-  color: #a6e22e;
-}
-.highlight .ss {
-  color: #a6e22e;
-}
-    </style>
     <link href="stylesheets/screen.css" rel="stylesheet" media="screen" />
     <link href="stylesheets/print.css" rel="stylesheet" media="print" />
       <script src="javascripts/all.js"></script>
@@ -119,29 +39,21 @@
       <div class="content">
         <h1 id="overview">Overview</h1>
 
-<blockquote>
-<p>Api Endpoint</p>
-</blockquote>
-
 <p>The API aims to take care of all data related to the MIA module itself, which is sending and receiving information from modules. Developers that use the API can, for instance, obtain all events from a module for a given patient, or register a prescription for a patient which then automatically will set reminders and other logic that interacts with the patient&rsquo;s mobile phone. This page contains general information about the API, what models are available and what the latest changes are. Documentation about all available resources can be found at <a href="resources/">the resource page</a></p>
-<pre class="highlight plaintext"><code>https://api.mevia.com/v1/
-</code></pre>
+
 <p>The purpose of this setup is that API users will be able to concentrate on their business logic, henceforth not on how the modules work, which is abstracted away through the API. A benefit of this is also that, if the physical module changes, then there will be no impact on API users due to this abstraction.</p>
 
-<h2 id="authentication-and-security">Authentication and security</h2>
+<p>The api is available under <span class="red-text">https://api.mevia.se</span>. Most resources are currently scoped under /v1/.</p>
 
-<blockquote>
-<p>Example of how header should look:</p>
-</blockquote>
+<h2 id="authentication-and-security">Authentication and security</h2>
 
 <p>All API calls are done via HTTPS requests, which means that all data obtained and retrieved from the API is delivered through an encrypted connection. Moreover, an API key must be sent with each request in order to authorize with the API. The key is used to idenfify which user that is connecting to the API and is initially handed out manually by Mevia.</p>
 
 <p>In order to authorize with the API, the API key must be sent with each request as a request parameter in the request header.</p>
-<pre class="highlight json"><code><span class="err">Authorization</span><span class="p">:</span><span class="w"> </span><span class="err">Token</span><span class="w"> </span><span class="err">token=</span><span class="s2">"API KEY"</span><span class="w">
-</span></code></pre>
-<blockquote>
-<p>This means that the parameter name is &lsquo;Authorization&rsquo; and the parameter value is &#39;Token token=&ldquo;API KEY&rdquo;&rsquo;.</p>
-</blockquote>
+
+<p>The api key should be specified in the header of every request, in the following fashion:</p>
+
+<p><span class="red-text">Authorization: Token token=&ldquo;API KEY&rdquo;</span></p>
 
 <h2 id="versioning">Versioning</h2>
 
@@ -245,11 +157,6 @@ https://api.mevia.se/v1/:resource and https://api.mevia.se/v2/:resource</p>
     </span><span class="s2">"start_date"</span><span class="p">:</span><span class="s2">"2015-01-01"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"end_date"</span><span class="p">:</span><span class="s2">"2015-03-01"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"pod_sequence"</span><span class="p">:</span><span class="w"> </span><span class="s2">"[1,2,3,4]"</span><span class="w">
-  </span><span class="p">},</span><span class="w">
-  </span><span class="s2">"linked"</span><span class="p">:{</span><span class="w">
-    </span><span class="err">.</span><span class="w">
-    </span><span class="err">.</span><span class="w">
-    </span><span class="err">.</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
@@ -274,10 +181,7 @@ https://api.mevia.se/v1/:resource and https://api.mevia.se/v2/:resource</p>
       </span><span class="s2">"is_taken"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
       </span><span class="s2">"completed_at"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
       </span><span class="s2">"nr_remaining_pods"</span><span class="p">:</span><span class="mi">3</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"expected_pods"</span><span class="p">:[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">],</span><span class="w">
-      </span><span class="s2">"links"</span><span class="p">:{</span><span class="w">
-        </span><span class="s2">"prescription"</span><span class="p">:</span><span class="s2">"210"</span><span class="w">
-      </span><span class="p">}</span><span class="w">
+      </span><span class="s2">"expected_pods"</span><span class="p">:[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">]</span><span class="w">
     </span><span class="p">},</span><span class="w">
     </span><span class="p">{</span><span class="w">
       </span><span class="s2">"id"</span><span class="p">:</span><span class="s2">"4745"</span><span class="p">,</span><span class="w">
@@ -286,10 +190,7 @@ https://api.mevia.se/v1/:resource and https://api.mevia.se/v2/:resource</p>
       </span><span class="s2">"is_taken"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
       </span><span class="s2">"completed_at"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
       </span><span class="s2">"nr_remaining_pods"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"expected_pods"</span><span class="p">:[</span><span class="mi">4</span><span class="p">],</span><span class="w">
-      </span><span class="s2">"links"</span><span class="p">:{</span><span class="w">
-        </span><span class="s2">"prescription"</span><span class="p">:</span><span class="s2">"210"</span><span class="w">
-      </span><span class="p">}</span><span class="w">
+      </span><span class="s2">"expected_pods"</span><span class="p">:[</span><span class="mi">4</span><span class="p">]</span><span class="w">
     </span><span class="p">},</span><span class="w">
     </span><span class="p">{</span><span class="w">
       </span><span class="s2">"id"</span><span class="p">:</span><span class="s2">"4746"</span><span class="p">,</span><span class="w">
@@ -298,10 +199,7 @@ https://api.mevia.se/v1/:resource and https://api.mevia.se/v2/:resource</p>
       </span><span class="s2">"is_taken"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
       </span><span class="s2">"completed_at"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
       </span><span class="s2">"nr_remaining_pods"</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"expected_pods"</span><span class="p">:[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">],</span><span class="w">
-      </span><span class="s2">"links"</span><span class="p">:{</span><span class="w">
-        </span><span class="s2">"prescription"</span><span class="p">:</span><span class="s2">"210"</span><span class="w">
-      </span><span class="p">}</span><span class="w">
+      </span><span class="s2">"expected_pods"</span><span class="p">:[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">]</span><span class="w">
     </span><span class="p">}</span><span class="w">
   </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
