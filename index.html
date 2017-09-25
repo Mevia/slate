@@ -1,3 +1,4 @@
+
 <!doctype html>
 <html>
   <head>
@@ -6,6 +7,195 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <title>Mevia REST API</title>
 
+    <style>
+      .highlight table td { padding: 5px; }
+.highlight table pre { margin: 0; }
+.highlight .gh {
+  color: #999999;
+}
+.highlight .sr {
+  color: #f6aa11;
+}
+.highlight .go {
+  color: #888888;
+}
+.highlight .gp {
+  color: #555555;
+}
+.highlight .gs {
+}
+.highlight .gu {
+  color: #aaaaaa;
+}
+.highlight .nb {
+  color: #f6aa11;
+}
+.highlight .cm {
+  color: #75715e;
+}
+.highlight .cp {
+  color: #75715e;
+}
+.highlight .c1 {
+  color: #75715e;
+}
+.highlight .cs {
+  color: #75715e;
+}
+.highlight .c, .highlight .cd {
+  color: #75715e;
+}
+.highlight .err {
+  color: #960050;
+}
+.highlight .gr {
+  color: #960050;
+}
+.highlight .gt {
+  color: #960050;
+}
+.highlight .gd {
+  color: #49483e;
+}
+.highlight .gi {
+  color: #49483e;
+}
+.highlight .ge {
+  color: #49483e;
+}
+.highlight .kc {
+  color: #66d9ef;
+}
+.highlight .kd {
+  color: #66d9ef;
+}
+.highlight .kr {
+  color: #66d9ef;
+}
+.highlight .no {
+  color: #66d9ef;
+}
+.highlight .kt {
+  color: #66d9ef;
+}
+.highlight .mf {
+  color: #ae81ff;
+}
+.highlight .mh {
+  color: #ae81ff;
+}
+.highlight .il {
+  color: #ae81ff;
+}
+.highlight .mi {
+  color: #ae81ff;
+}
+.highlight .mo {
+  color: #ae81ff;
+}
+.highlight .m, .highlight .mb, .highlight .mx {
+  color: #ae81ff;
+}
+.highlight .sc {
+  color: #ae81ff;
+}
+.highlight .se {
+  color: #ae81ff;
+}
+.highlight .ss {
+  color: #ae81ff;
+}
+.highlight .sd {
+  color: #e6db74;
+}
+.highlight .s2 {
+  color: #e6db74;
+}
+.highlight .sb {
+  color: #e6db74;
+}
+.highlight .sh {
+  color: #e6db74;
+}
+.highlight .si {
+  color: #e6db74;
+}
+.highlight .sx {
+  color: #e6db74;
+}
+.highlight .s1 {
+  color: #e6db74;
+}
+.highlight .s {
+  color: #e6db74;
+}
+.highlight .na {
+  color: #a6e22e;
+}
+.highlight .nc {
+  color: #a6e22e;
+}
+.highlight .nd {
+  color: #a6e22e;
+}
+.highlight .ne {
+  color: #a6e22e;
+}
+.highlight .nf {
+  color: #a6e22e;
+}
+.highlight .vc {
+  color: #ffffff;
+}
+.highlight .nn {
+  color: #ffffff;
+}
+.highlight .nl {
+  color: #ffffff;
+}
+.highlight .ni {
+  color: #ffffff;
+}
+.highlight .bp {
+  color: #ffffff;
+}
+.highlight .vg {
+  color: #ffffff;
+}
+.highlight .vi {
+  color: #ffffff;
+}
+.highlight .nv {
+  color: #ffffff;
+}
+.highlight .w {
+  color: #ffffff;
+}
+.highlight {
+  color: #ffffff;
+}
+.highlight .n, .highlight .py, .highlight .nx {
+  color: #ffffff;
+}
+.highlight .ow {
+  color: #f92672;
+}
+.highlight .nt {
+  color: #f92672;
+}
+.highlight .k, .highlight .kv {
+  color: #f92672;
+}
+.highlight .kn {
+  color: #f92672;
+}
+.highlight .kp {
+  color: #f92672;
+}
+.highlight .o {
+  color: #f92672;
+}
+    </style>
     <link href="stylesheets/screen.css" rel="stylesheet" media="screen" />
     <link href="stylesheets/print.css" rel="stylesheet" media="print" />
       <script src="javascripts/all.js"></script>
@@ -18,8 +208,8 @@
         <img src="images/navbar.png" alt="Navbar" />
       </span>
     </a>
-    <div class="tocify-wrapper">
-      <img src="images/logo.png" alt="Logo" />
+    <div class="toc-wrapper">
+      <img src="images/logo.png" class="logo" alt="Logo" />
         <div class="lang-selector">
               <a href="#" data-language-name="json">JSON</a>
         </div>
@@ -27,7 +217,46 @@
           <input type="text" class="search" id="input-search" placeholder="Search">
         </div>
         <ul class="search-results"></ul>
-      <div id="toc">
+      <div id="toc" class="toc-list-h1">
+          <li>
+            <a href="#overview" class="toc-h1 toc-link" data-title="Overview">Overview</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#authentication-and-security" class="toc-h2 toc-link" data-title="Overview">Authentication and security</a>
+                  </li>
+                  <li>
+                    <a href="#versioning" class="toc-h2 toc-link" data-title="Overview">Versioning</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#flag-types" class="toc-h1 toc-link" data-title="Flag types">Flag types</a>
+          </li>
+          <li>
+            <a href="#notification-types" class="toc-h1 toc-link" data-title="Notification Types">Notification Types</a>
+          </li>
+          <li>
+            <a href="#sequencing" class="toc-h1 toc-link" data-title="Sequencing">Sequencing</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#practical-assumptions-when-using-sequencing" class="toc-h2 toc-link" data-title="Sequencing">Practical assumptions when using sequencing</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#releases" class="toc-h1 toc-link" data-title="Releases">Releases</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#development-1-9-0" class="toc-h2 toc-link" data-title="Releases">Development - 1.9.0</a>
+                  </li>
+                  <li>
+                    <a href="#staging-1-8-0" class="toc-h2 toc-link" data-title="Releases">Staging - 1.8.0</a>
+                  </li>
+                  <li>
+                    <a href="#production-1-8-0" class="toc-h2 toc-link" data-title="Releases">Production - 1.8.0</a>
+                  </li>
+              </ul>
+          </li>
       </div>
         <ul class="toc-footer">
             <li><a href='http://www.mevia.se'>Mevia</a></li>
@@ -37,45 +266,32 @@
     <div class="page-wrapper">
       <div class="dark-box"></div>
       <div class="content">
-        <h1 id="overview">Overview</h1>
-
-<p>The API aims to take care of all data related to the MIA module itself, which is sending and receiving information from modules. Developers that use the API can, for instance, obtain all events from a module for a given patient, or register a prescription for a patient which then automatically will set reminders and other logic that interacts with the patient&rsquo;s mobile phone. This page contains general information about the API, what models are available and what the latest changes are. Documentation about all available resources can be found at <a href="resources/">the resource page</a></p>
+        <h1 id='overview'>Overview</h1>
+<p>The API aims to take care of all data related to the MIA module itself, which is sending and receiving information from modules. Developers that use the API can, for instance, obtain all events from a module for a given patient, or register a prescription for a patient which then automatically will set reminders and other logic that interacts with the patient&#39;s mobile phone. This page contains general information about the API, what models are available and what the latest changes are. Documentation about all available resources can be found at <a href="resources/">the resource page</a></p>
 
 <p>The purpose of this setup is that API users will be able to concentrate on their business logic, henceforth not on how the modules work, which is abstracted away through the API. A benefit of this is also that, if the physical module changes, then there will be no impact on API users due to this abstraction.</p>
 
 <p>The api is available under <span class="red-text">https://api.mevia.se</span>. Most resources are currently scoped under /v1/.</p>
-
-<h2 id="authentication-and-security">Authentication and security</h2>
-
+<h2 id='authentication-and-security'>Authentication and security</h2>
 <p>All API calls are done via HTTPS requests, which means that all data obtained and retrieved from the API is delivered through an encrypted connection. Moreover, an API key must be sent with each request in order to authorize with the API. The key is used to idenfify which user that is connecting to the API and is initially handed out manually by Mevia.</p>
 
 <p>In order to authorize with the API, the API key must be sent with each request as a request parameter in the request header.</p>
 
 <p>The api key should be specified in the header of every request, in the following fashion:</p>
 
-<p><span class="red-text">Authorization: Token token=&ldquo;API KEY&rdquo;</span></p>
-
-<h2 id="versioning">Versioning</h2>
-
-<h3 id="major-versions-x-y-z">Major Versions(<span class="red-text">x</span>.y.z)</h3>
-
+<p><span class="red-text">Authorization: Token token=&quot;API KEY&quot;</span></p>
+<h2 id='versioning'>Versioning</h2><h3 id='major-versions-span-class-red-text-x-span-y-z'>Major Versions(<span class="red-text">x</span>.y.z)</h3>
 <p>The major versions will be seperated through API url namespaces, e.g.
 https://api.mevia.se/v1/:resource and https://api.mevia.se/v2/:resource</p>
 
 <p>Each major version will be supported as long as API users make use of it.</p>
-
-<h3 id="minor-versions-x-y-z">Minor Versions(x.<span class="red-text">y</span>.z)</h3>
-
+<h3 id='minor-versions-x-span-class-red-text-y-span-z'>Minor Versions(x.<span class="red-text">y</span>.z)</h3>
 <p>Includes new requirements, improvements and changes that does not affect API users and their interface with the resources they use. The API might add functionality, but does not change or remove existing API resources.</p>
 
-<p>If an API resource is going to change or be removed, it will be marked as &ldquo;depricated&rdquo; long enough for API users to adapt, not breaking any functionality during the transition period for API users.</p>
-
-<h3 id="bug-fixes-x-y-z">Bug Fixes(x.y.<span class="red-text">z</span>)</h3>
-
-<p>Includes bug fixes that doesn&rsquo;t change or functionality to the API, only fix behaviour so it works as expected to.</p>
-
-          <h1 id="flag-types">Flag types</h1>
-
+<p>If an API resource is going to change or be removed, it will be marked as &quot;depricated&quot; long enough for API users to adapt, not breaking any functionality during the transition period for API users.</p>
+<h3 id='bug-fixes-x-y-span-class-red-text-z-span'>Bug Fixes(x.y.<span class="red-text">z</span>)</h3>
+<p>Includes bug fixes that doesn&#39;t change or functionality to the API, only fix behaviour so it works as expected to.</p>
+<h1 id='flag-types'>Flag types</h1>
 <p>This is a list of all flags that currently exists in the system. Flags are simply events occuring in the system that users can chose to be notified about.</p>
 
 <table><thead>
@@ -116,9 +332,7 @@ https://api.mevia.se/v1/:resource and https://api.mevia.se/v2/:resource</p>
 <td>Whenever a device has failed to communicate for an entire day (24 hours)</td>
 </tr>
 </tbody></table>
-
-          <h1 id="notification-types">Notification Types</h1>
-
+<h1 id='notification-types'>Notification Types</h1>
 <p>This is a list of all existing notifications types. A notification type is set on a notification policy, and is used to know when to create notifications. </p>
 
 <table><thead>
@@ -145,14 +359,12 @@ https://api.mevia.se/v1/:resource and https://api.mevia.se/v2/:resource</p>
 </tr>
 </tbody></table>
 
-<p>Example: A notification policy with notification_type: &lsquo;BEFORE_DOSE_ENDS&rsquo; and minutes: 15, and a scheduled_dose_schema with start_time: &#39;10:00&rsquo; and end_time: &#39;11:00&rsquo; will generate a notification that is scheduled to be sent at 10:45 every day that its prescription is active.</p>
-
-          <h1 id="sequencing">Sequencing</h1>
-
+<p>Example: A notification policy with notification_type: &#39;BEFORE_DOSE_ENDS&#39; and minutes: 15, and a scheduled_dose_schema with start_time: &#39;10:00&#39; and end_time: &#39;11:00&#39; will generate a notification that is scheduled to be sent at 10:45 every day that its prescription is active.</p>
+<h1 id='sequencing'>Sequencing</h1>
 <blockquote>
 <p>Example JSON when posting (creating) prescription:</p>
 </blockquote>
-<pre class="highlight json"><code><span class="p">{</span><span class="w">
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="s2">"prescriptions"</span><span class="p">:{</span><span class="w">
     </span><span class="s2">"start_date"</span><span class="p">:</span><span class="s2">"2015-01-01"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"end_date"</span><span class="p">:</span><span class="s2">"2015-03-01"</span><span class="p">,</span><span class="w">
@@ -161,9 +373,7 @@ https://api.mevia.se/v1/:resource and https://api.mevia.se/v2/:resource</p>
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <p>When creating prescriptions, the API user has the option to create scheduled doses according to a package pod sequence. This means that the patient must take their pods according to a specific sequence on the package (tray), which is represented by numbers. The API, as well as the modules, can handle any kind of sequencing pattern.</p>
-
-<h2 id="practical-assumptions-when-using-sequencing">Practical assumptions when using sequencing</h2>
-
+<h2 id='practical-assumptions-when-using-sequencing'>Practical assumptions when using sequencing</h2>
 <blockquote>
 <p>Example JSON when retrieving schedule dose which is based on the prescription above:</p>
 </blockquote>
@@ -172,7 +382,7 @@ https://api.mevia.se/v1/:resource and https://api.mevia.se/v2/:resource</p>
 <li>When taking wrong pods in a sequence, or missing dose completely, the patient moves on to the next set of pods to take for next dose at the next time slot. This means that pods can be untaken when finishing a tray. This does not affect module dose planning, which is very important e.g. for reused modules with set date intervals.</li>
 <li>If no sequence is specified for prescriptions and no expected pods are given for scheduled doses, then any pod can be taken at any dose time interval in order to complete them. This is the default behavior.</li>
 </ul>
-<pre class="highlight json"><code><span class="p">{</span><span class="w">
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="s2">"scheduled_doses"</span><span class="p">:[</span><span class="w">
     </span><span class="p">{</span><span class="w">
       </span><span class="s2">"id"</span><span class="p">:</span><span class="s2">"4744"</span><span class="p">,</span><span class="w">
@@ -203,25 +413,11 @@ https://api.mevia.se/v1/:resource and https://api.mevia.se/v2/:resource</p>
     </span><span class="p">}</span><span class="w">
   </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre>
-          <h1 id="releases">Releases</h1>
-
-<h2 id="development-1-9-0">Development - 1.9.0</h2>
-
-<h2 id="staging-1-8-0">Staging - 1.8.0</h2>
-
-<h2 id="production-1-8-0">Production - 1.8.0</h2>
-
-<h3 id="shallow-scopes">Shallow scopes</h3>
-
+</span></code></pre><h1 id='releases'>Releases</h1><h2 id='development-1-9-0'>Development - 1.9.0</h2><h2 id='staging-1-8-0'>Staging - 1.8.0</h2><h2 id='production-1-8-0'>Production - 1.8.0</h2><h3 id='shallow-scopes'>Shallow scopes</h3>
 <p>All resources under v1/ are now as shallow as at all possible. Scoping is only required for POST and GET(index).</p>
-
-<h3 id="singular-plural-naming">Singular/plural naming</h3>
-
+<h3 id='singular-plural-naming'>Singular/plural naming</h3>
 <p>Resources fetched using SHOW, POST, PUT or DELETE will now use singular naming.</p>
-
-<h3 id="common-filters">Common filters</h3>
-
+<h3 id='common-filters'>Common filters</h3>
 <p>All index calls now share some common filters. Available (for all index routes) filters are:
 * sort_by
 * direction
