@@ -14,11 +14,7 @@ These methods are used to set and remove recipients. Recipients are simply recei
       "phone": String
     }
   ],
-  "meta": {
-    "API": {
-      "version": "1.4.0"
-    }
-  }
+  "meta": {...}
 }
 ```
 
@@ -41,11 +37,7 @@ This endpoint retrieves all recipients for the specified prescription.
       "phone": String
     }
   ],
-  "meta": {
-    "API": {
-      "version": "1.4.0"
-    }
-  }
+  "meta": {...}
 }
 ```
 
@@ -64,11 +56,7 @@ This endpoint retrieves all recipients for the specified notification policy.
       "phone": String
     }
   ],
-  "meta": {
-    "API": {
-      "version": "1.4.0"
-    }
-  }
+  "meta": {...}
 }
 ```
 
@@ -87,11 +75,7 @@ This endpoint retrieves all recipients for the specified notification.
     "email": String,
     "phone": String
   },
-  "meta": {
-    "API": {
-      "version": "1.4.0"
-    }
-  }
+  "meta": {...}
 }
 ```
 
@@ -126,11 +110,7 @@ Creates a recipient and adds it to the specified notification policy. All notifi
     "email": String,
     "phone": String
   },
-  "meta": {
-    "API": {
-      "version": "1.4.0"
-    }
-  }
+  "meta": {...}
 }
 ```
 
@@ -169,11 +149,7 @@ Creates a recipient and adds it to the specified notification. When the notifica
     "email": String,
     "phone": String
   },
-  "meta": {
-    "API": {
-      "version": "1.4.0"
-    }
-  }
+  "meta": {...}
 }
 ```
 
@@ -203,11 +179,7 @@ Updates a single specified recipient
     "email": String,
     "phone": String,
   },
-  "meta": {
-    "API": {
-      "version": "1.4.0"
-    }
-  }
+  "meta": {...}
 }
 ```
 
@@ -226,10 +198,6 @@ Deletes a single specified recipient
     "email": String,
     "phone": String
   },
-  "meta": {
-    "API": {
-      "version": "1.4.0"
-    }
-  }
+  "meta": {...}
 }
 ```

@@ -14,11 +14,7 @@ The following resources are used to flag policies. A flag policy is used to moni
       "message": String
     }
   ],
-  "meta": {
-    "API": {
-      "version": String
-    }
-  }
+  "meta": {...}
 }
 ```
 
@@ -44,11 +40,7 @@ prescription_id | Integer   | ID of the prescription
     "flag_type": String,
     "message": String
   },
-  "meta": {
-    "API": {
-      "version": String
-    }
-  }
+  "meta": {...}
 }
 ```
 
@@ -98,11 +90,7 @@ id        | id      | id of the flag policy to delete
     "flag_type": String,
     "message": String
   }
-  "meta": {
-    "API": {
-      "version": String
-    }
-  }
+  "meta": {...}
 }
 ```
 
@@ -139,11 +127,7 @@ prescription_id | Integer       | ID of the prescription
     "flag_type": String,
     "message": String
   },
-  "meta": {
-    "API": {
-      "version": String
-    }
-  }
+  "meta": {...}
 }
 ```
 

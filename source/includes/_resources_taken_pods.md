@@ -14,11 +14,7 @@ The following resources are used to fetch taken pods. A taken pod is simply repr
       "taken_at": String Timestamp (Formated in ISO 8601)
     }
   ],
-  "meta": {
-    "API": {
-      "version": String
-    }
-  }
+  "meta": {...}
 }
 ```
 
@@ -46,11 +42,7 @@ prescription_id | Integer   | ID of the prescription
       "taken_at": String Timestamp (Formated in ISO 8601)
     }
   ],
-  "meta": {
-    "API": {
-      "version": String
-    }
-  }
+  "meta": {...}
 }
 ```
 

@@ -18,11 +18,7 @@ These methods are used to show what packages have been generated.
       "prescription_id": Integer
     }
   ],
-  "meta": {
-    "API": {
-      "version": "1.4.0"
-    }
-  }
+  "meta": {...}
 }
 ```
 
@@ -54,11 +50,7 @@ prescription_id | Integer       | ID of the prescription
       "prescription_id": Integer
     }
   ],
-  "meta": {
-    "API": {
-      "version": "1.4.0"
-    }
-  }
+  "meta": {...}
 }
 ```
 
@@ -89,11 +81,7 @@ mia_module_id | Integer | ID of the mia module
     "mia_module_id": Integer,
     "prescription_id": Integer
   },
-  "meta": {
-    "API": {
-      "version": "1.4.0"
-    }
-  }
+  "meta": {...}
 }
 ```
 

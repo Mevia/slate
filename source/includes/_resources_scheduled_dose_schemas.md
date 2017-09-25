@@ -17,11 +17,7 @@ These methods are used to set a schedule schema, used for generating a daily sch
       "prescription_id": Integer
     }
   ],
-  "meta": {
-    "API": {
-      "version": "1.4.0"
-    }
-  }
+  "meta": {...}
 }
 ```
 
@@ -47,11 +43,7 @@ This endpoint retrieves all scheduled dose schemas belonging to the given prescr
     "days_between_doses": Integer,
     "prescription_id": Integer
   },
-  "meta": {
-    "API": {
-      "version": "1.4.0"
-    }
-  }
+  "meta": {...}
 }
 ```
 
@@ -96,11 +88,7 @@ This endpoint retrieves a single specific scheduled dose schema
       "prescription_id": Integer
     }
   ],
-  "meta": {
-    "API": {
-      "version": "1.4.0"
-    }
-  }
+  "meta": {...}
 }
 ```
 
@@ -141,11 +129,7 @@ This endpoint creates a scheduled dose schema to the given prescription.
     "days_between_doses": Integer,
     "prescription_id": Integer
   },
-  "meta": {
-    "API": {
-      "version": "1.4.0"
-    }
-  }
+  "meta": {...}
 }
 ```
 
@@ -171,11 +155,7 @@ This endpoint updates a scheduled dose schema belonging to the given prescriptio
     "days_between_doses": Integer,
     "prescription_id": Integer
   },
-  "meta": {
-    "API": {
-      "version": "1.4.0"
-    }
-  }
+  "meta": {...}
 }
 ```
 

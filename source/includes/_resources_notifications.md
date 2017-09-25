@@ -17,11 +17,7 @@ These methods are used to obtain, update and create the reminders that are being
       "notification_policy_id": Integer
     },
   ],
-  "meta": {
-    "API": {
-      "version": "1.4.0"
-    }
-  }
+  "meta": {...}
 }
 ```
 
@@ -52,11 +48,7 @@ prescription_id | Integer       | ID of the prescription
       "notification_policy_id": Integer
     },
   ],
-  "meta": {
-    "API": {
-      "version": "1.4.0"
-    }
-  }
+  "meta": {...}
 }
 ```
 
@@ -87,11 +79,7 @@ notification_policy_id | Integer | ID of the notification policy
       "notification_policy_id": Integer
     },
   ],
-  "meta": {
-    "API": {
-      "version": "1.4.0"
-    }
-  }
+  "meta": {...}
 }
 ```
 
@@ -120,11 +108,7 @@ scheduled_dose_id | Integer | ID of the scheduled dose
     "scheduled_dose_id": Integer,
     "notification_policy_id": Integer
   },
-  "meta": {
-    "API": {
-      "version": "1.4.0"
-    }
-  }
+  "meta": {...}
 }
 ```
 
@@ -167,11 +151,7 @@ ID        | Integer | ID of the notification to fetch
     "scheduled_dose_id": Integer,
     "notification_policy_id": Integer
   },
-  "meta": {
-    "API": {
-      "version": "1.4.0"
-    }
-  }
+  "meta": {...}
 }
 ```
 
@@ -212,11 +192,7 @@ scheduled_dose_id | Integer | ID of the scheduled dose
     "scheduled_dose_id": Integer,
     "notification_policy_id": Integer
   },
-  "meta": {
-    "API": {
-      "version": "1.4.0"
-    }
-  }
+  "meta": {...}
 }
 ```
 
@@ -245,11 +221,7 @@ id        | Integer | ID of the notification to update
     "scheduled_dose_id": Integer,
     "notification_policy_id": Integer
   },
-  "meta": {
-    "API": {
-      "version": "1.4.0"
-    }
-  }
+  "meta": {...}
 }
 ```
 

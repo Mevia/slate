@@ -18,11 +18,7 @@ These methods are used handle Notification Policies, used for generating a notif
       "prescription_id": Integer
     }
   ],
-  "meta": {
-    "API": {
-      "version": "1.4.0"
-    }
-  }
+  "meta": {...}
 }
 ```
 
@@ -54,11 +50,7 @@ prescription_id | Integer       | ID of the prescription
       "prescription_id": Integer
     }
   ],
-  "meta": {
-    "API": {
-      "version": "1.4.0"
-    }
-  }
+  "meta": {...}
 }
 ```
 
@@ -104,11 +96,7 @@ id        | Integer | ID of the notification policy to fetch
     "voice_notification": Boolean,
     "prescription_id": Integer
   },
-  "meta": {
-    "API": {
-      "version": "1.4.0"
-    }
-  }
+  "meta": {...}
 }
 ```
 
@@ -154,11 +142,7 @@ prescription_id | Integer | ID of the prescription
     "voice_notification": Boolean,
     "prescription_id": Integer
   },
-  "meta": {
-    "API": {
-      "version": "1.4.0"
-    }
-  }
+  "meta": {...}
 }
 ```
 
@@ -188,11 +172,7 @@ id              | Integer       | ID of the notification policy to update
     "voice_notification": Boolean,
     "prescription_id": Integer
   },
-  "meta": {
-    "API": {
-      "version": "1.4.0"
-    }
-  }
+  "meta": {...}
 }
 ```
 

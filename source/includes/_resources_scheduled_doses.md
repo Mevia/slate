@@ -19,11 +19,7 @@ These methods are used to set a schedule for taking doses. The recommended way o
       "is_muted": Boolean
     }
   ],
-  "meta": {
-    "API": {
-      "version": "1.4.0"
-    }
-  }
+  "meta": {...}
 }
 ```
 
@@ -49,11 +45,7 @@ This endpoint retrieves all scheduled doses belonging to the given prescription.
     "expected_pods": [Integer],
     "is_muted": Boolean
   },
-  "meta": {
-    "API": {
-      "version": "1.4.0"
-    }
-  }
+  "meta": {...}
 }
 ```
 
@@ -96,11 +88,7 @@ This endpoint retrieves a single specific scheduled dose
     "expected_pods": [Integer],
     "is_muted": Boolean
   },
-  "meta": {
-    "API": {
-      "version": "1.4.0"
-    }
-  }
+  "meta": {...}
 }
 ```
 
@@ -126,11 +114,7 @@ This endpoint updates a specific scheduled doses belonging to the given prescrip
     "expected_pods": [Integer],
     "is_muted": Boolean
   },
-  "meta": {
-    "API": {
-      "version": "1.4.0"
-    }
-  }
+  "meta": {...}
 }
 ```
 

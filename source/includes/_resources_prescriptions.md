@@ -22,11 +22,7 @@ These methods are used to manage prescriptions in the API.
          "patient_reference" String
       }
    ],
-   "meta":{
-      "API":{
-         "version": String
-      }
-   }
+   "meta":{...}
 }
 ```
 
@@ -62,11 +58,7 @@ with_patient_reference_like | String | Filter prescriptions containing the argum
      "pod_sequence": String ("[1,2,3,4...x]"),
      "patient_reference" String
    },
-   "meta":{
-      "API":{
-         "version": String
-      }
-   }
+   "meta":{...}
 }
 ```
 
@@ -89,11 +81,7 @@ This endpoint retrieves a specific prescription.
       "patient_gender": String ("male"|"female") (optional),
       "pod_sequence": String ("[1,2,3,4,5...]") (Optional)
    },
-   "meta":{
-      "API":{
-         "version": String
-      }
-   }
+   "meta":{...}
 }
 ```
 
@@ -114,11 +102,7 @@ This endpoint retrieves a specific prescription.
      "pod_sequence": String ("[1,2,3,4...x]"),
      "patient_reference" String
    },
-   "meta":{
-      "API":{
-         "version": String
-      }
-   }
+   "meta":{...}
 }
 ```
 
@@ -139,11 +123,7 @@ This endpoint retrieves a specific prescription.
       "patient_gender": String ("male"|"female") (optional),
       "pod_sequence": String ("[1,2,3,4,5...]") (Optional)
    },
-   "meta":{
-      "API":{
-         "version": String
-      }
-   }
+   "meta":{...}
 }
 ```
 
@@ -168,11 +148,7 @@ This endpoint retrieves a specific prescription.
      "pod_sequence": String ("[1,2,3,4...x]"),
      "patient_reference" String
    },
-   "meta":{
-      "API":{
-         "version": String
-      }
-   }
+   "meta":{...}
 }
 ```
 

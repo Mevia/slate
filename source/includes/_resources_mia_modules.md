@@ -18,11 +18,7 @@ The following resources explains basic interaction with MIA Modules.
       "firmware_file_name": String
     }
   ],
-   "meta":{
-      "API":{
-         "version": String
-      }
-   }
+   "meta": {...}
 }
 ```
 
@@ -50,11 +46,7 @@ No available parameters apart from the ones <a href='##shared-attributes-among-a
     "prescription_id": Integer,
     "firmware_file_name": String
   },
-  "meta":{
-     "API":{
-        "version": String
-     }
-  }
+  "meta": {...}
 }
 ```
 

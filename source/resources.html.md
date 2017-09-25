@@ -25,6 +25,26 @@ search: true
 ---
 
 # Shared attributes among all resources
+
+
+> Shared among all responses:
+
+```json
+{
+  ...,
+  "meta": {
+    "API": {
+      "version": String
+    },
+    "paging": { // When limit/offset filters are applied
+      "count": Integer,
+      "offset": Integer,
+      "limit": Integer
+    }
+  }
+}
+```
+
 All index fetching resources allows for some common arguments:
 
 Parameter | Format  | Description

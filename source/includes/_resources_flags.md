@@ -16,16 +16,7 @@ The following resources are used to fetch flags. Flags are created automatically
       "prescription_id": Integer
     }
   ],
-  "meta": {
-    "API": {
-      "version": String
-    },
-    "paging": {
-      "limit": Integer,
-      "offset": Integer,
-      "count": Integer
-    }
-  }
+  "meta": {...}
 }
 ```
 
@@ -57,11 +48,7 @@ having_flag_type | type_1,type_2  | Flag types to fetch
       "prescription_id": Integer
     }
   ],
-  "meta": {
-    "API": {
-      "version": String
-    }
-  }
+  "meta": {...}
 }
 ```
 
@@ -90,11 +77,7 @@ having_flag_type | type_1,type_2 | Flag types to fetch
     "description": String,
     "prescription_id": Integer
   },
-  "meta": {
-    "API": {
-      "version": String
-    }
-  }
+  "meta": {...}
 }
 ```
 
