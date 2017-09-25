@@ -21,10 +21,13 @@ set :fonts_dir, 'fonts'
 
 # Activate the syntax highlighter
 activate :syntax
+<<<<<<< HEAD
 activate :directory_indexes
+=======
 ready do
   require './lib/multilang.rb'
 end
+>>>>>>> upstream/master
 
 activate :sprockets
 
