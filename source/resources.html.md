@@ -14,6 +14,7 @@ includes:
   - resources_packages
   - resources_scheduled_doses
   - resources_scheduled_dose_schemas
+  - resources_schema_groups
   - resources_notification_policies
   - resources_notifications
   - resources_recipients

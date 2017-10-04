@@ -1,6 +1,8 @@
 # Releases
 
 ## Development - 1.9.0
+Adding new model "SchemaGroup". A group will be used to handle more complex scheduling scenarios, such as taking a pill every weekday (skipping weekends), or more specific, such as a morning dose on Mondays, Thursdays and Fridays.
+
 
 ## Staging - 1.8.0
 
