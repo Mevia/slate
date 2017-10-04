@@ -310,6 +310,26 @@
               </ul>
           </li>
           <li>
+            <a href="#schema-groups" class="toc-h1 toc-link" data-title="Schema Groups">Schema Groups</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#get-all-schema_groups" class="toc-h2 toc-link" data-title="Schema Groups">Get all schema_groups</a>
+                  </li>
+                  <li>
+                    <a href="#get-specific-schema_group" class="toc-h2 toc-link" data-title="Schema Groups">Get specific schema_group</a>
+                  </li>
+                  <li>
+                    <a href="#create-a-schema_group" class="toc-h2 toc-link" data-title="Schema Groups">Create a schema_group</a>
+                  </li>
+                  <li>
+                    <a href="#update-a-schema_group" class="toc-h2 toc-link" data-title="Schema Groups">Update a schema_group</a>
+                  </li>
+                  <li>
+                    <a href="#delete-a-schema_group" class="toc-h2 toc-link" data-title="Schema Groups">Delete a schema_group</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
             <a href="#notification-policies" class="toc-h1 toc-link" data-title="Notification Policies">Notification Policies</a>
               <ul class="toc-list-h2">
                   <li>
@@ -1098,6 +1118,142 @@ limit: specified limit, offset: specified offset, count: number of resources ava
 <p>This endpoint deletes specific scheduled dose schemas belonging to the given prescription.</p>
 <h3 id='http-request-5'>HTTP Request</h3>
 <p><code>DELETE https://api.mevia.com/v1/scheduled_dose_schemas/:id</code></p>
+<h1 id='schema-groups'>Schema Groups</h1>
+<p>Schema groups are used to manage dose schedules were the scheduled is more complex than one or several identical daily doses. The most common use case is to build a weekly schedule. One example would be were the patient takes one pill every morning, but only on weekdays. Internally, a schema group simply handles a group of scheduled dose schemas, updating the group is just a easy way to update all schemas in said group.</p>
+<h2 id='get-all-schema_groups'>Get all schema_groups</h2>
+<blockquote>
+<p>Response structure:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"schema_groups"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="err">String</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"start_time"</span><span class="p">:</span><span class="w"> </span><span class="err">String</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"end_time"</span><span class="p">:</span><span class="w"> </span><span class="err">Integer</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"prescription_id"</span><span class="p">:</span><span class="w"> </span><span class="err">Integer</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="s2">"meta"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="err">...</span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>This endpoint retrieves all schema_groups with ability to specify both offset and limit</p>
+<h3 id='http-request'>HTTP Request</h3>
+<p><code>GET https://api.mevia.com/v1/schema_groups?offset=0&amp;limit=1</code></p>
+<h3 id='query-parameters'>Query Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Format</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>offset</td>
+<td>Integer</td>
+<td>Number of flags to offset with. Used for pagination</td>
+</tr>
+<tr>
+<td>limit</td>
+<td>Integer</td>
+<td>Maximum number of flags to fetch.</td>
+</tr>
+</tbody></table>
+<h2 id='get-specific-schema_group'>Get specific schema_group</h2>
+<blockquote>
+<p>Response structure:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"schema_group"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="err">String</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"start_time"</span><span class="p">:</span><span class="w"> </span><span class="err">String</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"end_time"</span><span class="p">:</span><span class="w"> </span><span class="err">Integer</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"prescription_id"</span><span class="p">:</span><span class="w"> </span><span class="err">Integer</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"meta"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="err">...</span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>This endpoint retrieves a single schema_group</p>
+<h3 id='http-request-2'>HTTP Request</h3>
+<p>`GET https://api.mevia.com/v1/schema_groups/:id</p>
+<h2 id='create-a-schema_group'>Create a schema_group</h2>
+<blockquote>
+<p>Request structure</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+   </span><span class="s2">"schema_group"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"start_time"</span><span class="p">:</span><span class="w"> </span><span class="err">String</span><span class="w"> </span><span class="err">(HH</span><span class="p">:</span><span class="err">MM)</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"end_time"</span><span class="p">:</span><span class="w"> </span><span class="err">String</span><span class="w"> </span><span class="err">(HH</span><span class="p">:</span><span class="err">MM)</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"scheduled_dose_schemas"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"start_date"</span><span class="p">:</span><span class="w"> </span><span class="err">String(YYYY-mm-dd)</span><span class="p">,</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">Required</span><span class="w">
+          </span><span class="s2">"end_date"</span><span class="p">:</span><span class="w"> </span><span class="err">String(YYYY-mm-dd)</span><span class="p">,</span><span class="w">   </span><span class="err">//</span><span class="w"> </span><span class="err">Required</span><span class="w">
+          </span><span class="s2">"days_between_doses"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Integer"</span><span class="p">,</span><span class="w">  </span><span class="err">//</span><span class="w"> </span><span class="err">Defaults</span><span class="w"> </span><span class="err">to</span><span class="w"> </span><span class="mi">7</span><span class="w">
+          </span><span class="s2">"pod_amount"</span><span class="p">:</span><span class="w"> </span><span class="err">Integer</span><span class="w">             </span><span class="err">//</span><span class="w"> </span><span class="err">Defaults</span><span class="w"> </span><span class="err">to</span><span class="w"> </span><span class="mi">1</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">]</span><span class="w">
+   </span><span class="p">},</span><span class="w">
+   </span><span class="s2">"meta"</span><span class="p">:{</span><span class="err">...</span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<blockquote>
+<p>Response structure</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"schema_group"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"start_time"</span><span class="p">:</span><span class="w"> </span><span class="err">String</span><span class="w"> </span><span class="err">(HH</span><span class="p">:</span><span class="err">MM)</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"end_time"</span><span class="p">:</span><span class="w"> </span><span class="err">String</span><span class="w"> </span><span class="err">(HH</span><span class="p">:</span><span class="err">MM)</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"prescription_id"</span><span class="p">:</span><span class="w"> </span><span class="err">Integer</span><span class="w">
+ </span><span class="p">},</span><span class="w">
+ </span><span class="s2">"meta"</span><span class="p">:{</span><span class="err">...</span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>This endpoint creates a schema_group with a number of underlying scheduled_dose_schemas.</p>
+<h3 id='http-request-3'>HTTP Request</h3>
+<p><code>POST https://api.mevia.com/v1/prescriptions/:prescription_id/schema_groups</code></p>
+<h2 id='update-a-schema_group'>Update a schema_group</h2>
+<blockquote>
+<p>Request structure</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+   </span><span class="s2">"schema_group"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"start_time"</span><span class="p">:</span><span class="w"> </span><span class="err">String</span><span class="w"> </span><span class="err">(HH</span><span class="p">:</span><span class="err">MM)</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"end_time"</span><span class="p">:</span><span class="w"> </span><span class="err">String</span><span class="w"> </span><span class="err">(HH</span><span class="p">:</span><span class="err">MM)</span><span class="w">
+   </span><span class="p">},</span><span class="w">
+   </span><span class="s2">"meta"</span><span class="p">:{</span><span class="err">...</span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<blockquote>
+<p>Response structure</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"schema_group"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"start_time"</span><span class="p">:</span><span class="w"> </span><span class="err">String</span><span class="w"> </span><span class="err">(HH</span><span class="p">:</span><span class="err">MM)</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"end_time"</span><span class="p">:</span><span class="w"> </span><span class="err">String</span><span class="w"> </span><span class="err">(HH</span><span class="p">:</span><span class="err">MM)</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"prescription_id"</span><span class="p">:</span><span class="w"> </span><span class="err">Integer</span><span class="w">
+ </span><span class="p">},</span><span class="w">
+ </span><span class="s2">"meta"</span><span class="p">:{</span><span class="err">...</span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>This endpoint updates a schema_group. Note that all underlying scheduled_dose_schemas will be updated as well - causing all future scheduled_doses to be updated to.</p>
+<h3 id='http-request-4'>HTTP Request</h3>
+<p><code>PUT https://api.mevia.com/v1/prescriptions/:prescription_id/schema_groups</code></p>
+<h2 id='delete-a-schema_group'>Delete a schema_group</h2>
+<blockquote>
+<p>Response structure:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"schema_group"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="err">String</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"start_time"</span><span class="p">:</span><span class="w"> </span><span class="err">String</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"end_time"</span><span class="p">:</span><span class="w"> </span><span class="err">Integer</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"prescription_id"</span><span class="p">:</span><span class="w"> </span><span class="err">Integer</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"meta"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="err">...</span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>This endpoint deletes a single schema_group</p>
+<h3 id='http-request-5'>HTTP Request</h3>
+<p>`DELETE https://api.mevia.com/v1/schema_groups/:id</p>
 <h1 id='notification-policies'>Notification Policies</h1>
 <p>These methods are used handle Notification Policies, used for generating a notifications related to dose schemas.</p>
 <h2 id='get-all-notification-policies'>Get all notification policies</h2>
