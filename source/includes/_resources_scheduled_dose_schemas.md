@@ -14,7 +14,8 @@ These methods are used to set a schedule schema, used for generating a daily sch
       "start_date": String (YYYY-MM-DD),
       "end_date": String (YYYY-MM-DD),
       "days_between_doses": Integer,
-      "prescription_id": Integer
+      "prescription_id": Integer,
+      "schema_group_id": Integer
     }
   ],
   "meta": {...}
@@ -41,7 +42,8 @@ This endpoint retrieves all scheduled dose schemas belonging to the given prescr
     "start_date": String (YYYY-MM-DD),
     "end_date": String (YYYY-MM-DD),
     "days_between_doses": Integer,
-    "prescription_id": Integer
+    "prescription_id": Integer,
+    "schema_group_id": Integer
   },
   "meta": {...}
 }
@@ -85,7 +87,8 @@ This endpoint retrieves a single specific scheduled dose schema
       "start_date": String (YYYY-MM-DD),
       "end_date": String (YYYY-MM-DD),
       "days_between_doses": Integer,
-      "prescription_id": Integer
+      "prescription_id": Integer,
+      "schema_group_id": Integer
     }
   ],
   "meta": {...}
@@ -127,7 +130,8 @@ This endpoint creates a scheduled dose schema to the given prescription.
     "start_date": String (YYYY-MM-DD),
     "end_date": String (YYYY-MM-DD),
     "days_between_doses": Integer,
-    "prescription_id": Integer
+    "prescription_id": Integer,
+    "schema_group_id": Integer
   },
   "meta": {...}
 }
@@ -153,7 +157,8 @@ This endpoint updates a scheduled dose schema belonging to the given prescriptio
     "start_date": String (YYYY-MM-DD),
     "end_date": String (YYYY-MM-DD),
     "days_between_doses": Integer,
-    "prescription_id": Integer
+    "prescription_id": Integer,
+    "schema_group_id": Integer
   },
   "meta": {...}
 }
