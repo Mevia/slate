@@ -66,7 +66,7 @@ This endpoint retrieves a single schema_group
         {
           "start_date": String(YYYY-mm-dd), // Required
           "end_date": String(YYYY-mm-dd),   // Required
-          "days_between_doses": "Integer",  // Defaults to 7
+          "days_between_doses": Integer,  // Defaults to 7
           "pod_amount": Integer             // Defaults to 1
         }
       ]
