@@ -1,0 +1,28 @@
+<h1 id='notification-triggers'>Notification Triggers</h1>
+<p>This is a list of all existing notification trigger. A trigger is set on a notification policy, and is used to know when to create notifications.</p>
+
+<table><thead>
+<tr>
+<th>Type</th>
+<th>Description</th>
+<th>When is the notification sent?</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>BEFORE_DOSE_STARTS</td>
+<td>Used to create notifications before doses starts</td>
+<td>x minutes before the doses start, where x is the minutes variable on the notification policy</td>
+</tr>
+<tr>
+<td>BEFORE_DOSE_ENDS</td>
+<td>Used to create notifications before doses ends</td>
+<td>x minutes before the doses start, where x is the minutes variable on the notification policy</td>
+</tr>
+<tr>
+<td>AFTER_DOSE_END</td>
+<td>Used to create notifications after doses ends</td>
+<td>x minutes before the doses ends, where x is the minutes variable on the notification policy</td>
+</tr>
+</tbody></table>
+
+<p>Example: A notification policy with trigger: &#39;BEFORE_DOSE_ENDS&#39; and offset: 15, and a scheduled_dose_schema with start_time: &#39;10:00&#39; and end_time: &#39;11:00&#39; will generate a notification that is scheduled to be sent at 10:45 every day that its prescription is active.</p>

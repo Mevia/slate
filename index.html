@@ -233,7 +233,7 @@
             <a href="#flag-types" class="toc-h1 toc-link" data-title="Flag types">Flag types</a>
           </li>
           <li>
-            <a href="#notification-types" class="toc-h1 toc-link" data-title="Notification Types">Notification Types</a>
+            <a href="#notification-triggers" class="toc-h1 toc-link" data-title="Notification Triggers">Notification Triggers</a>
           </li>
           <li>
             <a href="#sequencing" class="toc-h1 toc-link" data-title="Sequencing">Sequencing</a>
@@ -270,6 +270,8 @@
 <p>The API aims to take care of all data related to the MIA module itself, which is sending and receiving information from modules. Developers that use the API can, for instance, obtain all events from a module for a given patient, or register a prescription for a patient which then automatically will set reminders and other logic that interacts with the patient&#39;s mobile phone. This page contains general information about the API, what models are available and what the latest changes are. Documentation about all available resources can be found at <a href="resources/">the resource page</a></p>
 
 <p>The purpose of this setup is that API users will be able to concentrate on their business logic, henceforth not on how the modules work, which is abstracted away through the API. A benefit of this is also that, if the physical module changes, then there will be no impact on API users due to this abstraction.</p>
+
+<p>We are currently updating the API to follow <a href="http://jsonapi.org">JSON API 1.0</a>. While a bit confusing, the current status is that all data sent to the API is still using our old custom standard (as specified in the resources page), all data sent from the API uses the jsonapi standard. V2 of the API will follow the standard completely.</p>
 
 <p>The api is available under <span class="red-text">https://api.mevia.se</span>. Most resources are currently scoped under /v1/.</p>
 <h2 id='authentication-and-security'>Authentication and security</h2>
@@ -331,9 +333,24 @@ https://api.mevia.se/v1/:resource and https://api.mevia.se/v2/:resource</p>
 <td>A device failed to communicate for 24.5 hours or more.</td>
 <td>Whenever a device has failed to communicate for an entire day (24 hours)</td>
 </tr>
+<tr>
+<td>TAKEN_EARLY</td>
+<td>A pill was taken before its dose window (within 15 minutes of start)</td>
+<td>Whenever a pill is taken for a prescription not using pod sequence is taken within 15 minutes of dose start</td>
+</tr>
+<tr>
+<td>TAKEN_LATE</td>
+<td>A pill was taken after its dose window (within 15 minutes of end)</td>
+<td>Whenever a pill is taken for a prescription not using pod sequence is taken within 15 minutes of dose end</td>
+</tr>
+<tr>
+<td>TAKEN_INSIDE_TAKEN_DOSE</td>
+<td>A pill was taken inside of a dose that was already completed</td>
+<td>Whenever a pill is taken for a prescription not using pod sequence inside of a dose that is already completed</td>
+</tr>
 </tbody></table>
-<h1 id='notification-types'>Notification Types</h1>
-<p>This is a list of all existing notifications types. A notification type is set on a notification policy, and is used to know when to create notifications. </p>
+<h1 id='notification-triggers'>Notification Triggers</h1>
+<p>This is a list of all existing notification trigger. A trigger is set on a notification policy, and is used to know when to create notifications.</p>
 
 <table><thead>
 <tr>
@@ -359,7 +376,7 @@ https://api.mevia.se/v1/:resource and https://api.mevia.se/v2/:resource</p>
 </tr>
 </tbody></table>
 
-<p>Example: A notification policy with notification_type: &#39;BEFORE_DOSE_ENDS&#39; and minutes: 15, and a scheduled_dose_schema with start_time: &#39;10:00&#39; and end_time: &#39;11:00&#39; will generate a notification that is scheduled to be sent at 10:45 every day that its prescription is active.</p>
+<p>Example: A notification policy with trigger: &#39;BEFORE_DOSE_ENDS&#39; and offset: 15, and a scheduled_dose_schema with start_time: &#39;10:00&#39; and end_time: &#39;11:00&#39; will generate a notification that is scheduled to be sent at 10:45 every day that its prescription is active.</p>
 <h1 id='sequencing'>Sequencing</h1>
 <blockquote>
 <p>Example JSON when posting (creating) prescription:</p>
