@@ -7,18 +7,28 @@ These methods are used handle Notification Policies, used for generating a notif
 
 ```json
 {
-  "notification_policies": [
-    {
-      "id": Integer,
-      "notification_type": String,
-      "message": String,
-      "minutes": Integer,
-      "audio_src": String,
-      "voice_notification": Boolean,
-      "prescription_id": Integer
+    "data": [
+      {
+          "id": Integer,
+          "type": "notification_policies",
+          "attributes": {
+              "trigger": String,
+              "message": String,
+              "offset": Integer,
+              "audio_src": String,
+              "prescription_id": Integer,
+              "notification_type": String
+          }
+      }
+    ]
+    "jsonapi": {
+        "version": "1.0"
+    },
+    "meta": {
+        "API": {
+            "version": "1.8.0"
+        }
     }
-  ],
-  "meta": {...}
 }
 ```
 
@@ -39,18 +49,28 @@ prescription_id | Integer       | ID of the prescription
 
 ```json
 {
-  "notification_policy": [
-    {
-      "id": Integer,
-      "notification_type": String,
-      "message": String,
-      "minutes": Integer,
-      "audio_src": String,
-      "voice_notification": Boolean,
-      "prescription_id": Integer
+    "data": [
+      {
+          "id": Integer,
+          "type": "notification_policies",
+          "attributes": {
+              "trigger": String,
+              "message": String,
+              "offset": Integer,
+              "audio_src": String,
+              "prescription_id": Integer,
+              "notification_type": String
+          }
+      }
+    ]
+    "jsonapi": {
+        "version": "1.0"
+    },
+    "meta": {
+        "API": {
+            "version": "1.8.0"
+        }
     }
-  ],
-  "meta": {...}
 }
 ```
 
@@ -71,15 +91,13 @@ id        | Integer | ID of the notification policy to fetch
 
 ```json
 {
-  "notification_policies": [
-    {
-      "notification_type": String,
-      "message": String,
-      "minutes": Integer,
-      "audio_src": String,
-      "voice_notification": Boolean
-    }
-  ]
+  "notification_policy": {
+    "notification_type": String,
+    "message": String,
+    "minutes": Integer,
+    "audio_src": String,
+    "voice_notification": Boolean
+  }
 }
 ```
 
@@ -87,16 +105,26 @@ id        | Integer | ID of the notification policy to fetch
 
 ```json
 {
-  "notification_policy": {
-    "id": Integer,
-    "notification_type": String,
-    "message": String,
-    "minutes": Integer,
-    "audio_src": String,
-    "voice_notification": Boolean,
-    "prescription_id": Integer
-  },
-  "meta": {...}
+    "data": {
+        "id": Integer,
+        "type": "notification_policies",
+        "attributes": {
+            "trigger": String,
+            "message": String,
+            "offset": Integer,
+            "audio_src": String,
+            "prescription_id": Integer,
+            "notification_type": String
+        }
+    },
+    "jsonapi": {
+        "version": "1.0"
+    },
+    "meta": {
+        "API": {
+            "version": "1.8.0"
+        }
+    }
 }
 ```
 
@@ -117,32 +145,40 @@ prescription_id | Integer | ID of the prescription
 
 ```json
 {
-  "notification_policies": [
-    {
-      "notification_type": String,
-      "message": String,
-      "minutes": Integer,
-      "audio_src": String,
-      "voice_notification": Boolean
-    }
-  ]
-}
-```
-
-> Response structure: (To see all available notification types, please look at <a href='/#notification-types'>that</a> section of this documentation.)
-
-```json
-{
   "notification_policy": {
-    "id": Integer,
     "notification_type": String,
     "message": String,
     "minutes": Integer,
     "audio_src": String,
-    "voice_notification": Boolean,
-    "prescription_id": Integer
-  },
-  "meta": {...}
+    "voice_notification": Boolean
+  }
+}
+```
+
+> Response structure: (To see all available triggers, please look at <a href='/#triggers'>that</a> section of this documentation.)
+
+```json
+{
+    "data": {
+        "id": Integer,
+        "type": "notification_policies",
+        "attributes": {
+            "trigger": String,
+            "message": String,
+            "offset": Integer,
+            "audio_src": String,
+            "prescription_id": Integer,
+            "notification_type": String
+        }
+    },
+    "jsonapi": {
+        "version": "1.0"
+    },
+    "meta": {
+        "API": {
+            "version": "1.8.0"
+        }
+    }
 }
 ```
 
@@ -163,16 +199,26 @@ id              | Integer       | ID of the notification policy to update
 
 ```json
 {
-  "notification_policy": {
-    "id": Integer,
-    "notification_type": String,
-    "message": String,
-    "minutes": Integer,
-    "audio_src": String,
-    "voice_notification": Boolean,
-    "prescription_id": Integer
-  },
-  "meta": {...}
+    "data": {
+        "id": Integer,
+        "type": "notification_policies",
+        "attributes": {
+            "trigger": String,
+            "message": String,
+            "offset": Integer,
+            "audio_src": String,
+            "prescription_id": Integer,
+            "notification_type": String
+        }
+    },
+    "jsonapi": {
+        "version": "1.0"
+    },
+    "meta": {
+        "API": {
+            "version": "1.8.0"
+        }
+    }
 }
 ```
 

@@ -7,14 +7,25 @@ These methods are used to set and remove recipients. Recipients are simply recei
 
 ```json
 {
-  "recipients": [
-    {
-      "id": String,
-      "email": String,
-      "phone": String
+    "data": [
+        {
+            "id": Integer,
+            "type": "recipients",
+            "attributes": {
+                "email": String,
+                "phone": String,
+                "name": String
+            }
+        }
+    ],
+    "jsonapi": {
+        "version": "1.0"
+    },
+    "meta": {
+        "API": {
+            "version": "1.8.0"
+        }
     }
-  ],
-  "meta": {...}
 }
 ```
 
@@ -30,14 +41,25 @@ This endpoint retrieves all recipients for the specified prescription.
 
 ```json
 {
-  "recipients": [
-    {
-      "id": String,
-      "email": String,
-      "phone": String
+    "data": [
+        {
+            "id": Integer,
+            "type": "recipients",
+            "attributes": {
+                "email": String,
+                "phone": String,
+                "name": String
+            }
+        }
+    ],
+    "jsonapi": {
+        "version": "1.0"
+    },
+    "meta": {
+        "API": {
+            "version": "1.8.0"
+        }
     }
-  ],
-  "meta": {...}
 }
 ```
 
@@ -49,14 +71,25 @@ This endpoint retrieves all recipients for the specified notification policy.
 
 ```json
 {
-  "recipients": [
-    {
-      "id": String,
-      "email": String,
-      "phone": String
+    "data": [
+        {
+            "id": Integer,
+            "type": "recipients",
+            "attributes": {
+                "email": String,
+                "phone": String,
+                "name": String
+            }
+        }
+    ],
+    "jsonapi": {
+        "version": "1.0"
+    },
+    "meta": {
+        "API": {
+            "version": "1.8.0"
+        }
     }
-  ],
-  "meta": {...}
 }
 ```
 
@@ -70,12 +103,23 @@ This endpoint retrieves all recipients for the specified notification.
 
 ```json
 {
-  "recipient": {
-    "id": String,
-    "email": String,
-    "phone": String
-  },
-  "meta": {...}
+    "data": {
+        "id": Integer,
+        "type": "recipients",
+        "attributes": {
+            "email": String,
+            "phone": String,
+            "name": String
+        }
+    },
+    "jsonapi": {
+        "version": "1.0"
+    },
+    "meta": {
+        "API": {
+            "version": "1.8.0"
+        }
+    }
 }
 ```
 
@@ -85,17 +129,18 @@ This endpoint retrieves a single specified recipient.
 
 `GET https://api.mevia.com/v1/recipients/:id`
 
-## Create a recipient to a notification policy
-Creates a recipient and adds it to the specified notification policy. All notifications sent by this policy will be recieved by the recipient.
+## Create a recipient to a prescription
+Creates a recipient and adds it to the specified prescription. No notifications will be sent unless connected to a notification policy or flag policy
 
 > Request structure:
 
 ```json
 {
-  "recipients": [
+  "recipient": [
     {
       "email": String,
-      "phone": String
+      "phone": String,
+      "name": String
     }
   ]
 }
@@ -105,12 +150,74 @@ Creates a recipient and adds it to the specified notification policy. All notifi
 
 ```json
 {
-  "recipient": {
-    "id": String,
-    "email": String,
-    "phone": String
-  },
-  "meta": {...}
+    "data": {
+        "id": Integer,
+        "type": "recipients",
+        "attributes": {
+            "email": String,
+            "phone": String,
+            "name": String
+        }
+    },
+    "jsonapi": {
+        "version": "1.0"
+    },
+    "meta": {
+        "API": {
+            "version": "1.8.0"
+        }
+    }
+}
+```
+
+### HTTP Requests
+
+`POST https://api.mevia.com/v1/prescriptions/:prescription_id/recipients`
+
+### Query Parameters
+Parameter          | Format  | Description
+---------          | ------- | -----------
+prescription_id    | Integer | ID of the prescription
+
+
+## Create a recipient to a notification policy
+Creates a recipient and adds it to the specified notification policy. All notifications sent by this policy will be recieved by the recipient.
+
+> Request structure:
+
+```json
+{
+  "recipient": [
+    {
+      "email": String,
+      "phone": String,
+      "name": String
+    }
+  ]
+}
+```
+
+> Response structure:
+
+```json
+{
+    "data": {
+        "id": Integer,
+        "type": "recipients",
+        "attributes": {
+            "email": String,
+            "phone": String,
+            "name": String
+        }
+    },
+    "jsonapi": {
+        "version": "1.0"
+    },
+    "meta": {
+        "API": {
+            "version": "1.8.0"
+        }
+    }
 }
 ```
 
@@ -121,7 +228,6 @@ Creates a recipient and adds it to the specified notification policy. All notifi
 ### Query Parameters
 Parameter              | Format  | Description
 ---------              | ------- | -----------
-prescription_id        | Integer | ID of the prescription
 notification_policy_id | Integer | ID of the notification policy
 
 ## Create a recipient to a notification
@@ -134,7 +240,8 @@ Creates a recipient and adds it to the specified notification. When the notifica
   "recipients": [
     {
       "email": String,
-      "phone": String
+      "phone": String,
+      "name": String
     }
   ]
 }
@@ -144,12 +251,23 @@ Creates a recipient and adds it to the specified notification. When the notifica
 
 ```json
 {
-  "recipient": {
-    "id": String,
-    "email": String,
-    "phone": String
-  },
-  "meta": {...}
+    "data": {
+        "id": Integer,
+        "type": "recipients",
+        "attributes": {
+            "email": String,
+            "phone": String,
+            "name": String
+        }
+    },
+    "jsonapi": {
+        "version": "1.0"
+    },
+    "meta": {
+        "API": {
+            "version": "1.8.0"
+        }
+    }
 }
 ```
 
@@ -166,6 +284,7 @@ Updates a single specified recipient
   "recipients": {
     "email": String,
     "phone": String,
+    "name": String
   }
 }
 ```
@@ -174,12 +293,23 @@ Updates a single specified recipient
 
 ```json
 {
-  "recipient": {
-    "id": String,
-    "email": String,
-    "phone": String,
-  },
-  "meta": {...}
+    "data": {
+        "id": Integer,
+        "type": "recipients",
+        "attributes": {
+            "email": String,
+            "phone": String,
+            "name": String
+        }
+    },
+    "jsonapi": {
+        "version": "1.0"
+    },
+    "meta": {
+        "API": {
+            "version": "1.8.0"
+        }
+    }
 }
 ```
 
@@ -193,11 +323,22 @@ Deletes a single specified recipient
 
 ```json
 {
-  "recipients": {
-    "id": String,
-    "email": String,
-    "phone": String
-  },
-  "meta": {...}
+    "data": {
+        "id": Integer,
+        "type": "recipients",
+        "attributes": {
+            "email": String,
+            "phone": String,
+            "name": String
+        }
+    },
+    "jsonapi": {
+        "version": "1.0"
+    },
+    "meta": {
+        "API": {
+            "version": "1.8.0"
+        }
+    }
 }
 ```

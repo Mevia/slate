@@ -7,16 +7,29 @@ The following resources are used to fetch flags. Flags are created automatically
 
 ```json
 {
-  "flags": [
-    {
-      "id": String,
-      "flag_type": String,
-      "severity": Integer,
-      "description": String,
-      "prescription_id": Integer
+    "data": [
+        {
+            "id": Integer,
+            "type": "flags",
+            "attributes": {
+                "flag_type": String,
+                "severity": Integer,
+                "description": String
+                "created_at": String Timestamp (Formated in ISO 8601),
+                "prescription_id": Integer,
+                "flagable_type": String,
+                "flagable_id": Integer
+            }
+        }
+    ],
+    "jsonapi": {
+        "version": "1.0"
+    },
+    "meta": {
+        "API": {
+            "version": "1.8.0"
+        }
     }
-  ],
-  "meta": {...}
 }
 ```
 
@@ -39,16 +52,29 @@ having_flag_type | type_1,type_2  | Flag types to fetch
 
 ```json
 {
-  "flags": [
-    {
-      "id": String,
-      "flag_type": String,
-      "severity": Integer,
-      "description": String,
-      "prescription_id": Integer
+    "data": [
+        {
+            "id": Integer,
+            "type": "flags",
+            "attributes": {
+                "flag_type": String,
+                "severity": Integer,
+                "description": String
+                "created_at": String Timestamp (Formated in ISO 8601),
+                "prescription_id": Integer,
+                "flagable_type": String,
+                "flagable_id": Integer
+            }
+        }
+    ],
+    "jsonapi": {
+        "version": "1.0"
+    },
+    "meta": {
+        "API": {
+            "version": "1.8.0"
+        }
     }
-  ],
-  "meta": {...}
 }
 ```
 
@@ -70,14 +96,27 @@ having_flag_type | type_1,type_2 | Flag types to fetch
 
 ```json
 {
-  "flag": {
-    "id": String,
-    "flag_type": String,
-    "severity": Integer,
-    "description": String,
-    "prescription_id": Integer
-  },
-  "meta": {...}
+    "data": {
+        "id": Integer,
+        "type": "flags",
+        "attributes": {
+            "flag_type": String,
+            "severity": Integer,
+            "description": String
+            "created_at": String Timestamp (Formated in ISO 8601),
+            "prescription_id": Integer,
+            "flagable_type": String,
+            "flagable_id": Integer
+        }
+    },
+    "jsonapi": {
+        "version": "1.0"
+    },
+    "meta": {
+        "API": {
+            "version": "1.8.0"
+        }
+    }
 }
 ```
 

@@ -7,17 +7,27 @@ These methods are used to obtain, update and create the reminders that are being
 
 ```json
 {
-  "notifications": [
-    {
-      "id": Integer,
-      "moment_to_send": String Timestamp (Formated in ISO 8601),
-      "sent_at": String Timestamp (Formated in ISO 8601),
-      "message": String
-      "scheduled_dose_id": Integer,
-      "notification_policy_id": Integer
+    "data": [
+        {
+            "id": Integer,
+            "type": "notifications",
+            "attributes": {
+                "moment_to_send": String Timestamp (Formated in ISO 8601),
+                "sent_at": String Timestamp (Formated in ISO 8601),,
+                "message": String,
+                "scheduled_dose_id": Integer,
+                "notification_policy_id": Integer
+            }
+        }
+    ],
+    "jsonapi": {
+        "version": "1.0"
     },
-  ],
-  "meta": {...}
+    "meta": {
+        "API": {
+            "version": "1.8.0"
+        }
+    }
 }
 ```
 
@@ -38,17 +48,27 @@ prescription_id | Integer       | ID of the prescription
 
 ```json
 {
-  "notifications": [
-    {
-      "id": Integer,
-      "moment_to_send": String Timestamp (Formated in ISO 8601),
-      "sent_at": String Timestamp (Formated in ISO 8601),
-      "message": String
-      "scheduled_dose_id": Integer,
-      "notification_policy_id": Integer
+    "data": [
+        {
+            "id": Integer,
+            "type": "notifications",
+            "attributes": {
+                "moment_to_send": String Timestamp (Formated in ISO 8601),
+                "sent_at": String Timestamp (Formated in ISO 8601),,
+                "message": String,
+                "scheduled_dose_id": Integer,
+                "notification_policy_id": Integer
+            }
+        }
+    ],
+    "jsonapi": {
+        "version": "1.0"
     },
-  ],
-  "meta": {...}
+    "meta": {
+        "API": {
+            "version": "1.8.0"
+        }
+    }
 }
 ```
 
@@ -69,17 +89,27 @@ notification_policy_id | Integer | ID of the notification policy
 
 ```json
 {
-  "notifications": [
-    {
-      "id": Integer,
-      "moment_to_send": String Timestamp (Formated in ISO 8601),
-      "sent_at": String Timestamp (Formated in ISO 8601),
-      "message": String
-      "scheduled_dose_id": Integer,
-      "notification_policy_id": Integer
+    "data": [
+        {
+            "id": Integer,
+            "type": "notifications",
+            "attributes": {
+                "moment_to_send": String Timestamp (Formated in ISO 8601),
+                "sent_at": String Timestamp (Formated in ISO 8601),,
+                "message": String,
+                "scheduled_dose_id": Integer,
+                "notification_policy_id": Integer
+            }
+        }
+    ],
+    "jsonapi": {
+        "version": "1.0"
     },
-  ],
-  "meta": {...}
+    "meta": {
+        "API": {
+            "version": "1.8.0"
+        }
+    }
 }
 ```
 
@@ -100,15 +130,25 @@ scheduled_dose_id | Integer | ID of the scheduled dose
 
 ```json
 {
-  "notification": {
-    "id": Integer,
-    "moment_to_send": String Timestamp (Formated in ISO 8601),
-    "sent_at": String Timestamp (Formated in ISO 8601),
-    "message": String
-    "scheduled_dose_id": Integer,
-    "notification_policy_id": Integer
-  },
-  "meta": {...}
+    "data": {
+        "id": Integer,
+        "type": "notifications",
+        "attributes": {
+            "moment_to_send": String Timestamp (Formated in ISO 8601),
+            "sent_at": String Timestamp (Formated in ISO 8601),,
+            "message": String,
+            "scheduled_dose_id": Integer,
+            "notification_policy_id": Integer
+        }
+    }
+    "jsonapi": {
+        "version": "1.0"
+    },
+    "meta": {
+        "API": {
+            "version": "1.8.0"
+        }
+    }
 }
 ```
 
@@ -122,49 +162,6 @@ This endpoint retrieves a single specific notification.
 Parameter | Format  | Description
 --------- | ------- | -----------
 ID        | Integer | ID of the notification to fetch
-
-## Create a notification on a Scheduled Dose
-
-> Request structure:
-
-```json
-{
-  "notifications": [
-    {
-      "moment_to_send": String Timestamp (Formated in ISO 8601),
-      "sent_at": String Timestamp (Formated in ISO 8601),
-      "message": String
-    },
-  ]
-}
-```
-
-> Response structure:
-
-```json
-{
-  "notification": {
-    "id": Integer,
-    "moment_to_send": String Timestamp (Formated in ISO 8601),
-    "sent_at": String Timestamp (Formated in ISO 8601),
-    "message": String
-    "scheduled_dose_id": Integer,
-    "notification_policy_id": Integer
-  },
-  "meta": {...}
-}
-```
-
-This endpoint creates a new notification to the given scheduled dose.
-
-### HTTP Request
-
-`POST https://api.mevia.com/v1/scheduled_doses/:scheduled_dose_id/notifications`
-
-### Query Parameters
-Parameter         | Format  | Description
----------         | ------- | -----------
-scheduled_dose_id | Integer | ID of the scheduled dose
 
 ## Update a notification
 
@@ -184,15 +181,25 @@ scheduled_dose_id | Integer | ID of the scheduled dose
 
 ```json
 {
-  "notification": {
-    "id": Integer,
-    "moment_to_send": String Timestamp (Formated in ISO 8601),
-    "sent_at": String Timestamp (Formated in ISO 8601),
-    "message": String
-    "scheduled_dose_id": Integer,
-    "notification_policy_id": Integer
-  },
-  "meta": {...}
+    "data": {
+        "id": Integer,
+        "type": "notifications",
+        "attributes": {
+            "moment_to_send": String Timestamp (Formated in ISO 8601),
+            "sent_at": String Timestamp (Formated in ISO 8601),,
+            "message": String,
+            "scheduled_dose_id": Integer,
+            "notification_policy_id": Integer
+        }
+    }
+    "jsonapi": {
+        "version": "1.0"
+    },
+    "meta": {
+        "API": {
+            "version": "1.8.0"
+        }
+    }
 }
 ```
 
@@ -213,15 +220,25 @@ id        | Integer | ID of the notification to update
 
 ```json
 {
-  "notification": {
-    "id": Integer,
-    "moment_to_send": String Timestamp (Formated in ISO 8601),
-    "sent_at": String Timestamp (Formated in ISO 8601),
-    "message": String
-    "scheduled_dose_id": Integer,
-    "notification_policy_id": Integer
-  },
-  "meta": {...}
+    "data": {
+        "id": Integer,
+        "type": "notifications",
+        "attributes": {
+            "moment_to_send": String Timestamp (Formated in ISO 8601),
+            "sent_at": String Timestamp (Formated in ISO 8601),,
+            "message": String,
+            "scheduled_dose_id": Integer,
+            "notification_policy_id": Integer
+        }
+    }
+    "jsonapi": {
+        "version": "1.0"
+    },
+    "meta": {
+        "API": {
+            "version": "1.8.0"
+        }
+    }
 }
 ```
 

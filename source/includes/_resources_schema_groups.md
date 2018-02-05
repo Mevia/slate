@@ -7,15 +7,36 @@ Schema groups are used to manage dose schedules were the scheduled is more compl
 
 ```json
 {
-  "schema_groups": [
-    {
-      "id": String,
-      "start_time": String,
-      "end_time": Integer,
-      "prescription_id": Integer
+    "data": [
+        {
+            "id": Integer,
+            "type": "schema_groups",
+            "attributes": {
+                "prescription_id": Integer,
+                "scheduled_dose_schemas": [
+                    {
+                        "id": Integer,
+                        "start_time": String - In the format of "10:00",
+                        "end_time": String - In the format of "10:00",
+                        "pod_amount": Integer,
+                        "start_date": String (YYYY-MM-DD),
+                        "end_date": String (YYYY-MM-DD),
+                        "days_between_doses": Integer,
+                        "prescription_id": Integer,
+                        "schema_group_id": Integer
+                    }
+                ]
+            }
+        }
+    ],
+    "jsonapi": {
+        "version": "1.0"
+    },
+    "meta": {
+        "API": {
+            "version": "1.8.0"
+        }
     }
-  ],
-  "meta": {...}
 }
 ```
 
@@ -37,13 +58,35 @@ limit            | Integer        | Maximum number of flags to fetch.
 
 ```json
 {
-  "schema_group": {
-      "id": String,
-      "start_time": String,
-      "end_time": Integer,
-      "prescription_id": Integer
-  },
-  "meta": {...}
+    "data":
+    {
+        "id": Integer,
+        "type": "schema_groups",
+        "attributes": {
+            "prescription_id": Integer,
+            "scheduled_dose_schemas": [
+                {
+                    "id": Integer,
+                    "start_time": String - In the format of "10:00",
+                    "end_time": String - In the format of "10:00",
+                    "pod_amount": Integer,
+                    "start_date": String (YYYY-MM-DD),
+                    "end_date": String (YYYY-MM-DD),
+                    "days_between_doses": Integer,
+                    "prescription_id": Integer,
+                    "schema_group_id": Integer
+                }
+            ]
+        }
+    },
+    "jsonapi": {
+        "version": "1.0"
+    },
+    "meta": {
+        "API": {
+            "version": "1.8.0"
+        }
+    }
 }
 ```
 
@@ -70,8 +113,7 @@ This endpoint retrieves a single schema_group
           "pod_amount": Integer             // Defaults to 1
         }
       ]
-   },
-   "meta":{...}
+   }
 }
 ```
 
@@ -79,12 +121,35 @@ This endpoint retrieves a single schema_group
 
 ```json
 {
-  "schema_group": {
-    "start_time": String (HH:MM),
-    "end_time": String (HH:MM),
-    "prescription_id": Integer
- },
- "meta":{...}
+    "data":
+    {
+        "id": Integer,
+        "type": "schema_groups",
+        "attributes": {
+            "prescription_id": Integer,
+            "scheduled_dose_schemas": [
+                {
+                    "id": Integer,
+                    "start_time": String - In the format of "10:00",
+                    "end_time": String - In the format of "10:00",
+                    "pod_amount": Integer,
+                    "start_date": String (YYYY-MM-DD),
+                    "end_date": String (YYYY-MM-DD),
+                    "days_between_doses": Integer,
+                    "prescription_id": Integer,
+                    "schema_group_id": Integer
+                }
+            ]
+        }
+    },
+    "jsonapi": {
+        "version": "1.0"
+    },
+    "meta": {
+        "API": {
+            "version": "1.8.0"
+        }
+    }
 }
 ```
 
@@ -105,8 +170,7 @@ This endpoint creates a schema_group with a number of underlying scheduled_dose_
    "schema_group": {
       "start_time": String (HH:MM),
       "end_time": String (HH:MM)
-   },
-   "meta":{...}
+   }
 }
 ```
 
@@ -114,12 +178,35 @@ This endpoint creates a schema_group with a number of underlying scheduled_dose_
 
 ```json
 {
-  "schema_group": {
-    "start_time": String (HH:MM),
-    "end_time": String (HH:MM),
-    "prescription_id": Integer
- },
- "meta":{...}
+    "data":
+    {
+        "id": Integer,
+        "type": "schema_groups",
+        "attributes": {
+            "prescription_id": Integer,
+            "scheduled_dose_schemas": [
+                {
+                    "id": Integer,
+                    "start_time": String - In the format of "10:00",
+                    "end_time": String - In the format of "10:00",
+                    "pod_amount": Integer,
+                    "start_date": String (YYYY-MM-DD),
+                    "end_date": String (YYYY-MM-DD),
+                    "days_between_doses": Integer,
+                    "prescription_id": Integer,
+                    "schema_group_id": Integer
+                }
+            ]
+        }
+    },
+    "jsonapi": {
+        "version": "1.0"
+    },
+    "meta": {
+        "API": {
+            "version": "1.8.0"
+        }
+    }
 }
 ```
 
@@ -136,13 +223,35 @@ This endpoint updates a schema_group. Note that all underlying scheduled_dose_sc
 
 ```json
 {
-  "schema_group": {
-      "id": String,
-      "start_time": String,
-      "end_time": Integer,
-      "prescription_id": Integer
-  },
-  "meta": {...}
+    "data":
+    {
+        "id": Integer,
+        "type": "schema_groups",
+        "attributes": {
+            "prescription_id": Integer,
+            "scheduled_dose_schemas": [
+                {
+                    "id": Integer,
+                    "start_time": String - In the format of "10:00",
+                    "end_time": String - In the format of "10:00",
+                    "pod_amount": Integer,
+                    "start_date": String (YYYY-MM-DD),
+                    "end_date": String (YYYY-MM-DD),
+                    "days_between_doses": Integer,
+                    "prescription_id": Integer,
+                    "schema_group_id": Integer
+                }
+            ]
+        }
+    },
+    "jsonapi": {
+        "version": "1.0"
+    },
+    "meta": {
+        "API": {
+            "version": "1.8.0"
+        }
+    }
 }
 ```
 

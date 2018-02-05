@@ -7,18 +7,28 @@ These methods are used to show what packages have been generated.
 
 ```json
 {
-  "packages": [
-    {
-      "id": Integer,
-      "created_at": String Timestamp (Formated in ISO 8601),
-      "is_current": boolean,
-      "number": Integer,
-      "nr_of_taken_pods": Integer,
-      "mia_module_id": Integer,
-      "prescription_id": Integer
+    "data": [
+        {
+            "id": Integer,
+            "type": "packages",
+            "attributes": {
+                "created_at": String Timestamp (Formated in ISO 8601),
+                "is_current": Boolean,
+                "number": Integer,
+                "nr_of_taken_pods": Integer,
+                "mia_module_id": Integer,
+                "prescription_id": Integer
+            }
+        }
+    ],
+    "jsonapi": {
+        "version": "1.0"
+    },
+    "meta": {
+        "API": {
+            "version": "1.8.0"
+        }
     }
-  ],
-  "meta": {...}
 }
 ```
 
@@ -39,18 +49,28 @@ prescription_id | Integer       | ID of the prescription
 
 ```json
 {
-  "packages": [
-    {
-      "id": Integer,
-      "created_at": String Timestamp (Formated in ISO 8601),
-      "is_current": boolean,
-      "number": Integer,
-      "nr_of_taken_pods": Integer,
-      "mia_module_id": Integer,
-      "prescription_id": Integer
+    "data": [
+        {
+            "id": Integer,
+            "type": "packages",
+            "attributes": {
+                "created_at": String Timestamp (Formated in ISO 8601),
+                "is_current": Boolean,
+                "number": Integer,
+                "nr_of_taken_pods": Integer,
+                "mia_module_id": Integer,
+                "prescription_id": Integer
+            }
+        }
+    ],
+    "jsonapi": {
+        "version": "1.0"
+    },
+    "meta": {
+        "API": {
+            "version": "1.8.0"
+        }
     }
-  ],
-  "meta": {...}
 }
 ```
 
@@ -72,16 +92,26 @@ mia_module_id | Integer | ID of the mia module
 
 ```json
 {
-  "package": {
-    "id": Integer,
-    "created_at": String Timestamp (Formated in ISO 8601),
-    "is_current": boolean,
-    "number": Integer,
-    "nr_of_taken_pods": Integer,
-    "mia_module_id": Integer,
-    "prescription_id": Integer
-  },
-  "meta": {...}
+    "data": {
+        "id": Integer,
+        "type": "packages",
+        "attributes": {
+            "created_at": String Timestamp (Formated in ISO 8601),
+            "is_current": Boolean,
+            "number": Integer,
+            "nr_of_taken_pods": Integer,
+            "mia_module_id": Integer,
+            "prescription_id": Integer
+        }
+    },
+    "jsonapi": {
+        "version": "1.0"
+    },
+    "meta": {
+        "API": {
+            "version": "1.8.0"
+        }
+    }
 }
 ```
 

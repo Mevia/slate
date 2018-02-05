@@ -7,14 +7,27 @@ The following resources are used to fetch taken pods. A taken pod is simply repr
 
 ```json
 {
-  "taken_pods": [
-    {
-      "id": String,
-      "number": Integer,
-      "taken_at": String Timestamp (Formated in ISO 8601)
+    "data": [
+        {
+            "id": Integer,
+            "type": "taken_pods",
+            "attributes": {
+                "number": Integer,
+                "taken_at": String Timestamp (Formated in ISO 8601),
+                "package_id": Integer,
+                "scheduled_dose_id": Integer,
+                "prescription_id": Integer
+            }
+        }
+    ],
+    "jsonapi": {
+        "version": "1.0"
+    },
+    "meta": {
+        "API": {
+            "version": "1.8.0"
+        }
     }
-  ],
-  "meta": {...}
 }
 ```
 
@@ -35,14 +48,25 @@ prescription_id | Integer   | ID of the prescription
 
 ```json
 {
-  "taken_pods": [
-    {
-      "id": String,
-      "number": Integer,
-      "taken_at": String Timestamp (Formated in ISO 8601)
+    "data": {
+        "id": Integer,
+        "type": "taken_pods",
+        "attributes": {
+            "number": Integer,
+            "taken_at": String Timestamp (Formated in ISO 8601),
+            "package_id": Integer,
+            "scheduled_dose_id": Integer,
+            "prescription_id": Integer
+        }
+    },
+    "jsonapi": {
+        "version": "1.0"
+    },
+    "meta": {
+        "API": {
+            "version": "1.8.0"
+        }
     }
-  ],
-  "meta": {...}
 }
 ```
 

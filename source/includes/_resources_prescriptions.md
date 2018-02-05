@@ -7,22 +7,31 @@ These methods are used to manage prescriptions in the API.
 
 ```json
 {
-   "prescriptions":[
-      {
-         "id": Integer,
-         "start_date": String (YYYY-MM-DD),
-         "end_date": String (YYYY-MM-DD),
-         "created_at": String Timestamp (Formated in ISO 8601),
-         "updated_at": String Timestamp (Formated in ISO 8601),
-         "starts_at": String Timestamp (Formated in ISO 8601),
-         "ends_at": String Timestamp (Formated in ISO 8601),
-         "module_activity_starts_at": String Timestamp (Formated in ISO 8601),
-         "module_activity_ends_at": String Timestamp (Formated in ISO 8601),
-         "pod_sequence": String ("[1,2,3,4...x]"),
-         "patient_reference" String
-      }
-   ],
-   "meta":{...}
+    "data": [
+        {
+            "id": Integer,
+            "type": "prescriptions",
+            "attributes": {
+                "starts_at": String Timestamp (Formated in ISO 8601),
+                "ends_at": String Timestamp (Formated in ISO 8601),
+                "start_date": String (YYYY-MM-DD),
+                "end_date": String (YYYY-MM-DD),
+                "module_activity_starts_at": String Timestamp (Formated in ISO 8601),
+                "module_activity_ends_at": String Timestamp (Formated in ISO 8601),
+                "pod_sequence": String: "[1,2,3,4]" - can be null,
+                "patient_reference": String,
+                "language": String
+            }
+        }
+    ],
+    "jsonapi": {
+        "version": "1.0"
+    },
+    "meta": {
+        "API": {
+            "version": "1.8.0"
+        }
+    }
 }
 ```
 
@@ -45,20 +54,29 @@ with_patient_reference_like | String | Filter prescriptions containing the argum
 
 ```json
 {
-   "prescription": {
-     "id": Integer,
-     "start_date": String (YYYY-MM-DD),
-     "end_date": String (YYYY-MM-DD),
-     "created_at": String Timestamp (Formated in ISO 8601),
-     "updated_at": String Timestamp (Formated in ISO 8601),
-     "starts_at": String Timestamp (Formated in ISO 8601),
-     "ends_at": String Timestamp (Formated in ISO 8601),
-     "module_activity_starts_at": String Timestamp (Formated in ISO 8601),
-     "module_activity_ends_at": String Timestamp (Formated in ISO 8601),
-     "pod_sequence": String ("[1,2,3,4...x]"),
-     "patient_reference" String
-   },
-   "meta":{...}
+    "data": {
+        "id": Integer,
+        "type": "prescriptions",
+        "attributes": {
+            "starts_at": String Timestamp (Formated in ISO 8601),
+            "ends_at": String Timestamp (Formated in ISO 8601),
+            "start_date": String (YYYY-MM-DD),
+            "end_date": String (YYYY-MM-DD),
+            "module_activity_starts_at": String Timestamp (Formated in ISO 8601),
+            "module_activity_ends_at": String Timestamp (Formated in ISO 8601),
+            "pod_sequence": String: "[1,2,3,4]" - can be null,
+            "patient_reference": String,
+            "language": String
+        }
+    },
+    "jsonapi": {
+        "version": "1.0"
+    },
+    "meta": {
+        "API": {
+            "version": "1.8.0"
+        }
+    }
 }
 ```
 
@@ -74,14 +92,18 @@ This endpoint retrieves a specific prescription.
 
 ```json
 {
-   "prescriptions": {
+   "prescription": {
       "start_date": String (YYYY-MM-DD),
       "end_date": String (YYYY-MM-DD),
+      "module_activity_starts_at": String Timestamp (Formated in ISO 8601),
+      "module_activity_ends_at": String Timestamp (Formated in ISO 8601),
+      "ends_at": String Timestamp (Formated in ISO 8601),
+      "starts_at": String Timestamp (Formated in ISO 8601),
       "patient_birthdate": String (YYYY-MM-DD) (optional),
       "patient_gender": String ("male"|"female") (optional),
-      "pod_sequence": String ("[1,2,3,4,5...]") (Optional)
-   },
-   "meta":{...}
+      "pod_sequence": String ("[1,2,3,4,5...]") (Optional),
+      "language": String
+    }
 }
 ```
 
@@ -89,20 +111,29 @@ This endpoint retrieves a specific prescription.
 
 ```json
 {
-   "prescription": {
-     "id": Integer,
-     "start_date": String (YYYY-MM-DD),
-     "end_date": String (YYYY-MM-DD),
-     "created_at": String Timestamp (Formated in ISO 8601),
-     "updated_at": String Timestamp (Formated in ISO 8601),
-     "starts_at": String Timestamp (Formated in ISO 8601),
-     "ends_at": String Timestamp (Formated in ISO 8601),
-     "module_activity_starts_at": String Timestamp (Formated in ISO 8601),
-     "module_activity_ends_at": String Timestamp (Formated in ISO 8601),
-     "pod_sequence": String ("[1,2,3,4...x]"),
-     "patient_reference" String
-   },
-   "meta":{...}
+    "data": {
+        "id": Integer,
+        "type": "prescriptions",
+        "attributes": {
+            "starts_at": String Timestamp (Formated in ISO 8601),
+            "ends_at": String Timestamp (Formated in ISO 8601),
+            "start_date": String (YYYY-MM-DD),
+            "end_date": String (YYYY-MM-DD),
+            "module_activity_starts_at": String Timestamp (Formated in ISO 8601),
+            "module_activity_ends_at": String Timestamp (Formated in ISO 8601),
+            "pod_sequence": String: "[1,2,3,4]" - can be null,
+            "patient_reference": String,
+            "language": String
+        }
+    },
+    "jsonapi": {
+        "version": "1.0"
+    },
+    "meta": {
+        "API": {
+            "version": "1.8.0"
+        }
+    }
 }
 ```
 
@@ -116,14 +147,18 @@ This endpoint retrieves a specific prescription.
 
 ```json
 {
-   "prescriptions":{
+   "prescription": {
       "start_date": String (YYYY-MM-DD),
       "end_date": String (YYYY-MM-DD),
+      "module_activity_starts_at": String Timestamp (Formated in ISO 8601),
+      "module_activity_ends_at": String Timestamp (Formated in ISO 8601),
+      "ends_at": String Timestamp (Formated in ISO 8601),
+      "starts_at": String Timestamp (Formated in ISO 8601),
       "patient_birthdate": String (YYYY-MM-DD) (optional),
       "patient_gender": String ("male"|"female") (optional),
-      "pod_sequence": String ("[1,2,3,4,5...]") (Optional)
-   },
-   "meta":{...}
+      "pod_sequence": String ("[1,2,3,4,5...]") (Optional),
+      "language": String
+    }
 }
 ```
 
@@ -135,20 +170,29 @@ This endpoint retrieves a specific prescription.
 
 ```json
 {
-   "prescription": {
-     "id": Integer,
-     "start_date": String (YYYY-MM-DD),
-     "end_date": String (YYYY-MM-DD),
-     "created_at": String Timestamp (Formated in ISO 8601),
-     "updated_at": String Timestamp (Formated in ISO 8601),
-     "starts_at": String Timestamp (Formated in ISO 8601),
-     "ends_at": String Timestamp (Formated in ISO 8601),
-     "module_activity_starts_at": String Timestamp (Formated in ISO 8601),
-     "module_activity_ends_at": String Timestamp (Formated in ISO 8601),
-     "pod_sequence": String ("[1,2,3,4...x]"),
-     "patient_reference" String
-   },
-   "meta":{...}
+    "data": {
+        "id": Integer,
+        "type": "prescriptions",
+        "attributes": {
+            "starts_at": String Timestamp (Formated in ISO 8601),
+            "ends_at": String Timestamp (Formated in ISO 8601),
+            "start_date": String (YYYY-MM-DD),
+            "end_date": String (YYYY-MM-DD),
+            "module_activity_starts_at": String Timestamp (Formated in ISO 8601),
+            "module_activity_ends_at": String Timestamp (Formated in ISO 8601),
+            "pod_sequence": String: "[1,2,3,4]" - can be null,
+            "patient_reference": String,
+            "language": String
+        }
+    },
+    "jsonapi": {
+        "version": "1.0"
+    },
+    "meta": {
+        "API": {
+            "version": "1.8.0"
+        }
+    }
 }
 ```
 

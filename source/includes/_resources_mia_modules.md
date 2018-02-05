@@ -7,18 +7,28 @@ The following resources explains basic interaction with MIA Modules.
 
 ```json
 {
-  "mia_modules": [
-    {
-      "id": Integer,
-      "is_connected_to_package": Boolean,
-      "module_number": String,
-      "battery_percentage": Integer,
-      "name": String,
-      "prescription_id": Integer,
-      "firmware_file_name": String
+    "data": [
+        {
+            "id": Integer,
+            "type": "mia_modules",
+            "attributes": {
+                "is_connected_to_package": Boolean,
+                "name": String (example: "GAA001"),
+                "firmware_file_name": String,
+                "prescription_id": Integer,
+                "module_number": String,
+                "battery_percentage": Integer
+            }
+        }
+    ],
+    "jsonapi": {
+        "version": "1.0"
+    },
+    "meta": {
+        "API": {
+            "version": "1.8.0"
+        }
     }
-  ],
-   "meta": {...}
 }
 ```
 
@@ -37,16 +47,26 @@ No available parameters apart from the ones <a href='##shared-attributes-among-a
 
 ```json
 {
-  "mia_modules": {
-    "id": Integer,
-    "is_connected_to_package": Boolean,
-    "module_number": String,
-    "battery_percentage": Integer,
-    "name": String,
-    "prescription_id": Integer,
-    "firmware_file_name": String
-  },
-  "meta": {...}
+    "data": {
+        "id": Integer,
+        "type": "mia_modules",
+        "attributes": {
+            "is_connected_to_package": Boolean,
+            "name": String (example: "GAA001"),
+            "firmware_file_name": String,
+            "prescription_id": Integer,
+            "module_number": String,
+            "battery_percentage": Integer
+        }
+    }
+    "jsonapi": {
+        "version": "1.0"
+    },
+    "meta": {
+        "API": {
+            "version": "1.8.0"
+        }
+    }
 }
 ```
 
@@ -67,17 +87,28 @@ id        | Integer | ID of the mia module to show.
 
 ```json
 {
-  "mia_modules": [
-    {
-      "id": Integer,
-      "is_connected_to_package": Boolean,
-      "module_number": String,
-      "battery_percentage": Integer,
-      "name": String,
-      "prescription_id": Integer,
-      "firmware_file_name": String
+    "data": [
+        {
+            "id": Integer,
+            "type": "mia_modules",
+            "attributes": {
+                "is_connected_to_package": Boolean,
+                "name": String (example: "GAA001"),
+                "firmware_file_name": String,
+                "prescription_id": Integer,
+                "module_number": String,
+                "battery_percentage": Integer
+            }
+        }
+    ],
+    "jsonapi": {
+        "version": "1.0"
+    },
+    "meta": {
+        "API": {
+            "version": "1.8.0"
+        }
     }
-  ]
 }
 ```
 

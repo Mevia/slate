@@ -7,14 +7,25 @@ The following resources are used to flag policies. A flag policy is used to moni
 
 ```json
 {
-  "flag_policies": [
-    {
-      "id": Integer,
-      "flag_type": String,
-      "message": String
+    "data": [
+        {
+            "id": Integer,
+            "type": "flag_policies",
+            "attributes": {
+                "flag_type": String,
+                "message": String
+                "prescription_id": Integer
+            }
+        }
+    ],
+    "jsonapi": {
+        "version": "1.0"
+    },
+    "meta": {
+        "API": {
+            "version": "1.8.0"
+        }
     }
-  ],
-  "meta": {...}
 }
 ```
 
@@ -35,14 +46,24 @@ prescription_id | Integer   | ID of the prescription
 
 ```json
 {
-  "flag_policy": {
-    "id": Integer,
-    "flag_type": String,
-    "message": String
-  },
-  "meta": {...}
-}
-```
+    "data": {
+        "id": Integer,
+        "type": "flag_policies",
+        "attributes": {
+            "flag_type": String,
+            "message": String
+            "prescription_id": Integer
+        }
+    },
+    "jsonapi": {
+        "version": "1.0"
+    },
+    "meta": {
+        "API": {
+            "version": "1.8.0"
+        }
+    }
+}```
 
 This endpoint retrieves a single specified flag policy.
 
@@ -85,12 +106,23 @@ id        | id      | id of the flag policy to delete
 
 ```json
 {
-  "flag_policy": {
-    "id": Integer,
-    "flag_type": String,
-    "message": String
-  }
-  "meta": {...}
+    "data": {
+        "id": Integer,
+        "type": "flag_policies",
+        "attributes": {
+            "flag_type": String,
+            "message": String
+            "prescription_id": Integer
+        }
+    },
+    "jsonapi": {
+        "version": "1.0"
+    },
+    "meta": {
+        "API": {
+            "version": "1.8.0"
+        }
+    }
 }
 ```
 
@@ -122,12 +154,23 @@ prescription_id | Integer       | ID of the prescription
 
 ```json
 {
-  "flag_policy": {
-    "id": Integer,
-    "flag_type": String,
-    "message": String
-  },
-  "meta": {...}
+    "data": {
+        "id": Integer,
+        "type": "flag_policies",
+        "attributes": {
+            "flag_type": String,
+            "message": String
+            "prescription_id": Integer
+        }
+    },
+    "jsonapi": {
+        "version": "1.0"
+    },
+    "meta": {
+        "API": {
+            "version": "1.8.0"
+        }
+    }
 }
 ```
 

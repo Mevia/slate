@@ -10,7 +10,7 @@ toc_footers:
 
 includes:
   - flag_types
-  - notification_types
+  - triggers
   - sequencing
   - releases
 
@@ -21,6 +21,8 @@ search: true
 The API aims to take care of all data related to the MIA module itself, which is sending and receiving information from modules. Developers that use the API can, for instance, obtain all events from a module for a given patient, or register a prescription for a patient which then automatically will set reminders and other logic that interacts with the patient's mobile phone. This page contains general information about the API, what models are available and what the latest changes are. Documentation about all available resources can be found at [the resource page](resources.html)
 
 The purpose of this setup is that API users will be able to concentrate on their business logic, henceforth not on how the modules work, which is abstracted away through the API. A benefit of this is also that, if the physical module changes, then there will be no impact on API users due to this abstraction.
+
+We are currently updating the API to follow [JSON API 1.0](http://jsonapi.org). While a bit confusing, the current status is that all data sent to the API is still using our old custom standard (as specified in the resources page), all data sent from the API uses the jsonapi standard. V2 of the API will follow the standard completely.
 
 The api is available under <span class="red-text">https://api.mevia.se</span>. Most resources are currently scoped under /v1/.
 

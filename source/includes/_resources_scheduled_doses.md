@@ -7,19 +7,32 @@ These methods are used to set a schedule for taking doses. The recommended way o
 
 ```json
 {
-  "scheduled_doses": [
-    {
-      "id": Integer,
-      "period_starts_at": String Timestamp (Formated in ISO 8601),
-      "period_ends_at": String Timestamp (Formated in ISO 8601),
-      "is_taken": Boolean,
-      "completed_at": String Timestamp (Formated in ISO 8601),
-      "nr_remaining_pods": Integer,
-      "expected_pods": [Integer],
-      "is_muted": Boolean
+    "data": [
+        {
+            "id": Integer,
+            "type": "scheduled_doses",
+            "attributes": {
+                "period_starts_at": String Timestamp (Formated in ISO 8601),
+                "period_ends_at": String Timestamp (Formated in ISO 8601),
+                "taken": Boolean,
+                "completed_at": String Timestamp (Formated in ISO 8601),
+                "nr_remaining_pods": Integer,
+                "nr_remaining_pods_until_mute": Integer,
+                "expected_pods": [Integer],
+                "muted": Boolean,
+                "prescription_id": Integer,
+                "scheduled_dose_schema_id": Integer
+            }
+        }
+    ],
+    "jsonapi": {
+        "version": "1.0"
+    },
+    "meta": {
+        "API": {
+            "version": "1.8.0"
+        }
     }
-  ],
-  "meta": {...}
 }
 ```
 
@@ -35,17 +48,30 @@ This endpoint retrieves all scheduled doses belonging to the given prescription.
 
 ```json
 {
-  "scheduled_dose": {
-    "id": Integer,
-    "period_starts_at": String Timestamp (Formated in ISO 8601),
-    "period_ends_at": String Timestamp (Formated in ISO 8601),
-    "is_taken": Boolean,
-    "completed_at": String Timestamp (Formated in ISO 8601),
-    "nr_remaining_pods": Integer,
-    "expected_pods": [Integer],
-    "is_muted": Boolean
-  },
-  "meta": {...}
+    "data": {
+        "id": Integer,
+        "type": "scheduled_doses",
+        "attributes": {
+            "period_starts_at": String Timestamp (Formated in ISO 8601),
+            "period_ends_at": String Timestamp (Formated in ISO 8601),
+            "taken": Boolean,
+            "completed_at": String Timestamp (Formated in ISO 8601),
+            "nr_remaining_pods": Integer,
+            "nr_remaining_pods_until_mute": Integer,
+            "expected_pods": [Integer],
+            "muted": Boolean,
+            "prescription_id": Integer,
+            "scheduled_dose_schema_id": Integer
+        }
+    },
+    "jsonapi": {
+        "version": "1.0"
+    },
+    "meta": {
+        "API": {
+            "version": "1.8.0"
+        }
+    }
 }
 ```
 
@@ -61,16 +87,14 @@ This endpoint retrieves a single specific scheduled dose
 
 ```json
 {
-  "scheduled_doses": [
-    {
-      "period_starts_at": String Timestamp (Formated in ISO 8601),
-      "period_ends_at": String Timestamp (Formated in ISO 8601),
-      "completed_at": String Timestamp (Formated in ISO 8601),
-      "nr_remaining_pods": Integer,
-      "expected_pods": [Integer],
-      "is_muted": Boolean,
-    }
-  ]
+  "scheduled_dose": {
+    "period_starts_at": String Timestamp (Formated in ISO 8601),
+    "period_ends_at": String Timestamp (Formated in ISO 8601),
+    "completed_at": String Timestamp (Formated in ISO 8601),
+    "nr_remaining_pods": Integer,
+    "expected_pods": [Integer],
+    "is_muted": Boolean,
+  }
 }
 ```
 
@@ -78,17 +102,30 @@ This endpoint retrieves a single specific scheduled dose
 
 ```json
 {
-  "scheduled_doses": {
-    "id": Integer,
-    "period_starts_at": String Timestamp (Formated in ISO 8601),
-    "period_ends_at": String Timestamp (Formated in ISO 8601),
-    "is_taken": Boolean,
-    "completed_at": String Timestamp (Formated in ISO 8601),
-    "nr_remaining_pods": Integer,
-    "expected_pods": [Integer],
-    "is_muted": Boolean
-  },
-  "meta": {...}
+    "data": {
+        "id": Integer,
+        "type": "scheduled_doses",
+        "attributes": {
+            "period_starts_at": String Timestamp (Formated in ISO 8601),
+            "period_ends_at": String Timestamp (Formated in ISO 8601),
+            "taken": Boolean,
+            "completed_at": String Timestamp (Formated in ISO 8601),
+            "nr_remaining_pods": Integer,
+            "nr_remaining_pods_until_mute": Integer,
+            "expected_pods": [Integer],
+            "muted": Boolean,
+            "prescription_id": Integer,
+            "scheduled_dose_schema_id": Integer
+        }
+    },
+    "jsonapi": {
+        "version": "1.0"
+    },
+    "meta": {
+        "API": {
+            "version": "1.8.0"
+        }
+    }
 }
 ```
 
@@ -104,17 +141,30 @@ This endpoint updates a specific scheduled doses belonging to the given prescrip
 
 ```json
 {
-  "scheduled_dose": {
-    "id": Integer,
-    "period_starts_at": String Timestamp (Formated in ISO 8601),
-    "period_ends_at": String Timestamp (Formated in ISO 8601),
-    "is_taken": Boolean,
-    "completed_at": String Timestamp (Formated in ISO 8601),
-    "nr_remaining_pods": Integer,
-    "expected_pods": [Integer],
-    "is_muted": Boolean
-  },
-  "meta": {...}
+    "data": {
+        "id": Integer,
+        "type": "scheduled_doses",
+        "attributes": {
+            "period_starts_at": String Timestamp (Formated in ISO 8601),
+            "period_ends_at": String Timestamp (Formated in ISO 8601),
+            "taken": Boolean,
+            "completed_at": String Timestamp (Formated in ISO 8601),
+            "nr_remaining_pods": Integer,
+            "nr_remaining_pods_until_mute": Integer,
+            "expected_pods": [Integer],
+            "muted": Boolean,
+            "prescription_id": Integer,
+            "scheduled_dose_schema_id": Integer
+        }
+    },
+    "jsonapi": {
+        "version": "1.0"
+    },
+    "meta": {
+        "API": {
+            "version": "1.8.0"
+        }
+    }
 }
 ```
 
