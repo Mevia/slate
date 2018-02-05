@@ -11,17 +11,17 @@
 <tr>
 <td>BEFORE_DOSE_STARTS</td>
 <td>Used to create notifications before doses starts</td>
-<td>x minutes before the doses start, where x is the minutes variable on the notification policy</td>
+<td>x minutes before the doses start, where x is the offset variable on the notification policy</td>
 </tr>
 <tr>
 <td>BEFORE_DOSE_ENDS</td>
 <td>Used to create notifications before doses ends</td>
-<td>x minutes before the doses start, where x is the minutes variable on the notification policy</td>
+<td>x minutes before the doses start, where x is the offset variable on the notification policy</td>
 </tr>
 <tr>
 <td>AFTER_DOSE_END</td>
 <td>Used to create notifications after doses ends</td>
-<td>x minutes before the doses ends, where x is the minutes variable on the notification policy</td>
+<td>x minutes before the doses ends, where x is the offset variable on the notification policy</td>
 </tr>
 </tbody></table>
 
