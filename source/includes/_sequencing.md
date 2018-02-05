@@ -23,34 +23,79 @@ When creating prescriptions, the API user has the option to create scheduled dos
 
 ```json
 {
-  "scheduled_doses":[
-    {
-      "id":"4744",
-      "period_starts_at":"2015-03-01T05:00:00.000+00:00",
-      "period_ends_at":"2015-03-01T12:00:00.000+00:00",
-      "is_taken":false,
-      "completed_at":null,
-      "nr_remaining_pods":3,
-      "expected_pods":[1,2,3]
+    "data": [
+        {
+            "id": "478",
+            "type": "scheduled_doses",
+            "attributes": {
+                "period_starts_at": "2016-09-19T11:00:00.000Z",
+                "period_ends_at": "2016-09-19T12:00:00.000Z",
+                "taken": false,
+                "completed_at": null,
+                "nr_remaining_pods": 1,
+                "expected_pods": "[13]",
+                "muted": false,
+                "nr_remaining_pods_until_mute": 1,
+                "prescription_id": 9,
+                "scheduled_dose_schema_id": 17
+            }
+        },
+        {
+            "id": "1315",
+            "type": "scheduled_doses",
+            "attributes": {
+                "period_starts_at": "2016-09-14T09:00:00.000Z",
+                "period_ends_at": "2016-09-14T10:00:00.000Z",
+                "taken": false,
+                "completed_at": null,
+                "nr_remaining_pods": 1,
+                "expected_pods": "[0]",
+                "muted": true,
+                "nr_remaining_pods_until_mute": -1,
+                "prescription_id": 9,
+                "scheduled_dose_schema_id": 19
+            }
+        },
+        {
+            "id": "1345",
+            "type": "scheduled_doses",
+            "attributes": {
+                "period_starts_at": "2016-09-14T11:00:00.000Z",
+                "period_ends_at": "2016-09-14T12:00:00.000Z",
+                "taken": true,
+                "completed_at": "2016-09-14T11:51:40.000Z",
+                "nr_remaining_pods": 0,
+                "expected_pods": "[1]",
+                "muted": true,
+                "nr_remaining_pods_until_mute": 0,
+                "prescription_id": 9,
+                "scheduled_dose_schema_id": 20
+            }
+        },
+        {
+            "id": "1316",
+            "type": "scheduled_doses",
+            "attributes": {
+                "period_starts_at": "2016-09-15T09:00:00.000Z",
+                "period_ends_at": "2016-09-15T10:00:00.000Z",
+                "taken": false,
+                "completed_at": null,
+                "nr_remaining_pods": 1,
+                "expected_pods": "[2]",
+                "muted": true,
+                "nr_remaining_pods_until_mute": -1,
+                "prescription_id": 9,
+                "scheduled_dose_schema_id": 19
+            }
+        }
+    ],
+    "jsonapi": {
+        "version": "1.0"
     },
-    {
-      "id":"4745",
-      "period_starts_at":"2015-03-01T16:00:00.000+00:00",
-      "period_ends_at":"2015-03-01T19:00:00.000+00:00",
-      "is_taken":false,
-      "completed_at":null,
-      "nr_remaining_pods":1,
-      "expected_pods":[4]
-    },
-    {
-      "id":"4746",
-      "period_starts_at":"2015-03-01T20:00:00.000+00:00",
-      "period_ends_at":"2015-03-01T22:00:00.000+00:00",
-      "is_taken":false,
-      "completed_at":null,
-      "nr_remaining_pods":2,
-      "expected_pods":[1,2]
+    "meta": {
+        "API": {
+            "version": "1.8.0"
+        }
     }
-  ]
 }
 ```
