@@ -400,35 +400,80 @@ https://api.mevia.se/v1/:resource and https://api.mevia.se/v2/:resource</p>
 <li>If no sequence is specified for prescriptions and no expected pods are given for scheduled doses, then any pod can be taken at any dose time interval in order to complete them. This is the default behavior.</li>
 </ul>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="s2">"scheduled_doses"</span><span class="p">:[</span><span class="w">
-    </span><span class="p">{</span><span class="w">
-      </span><span class="s2">"id"</span><span class="p">:</span><span class="s2">"4744"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"period_starts_at"</span><span class="p">:</span><span class="s2">"2015-03-01T05:00:00.000+00:00"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"period_ends_at"</span><span class="p">:</span><span class="s2">"2015-03-01T12:00:00.000+00:00"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"is_taken"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"completed_at"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"nr_remaining_pods"</span><span class="p">:</span><span class="mi">3</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"expected_pods"</span><span class="p">:[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">]</span><span class="w">
+    </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"478"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"scheduled_doses"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="s2">"period_starts_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-09-19T11:00:00.000Z"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"period_ends_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-09-19T12:00:00.000Z"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"taken"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"completed_at"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"nr_remaining_pods"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"expected_pods"</span><span class="p">:</span><span class="w"> </span><span class="s2">"[13]"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"muted"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"nr_remaining_pods_until_mute"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"prescription_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">9</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"scheduled_dose_schema_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">17</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1315"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"scheduled_doses"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="s2">"period_starts_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-09-14T09:00:00.000Z"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"period_ends_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-09-14T10:00:00.000Z"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"taken"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"completed_at"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"nr_remaining_pods"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"expected_pods"</span><span class="p">:</span><span class="w"> </span><span class="s2">"[0]"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"muted"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"nr_remaining_pods_until_mute"</span><span class="p">:</span><span class="w"> </span><span class="mi">-1</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"prescription_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">9</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"scheduled_dose_schema_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">19</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1345"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"scheduled_doses"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="s2">"period_starts_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-09-14T11:00:00.000Z"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"period_ends_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-09-14T12:00:00.000Z"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"taken"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"completed_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-09-14T11:51:40.000Z"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"nr_remaining_pods"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"expected_pods"</span><span class="p">:</span><span class="w"> </span><span class="s2">"[1]"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"muted"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"nr_remaining_pods_until_mute"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"prescription_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">9</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"scheduled_dose_schema_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">20</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1316"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"scheduled_doses"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="s2">"period_starts_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-09-15T09:00:00.000Z"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"period_ends_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-09-15T10:00:00.000Z"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"taken"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"completed_at"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"nr_remaining_pods"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"expected_pods"</span><span class="p">:</span><span class="w"> </span><span class="s2">"[2]"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"muted"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"nr_remaining_pods_until_mute"</span><span class="p">:</span><span class="w"> </span><span class="mi">-1</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"prescription_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">9</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"scheduled_dose_schema_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">19</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="s2">"jsonapi"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"version"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1.0"</span><span class="w">
     </span><span class="p">},</span><span class="w">
-    </span><span class="p">{</span><span class="w">
-      </span><span class="s2">"id"</span><span class="p">:</span><span class="s2">"4745"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"period_starts_at"</span><span class="p">:</span><span class="s2">"2015-03-01T16:00:00.000+00:00"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"period_ends_at"</span><span class="p">:</span><span class="s2">"2015-03-01T19:00:00.000+00:00"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"is_taken"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"completed_at"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"nr_remaining_pods"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"expected_pods"</span><span class="p">:[</span><span class="mi">4</span><span class="p">]</span><span class="w">
-    </span><span class="p">},</span><span class="w">
-    </span><span class="p">{</span><span class="w">
-      </span><span class="s2">"id"</span><span class="p">:</span><span class="s2">"4746"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"period_starts_at"</span><span class="p">:</span><span class="s2">"2015-03-01T20:00:00.000+00:00"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"period_ends_at"</span><span class="p">:</span><span class="s2">"2015-03-01T22:00:00.000+00:00"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"is_taken"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"completed_at"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"nr_remaining_pods"</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"expected_pods"</span><span class="p">:[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">]</span><span class="w">
+    </span><span class="s2">"meta"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"API"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"version"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1.8.0"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
     </span><span class="p">}</span><span class="w">
-  </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre><h1 id='releases'>Releases</h1><h2 id='development-1-9-0'>Development - 1.9.0</h2>
 <p>Adding new model &quot;SchemaGroup&quot;. A group will be used to handle more complex scheduling scenarios, such as taking a pill every weekday (skipping weekends), or more specific, such as a morning dose on Mondays, Thursdays and Fridays.</p>
