@@ -22,19 +22,19 @@ The API aims to take care of all data related to the MIA module itself, which is
 
 The purpose of this setup is that API users will be able to concentrate on their business logic, henceforth not on how the modules work, which is abstracted away through the API. A benefit of this is also that, if the physical module changes, then there will be no impact on API users due to this abstraction.
 
-We are currently updating the API to follow [JSON API 1.0](http://jsonapi.org). While a bit confusing, the current status is that all data sent to the API is still using our old custom standard (as specified in the resources page), all data sent from the API uses the jsonapi standard. V2 of the API will follow the standard completely.
+We follow [JSON API 1.0](http://jsonapi.org). Details about sorting, filtering, resource inclusion and so on will be easiest to find at their site.
 
-The api is available under <span class="red-text">https://api.mevia.se</span>. Most resources are currently scoped under /v1/.
+The api is available under <span class="red-text">https://api.mevia.se</span>. Current version is scoped under V2.
 
 ## Authentication and security
 
-All API calls are done via HTTPS requests, which means that all data obtained and retrieved from the API is delivered through an encrypted connection. Moreover, an API key must be sent with each request in order to authorize with the API. The key is used to idenfify which user that is connecting to the API and is initially handed out manually by Mevia.
+All API calls are done via HTTPS requests, which means that all data obtained and retrieved from the API is delivered through an encrypted connection. Moreover, JSON Web Tokens("jwt") are used for authorization, and a jwt must be included with each request in order to authorize with the API. The token is used to idenfify which user that is connecting to the API and is initially handed out manually by Mevia.
 
-In order to authorize with the API, the API key must be sent with each request as a request parameter in the request header.
+In order to authorize with the API, the jwt must be sent with each request as a request parameter in the request header.
 
-The api key should be specified in the header of every request, in the following fashion:
+The jwt should be specified in the header of every request, in the following fashion:
 
-<span class="red-text">Authorization: Token token="API KEY"</span>
+<span class="red-text">Authorization: Bearer *your_jwt*</span>
 
 ## Versioning
 
