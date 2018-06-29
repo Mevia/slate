@@ -1,186 +1,80 @@
 # Flag Policies
-The following resources are used to flag policies. A flag policy is used to monitor a specific type of <a href='/#flag-types'>event</a> in the system, and generates a <a href='#flags'>flag</a> for every occurrence.
+A flag policy is used to monitor a specific type of [Event](/#flag-types) in the system. All such events generates a [Flag](#flags), if the type of the flag matches the value of flag_type in a flag policy, all recipients will be notified.
 
-## Get all flag policies
-
-> Response structure:
+> Example fetch payload (for GET v2/flag_policies)
 
 ```json
 {
-    "data": [
-        {
-            "id": Integer,
-            "type": "flag_policies",
-            "attributes": {
-                "flag_type": String,
-                "message": String
-                "prescription_id": Integer
-            }
-        }
-    ],
-    "jsonapi": {
-        "version": "1.0"
-    },
-    "meta": {
-        "API": {
-            "version": "1.8.0"
-        }
+  "data": [{
+    "id": 1337,
+    "type": "flag_policies",
+    "attributes": {
+      "message": "Your message goes here",
+      "flag_type": "LOW_BATTERY"
     }
-}
-```
-
-This endpoint retrieves all flag policies for the specified prescription.
-
-### HTTP Request
-
-`GET https://api.mevia.com/v1/prescription/:prescription_id/flag_policies`
-
-### Query Parameters
-Parameter       | Format    | Description
----------       | -------   | -----------
-prescription_id | Integer   | ID of the prescription
-
-## Get specific flag policies
-
-> Response structure:
-
-```json
-{
-    "data": {
-        "id": Integer,
-        "type": "flag_policies",
-        "attributes": {
-            "flag_type": String,
-            "message": String
-            "prescription_id": Integer
-        }
-    },
-    "jsonapi": {
-        "version": "1.0"
-    },
-    "meta": {
-        "API": {
-            "version": "1.8.0"
-        }
+  }],
+  "jsonapi": {
+    "version": "1.0"
+  },
+  "meta": {
+    "API": {
+      "version": "2.0.0"
     }
-}```
-
-This endpoint retrieves a single specified flag policy.
-
-### HTTP Request
-
-`GET https://api.mevia.com/v1/flag_policies/:id`
-
-### Query Parameters
-Parameter | Format  | Description
---------- | ------- | -----------
-id        | id      | id of the flag policy to fetch
-
-## Delete specific flag policies
-
-This endpoint deletes the specified flag policy
-
-### HTTP Request
-
-`DELETE https://api.mevia.com/v1/flag_policies/:id`
-
-### Query Parameters
-Parameter | Format  | Description
---------- | ------- | -----------
-id        | id      | id of the flag policy to delete
-
-## Create a flag policy
-
-> Request structure:
-
-```json
-{
-  "flag_policies": {
-    "flag_type": String,
-    "message": String
   }
 }
 ```
 
-> Response structure:
+## Attributes
+
+> Example post payload (POST v2/flag_policies)
 
 ```json
 {
-    "data": {
-        "id": Integer,
-        "type": "flag_policies",
-        "attributes": {
-            "flag_type": String,
-            "message": String
-            "prescription_id": Integer
-        }
+  "data": {
+    "type": "flag_policies",
+    "attributes": {
+      "message": "Your message goes here",
+      "flag_type": "LOW_BATTERY"
     },
-    "jsonapi": {
-        "version": "1.0"
-    },
-    "meta": {
-        "API": {
-            "version": "1.8.0"
-        }
+    "relationships": {
+      "prescription": {
+        "data": { "type": "prescriptions", "id": "1" }
+      }
     }
-}
-```
-
-This endpoint creates a flag policy for the specified prescription.
-
-### HTTP Request
-
-`POST https://api.mevia.com/v1/prescription/:prescription_id/flag_policies`
-
-### Query Parameters
-Parameter       | Format        | Description
----------       | -------       | -----------
-prescription_id | Integer       | ID of the prescription
-
-## Update a flag policy
-
-> Request structure:
-
-```json
-{
-  "flag_policies": {
-    "flag_type": String
-    "message": String
+  },
+  "jsonapi": {
+    "version": "1.0"
+  },
+  "meta": {
+    "API": {
+      "version": "2.0.0"
+    }
   }
 }
 ```
 
-> Response structure:
+Name      | Format/Type  | Description
+--------- | ------------ | -----------
+id        | Integer      | ID of the flag policy
+message   | String/Text  | Message sent to recipients when flag of matching flag_type occurs. If not specified, a default message will be sent.
+flag_type | String       | Type of flag to listen for. See [Flag Types](/#flag-types)
 
-```json
-{
-    "data": {
-        "id": Integer,
-        "type": "flag_policies",
-        "attributes": {
-            "flag_type": String,
-            "message": String
-            "prescription_id": Integer
-        }
-    },
-    "jsonapi": {
-        "version": "1.0"
-    },
-    "meta": {
-        "API": {
-            "version": "1.8.0"
-        }
-    }
-}
-```
+## Relationships
+Name         | Relation    | Comments
+------------ | ---------   | -----------
+prescription | belongs_to  |
+recipients   | has_many    | Recipients to notify when a flag of flag_type occurs
+flags        | has_many    | All flags of flag_type belonging to prescription
 
-This endpoint updates a flag policy for the specified prescription.
+## Filters
+Name       | Type
+---------- | ----------
+message    | Equal to
+flag_type  | Equal to
 
-### HTTP Request
-
-`PUT https://api.mevia.com/v1/flag_policies/:id`
-
-### Query Parameters
-Parameter | Format  | Description
---------- | ------- | -----------
-id        | id      | ID of the flag policy to update
+## Available resources
+* get/
+* get/:id
+* post/
+* put/:id
+* delete/:id

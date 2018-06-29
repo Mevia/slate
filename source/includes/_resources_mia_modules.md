@@ -1,137 +1,61 @@
 # Mia Modules
 The following resources explains basic interaction with MIA Modules.
 
-## Get All mia modules
+## Attributes
 
-> Response structure:
-
-```json
-{
-    "data": [
-        {
-            "id": Integer,
-            "type": "mia_modules",
-            "attributes": {
-                "is_connected_to_package": Boolean,
-                "name": String (example: "GAA001"),
-                "firmware_file_name": String,
-                "prescription_id": Integer,
-                "module_number": String,
-                "battery_percentage": Integer
-            }
-        }
-    ],
-    "jsonapi": {
-        "version": "1.0"
-    },
-    "meta": {
-        "API": {
-            "version": "1.8.0"
-        }
-    }
-}
-```
-
-This endpoint retrieves all Mia Modules belonging to the current user.
-
-### HTTP Request
-
-`GET https://api.mevia.com/v1/mia_modules`
-
-### Query Parameters
-No available parameters apart from the ones <a href='##shared-attributes-among-all-resources'>shared</a> by all index resources
-
-## Get specific mia module
-
-> Response structure:
+> Example fetch payload (for GET v2/mia_modules)
 
 ```json
 {
-    "data": {
-        "id": Integer,
-        "type": "mia_modules",
-        "attributes": {
-            "is_connected_to_package": Boolean,
-            "name": String (example: "GAA001"),
-            "firmware_file_name": String,
-            "prescription_id": Integer,
-            "module_number": String,
-            "battery_percentage": Integer
-        }
+  "data": [{
+    "id": 1337,
+    "type": "mia_modules",
+    "attributes": {
+      "name": "GAA001",
+      "is_connected_to_package": true
     }
-    "jsonapi": {
-        "version": "1.0"
-    },
-    "meta": {
-        "API": {
-            "version": "1.8.0"
-        }
+  }],
+  "jsonapi": {
+    "version": "1.0"
+  },
+  "meta": {
+    "API": {
+      "version": "2.0.0"
     }
+  }
 }
 ```
 
-This endpoint retrieves a single specific mia module.
+Name                    | Format/Type  | Description
+---------               | ------------ | -----------
+id                      | Integer      | ID of the mia module
+nane                    | String/Text  | Name of the mia module
+is_connected_to_package | Boolean      | If the device is currently connected to a package
 
-### HTTP Request
+    has_one :prescription
+    has_one :api_user
+    has_many :packages
+    has_many :taken_pods
+    has_many :mia_module_schedules
 
-`GET https://api.mevia.com/v1/mia_modules/:id`
+## Relationships
+Name                 | Relation    | Comments
+------------         | ---------   | -----------
+prescription         | belongs_to  |
+api_user             | belongs_to  | Owner of the device
+packages             | has_many    | All packages that has ever been connected to the device
+taken_pods           | has_many    | All pods taken with the device connected
+mia_module_schedules | has_many    | All active/future schedules
 
-### Query Parameters
-Parameter | Format  | Description
---------- | ------- | -----------
-id        | Integer | ID of the mia module to show.
+## Filters
+Name                    | Type               | Description
+----------              | ---------          | -------------
+is_connected_to_package | Equal to           |
+name                    | Equal to           |
+module_number           | Equal to           |
+battery_percentage      | Equal to           |
+Available               | Equal to (Boolean) | True if device is not connected to an active prescription
 
-## Get all modules from a prescription
-
-> Response structure:
-
-```json
-{
-    "data": [
-        {
-            "id": Integer,
-            "type": "mia_modules",
-            "attributes": {
-                "is_connected_to_package": Boolean,
-                "name": String (example: "GAA001"),
-                "firmware_file_name": String,
-                "prescription_id": Integer,
-                "module_number": String,
-                "battery_percentage": Integer
-            }
-        }
-    ],
-    "jsonapi": {
-        "version": "1.0"
-    },
-    "meta": {
-        "API": {
-            "version": "1.8.0"
-        }
-    }
-}
-```
-
-This endpoint retrieves all Mia Modules belonging to the specified prescription.
-
-### HTTP Request
-
-`GET https://api.mevia.com/v1/prescriptions/:prescription_id/mia_modules/`
-
-### Query Parameters
-Parameter       | Format        | Description
----------       | -------       | -----------
-prescription_id | Integer       | ID of the prescription
-
-## Delete mia module
-
-This endpoint deletes the specified Mia Module. This action unlocks the module numbers for use on other API users.
-
-### HTTP Request
-
-`DELETE https://api.mevia.com/v1/mia_modules/:id`
-
-### Query Parameters
-Parameter | Format  | Description
---------- | ------- | -----------
-id        | Integer | ID of the mia module to delete
+## Available resources
+* get/
+* get/:id
