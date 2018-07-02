@@ -219,80 +219,1869 @@
         <ul class="search-results"></ul>
       <div id="toc" class="toc-list-h1">
           <li>
-            <a href="#overview" class="toc-h1 toc-link" data-title="Overview">Overview</a>
+            <a href="#overview" class="toc-h1 toc-link" data-title="overview">Overview</a>
               <ul class="toc-list-h2">
                   <li>
-                    <a href="#authentication-and-security" class="toc-h2 toc-link" data-title="Overview">Authentication and security</a>
+                    <a href="#authentication-and-security" class="toc-h2 toc-link" data-title="authentication-and-security">Authentication and security</a>
                   </li>
                   <li>
-                    <a href="#versioning" class="toc-h2 toc-link" data-title="Overview">Versioning</a>
+                    <a href="#versioning" class="toc-h2 toc-link" data-title="versioning">Versioning</a>
                   </li>
+                    <ul class="toc-list-h3">
+                        <li>
+                          <a href="#major-versions-x-y-z" class="toc-h3 toc-link" data-title="Overview">Major Versions(<span class="red-text">x</span>.y.z)</a>
+                        </li>
+                        <li>
+                          <a href="#minor-versions-x-y-z" class="toc-h3 toc-link" data-title="Overview">Minor Versions(x.<span class="red-text">y</span>.z)</a>
+                        </li>
+                        <li>
+                          <a href="#bug-fixes-x-y-z" class="toc-h3 toc-link" data-title="Overview">Bug Fixes(x.y.<span class="red-text">z</span>)</a>
+                        </li>
+                    </ul>
               </ul>
           </li>
           <li>
-            <a href="#flag-types" class="toc-h1 toc-link" data-title="Flag types">Flag types</a>
-          </li>
-          <li>
-            <a href="#notification-triggers" class="toc-h1 toc-link" data-title="Notification Triggers">Notification Triggers</a>
-          </li>
-          <li>
-            <a href="#sequencing" class="toc-h1 toc-link" data-title="Sequencing">Sequencing</a>
+            <a href="#resources" class="toc-h1 toc-link" data-title="resources">Resources</a>
               <ul class="toc-list-h2">
                   <li>
-                    <a href="#practical-assumptions-when-using-sequencing" class="toc-h2 toc-link" data-title="Sequencing">Practical assumptions when using sequencing</a>
+                    <a href="#flag-policies" class="toc-h2 toc-link" data-title="flag-policies">Flag Policies</a>
                   </li>
+                    <ul class="toc-list-h3">
+                        <li>
+                          <a href="#attributes" class="toc-h3 toc-link" data-title="Resources">Attributes</a>
+                        </li>
+                        <li>
+                          <a href="#relationships" class="toc-h3 toc-link" data-title="Resources">Relationships</a>
+                        </li>
+                        <li>
+                          <a href="#filters" class="toc-h3 toc-link" data-title="Resources">Filters</a>
+                        </li>
+                        <li>
+                          <a href="#available-resources" class="toc-h3 toc-link" data-title="Resources">Available resources</a>
+                        </li>
+                    </ul>
+                  <li>
+                    <a href="#flags" class="toc-h2 toc-link" data-title="flags">Flags</a>
+                  </li>
+                    <ul class="toc-list-h3">
+                        <li>
+                          <a href="#attributes-2" class="toc-h3 toc-link" data-title="Resources">Attributes</a>
+                        </li>
+                        <li>
+                          <a href="#relationships-2" class="toc-h3 toc-link" data-title="Resources">Relationships</a>
+                        </li>
+                        <li>
+                          <a href="#filters-2" class="toc-h3 toc-link" data-title="Resources">Filters</a>
+                        </li>
+                        <li>
+                          <a href="#available-resources-2" class="toc-h3 toc-link" data-title="Resources">Available resources</a>
+                        </li>
+                    </ul>
+                  <li>
+                    <a href="#mia-modules" class="toc-h2 toc-link" data-title="mia-modules">Mia Modules</a>
+                  </li>
+                    <ul class="toc-list-h3">
+                        <li>
+                          <a href="#attributes-3" class="toc-h3 toc-link" data-title="Resources">Attributes</a>
+                        </li>
+                        <li>
+                          <a href="#relationships-3" class="toc-h3 toc-link" data-title="Resources">Relationships</a>
+                        </li>
+                        <li>
+                          <a href="#filters-3" class="toc-h3 toc-link" data-title="Resources">Filters</a>
+                        </li>
+                        <li>
+                          <a href="#available-resources-3" class="toc-h3 toc-link" data-title="Resources">Available resources</a>
+                        </li>
+                    </ul>
+                  <li>
+                    <a href="#notification-policies" class="toc-h2 toc-link" data-title="notification-policies">Notification Policies</a>
+                  </li>
+                    <ul class="toc-list-h3">
+                        <li>
+                          <a href="#attributes-4" class="toc-h3 toc-link" data-title="Resources">Attributes</a>
+                        </li>
+                        <li>
+                          <a href="#relationships-4" class="toc-h3 toc-link" data-title="Resources">Relationships</a>
+                        </li>
+                        <li>
+                          <a href="#filters-4" class="toc-h3 toc-link" data-title="Resources">Filters</a>
+                        </li>
+                        <li>
+                          <a href="#available-resources-4" class="toc-h3 toc-link" data-title="Resources">Available resources</a>
+                        </li>
+                    </ul>
+                  <li>
+                    <a href="#notifications" class="toc-h2 toc-link" data-title="notifications">Notifications</a>
+                  </li>
+                    <ul class="toc-list-h3">
+                        <li>
+                          <a href="#attributes-5" class="toc-h3 toc-link" data-title="Resources">Attributes</a>
+                        </li>
+                        <li>
+                          <a href="#relationships-5" class="toc-h3 toc-link" data-title="Resources">Relationships</a>
+                        </li>
+                        <li>
+                          <a href="#filters-5" class="toc-h3 toc-link" data-title="Resources">Filters</a>
+                        </li>
+                        <li>
+                          <a href="#available-resources-5" class="toc-h3 toc-link" data-title="Resources">Available resources</a>
+                        </li>
+                    </ul>
+                  <li>
+                    <a href="#packages" class="toc-h2 toc-link" data-title="packages">Packages</a>
+                  </li>
+                    <ul class="toc-list-h3">
+                        <li>
+                          <a href="#attributes-6" class="toc-h3 toc-link" data-title="Resources">Attributes</a>
+                        </li>
+                        <li>
+                          <a href="#relationships-6" class="toc-h3 toc-link" data-title="Resources">Relationships</a>
+                        </li>
+                        <li>
+                          <a href="#filters-6" class="toc-h3 toc-link" data-title="Resources">Filters</a>
+                        </li>
+                    </ul>
+                  <li>
+                    <a href="#available-resources-6" class="toc-h2 toc-link" data-title="available-resources">Available resources</a>
+                  </li>
+                  <li>
+                    <a href="#prescriptions" class="toc-h2 toc-link" data-title="prescriptions">Prescriptions</a>
+                  </li>
+                    <ul class="toc-list-h3">
+                        <li>
+                          <a href="#attributes-7" class="toc-h3 toc-link" data-title="Resources">Attributes</a>
+                        </li>
+                        <li>
+                          <a href="#relationships-7" class="toc-h3 toc-link" data-title="Resources">Relationships</a>
+                        </li>
+                        <li>
+                          <a href="#filters-7" class="toc-h3 toc-link" data-title="Resources">Filters</a>
+                        </li>
+                        <li>
+                          <a href="#available-resources-7" class="toc-h3 toc-link" data-title="Resources">Available resources</a>
+                        </li>
+                    </ul>
+                  <li>
+                    <a href="#recipients" class="toc-h2 toc-link" data-title="recipients">Recipients</a>
+                  </li>
+                    <ul class="toc-list-h3">
+                        <li>
+                          <a href="#attributes-8" class="toc-h3 toc-link" data-title="Resources">Attributes</a>
+                        </li>
+                        <li>
+                          <a href="#relationships-8" class="toc-h3 toc-link" data-title="Resources">Relationships</a>
+                        </li>
+                        <li>
+                          <a href="#filters-8" class="toc-h3 toc-link" data-title="Resources">Filters</a>
+                        </li>
+                        <li>
+                          <a href="#available-resources-8" class="toc-h3 toc-link" data-title="Resources">Available resources</a>
+                        </li>
+                    </ul>
+                  <li>
+                    <a href="#scheduled-dose-schemas" class="toc-h2 toc-link" data-title="scheduled-dose-schemas">Scheduled dose schemas</a>
+                  </li>
+                    <ul class="toc-list-h3">
+                        <li>
+                          <a href="#attributes-9" class="toc-h3 toc-link" data-title="Resources">Attributes</a>
+                        </li>
+                        <li>
+                          <a href="#relationships-9" class="toc-h3 toc-link" data-title="Resources">Relationships</a>
+                        </li>
+                        <li>
+                          <a href="#filters-9" class="toc-h3 toc-link" data-title="Resources">Filters</a>
+                        </li>
+                        <li>
+                          <a href="#available-resources-9" class="toc-h3 toc-link" data-title="Resources">Available resources</a>
+                        </li>
+                    </ul>
+                  <li>
+                    <a href="#scheduled-doses" class="toc-h2 toc-link" data-title="scheduled-doses">Scheduled doses</a>
+                  </li>
+                    <ul class="toc-list-h3">
+                        <li>
+                          <a href="#attributes-10" class="toc-h3 toc-link" data-title="Resources">Attributes</a>
+                        </li>
+                        <li>
+                          <a href="#relationships-10" class="toc-h3 toc-link" data-title="Resources">Relationships</a>
+                        </li>
+                        <li>
+                          <a href="#filters-10" class="toc-h3 toc-link" data-title="Resources">Filters</a>
+                        </li>
+                        <li>
+                          <a href="#available-resources-10" class="toc-h3 toc-link" data-title="Resources">Available resources</a>
+                        </li>
+                    </ul>
+                  <li>
+                    <a href="#taken-pods" class="toc-h2 toc-link" data-title="taken-pods">Taken pods</a>
+                  </li>
+                    <ul class="toc-list-h3">
+                        <li>
+                          <a href="#attributes-11" class="toc-h3 toc-link" data-title="Resources">Attributes</a>
+                        </li>
+                        <li>
+                          <a href="#relationships-11" class="toc-h3 toc-link" data-title="Resources">Relationships</a>
+                        </li>
+                        <li>
+                          <a href="#filters-11" class="toc-h3 toc-link" data-title="Resources">Filters</a>
+                        </li>
+                        <li>
+                          <a href="#available-resources-11" class="toc-h3 toc-link" data-title="Resources">Available resources</a>
+                        </li>
+                    </ul>
               </ul>
           </li>
           <li>
-            <a href="#releases" class="toc-h1 toc-link" data-title="Releases">Releases</a>
+            <a href="#flag-types" class="toc-h1 toc-link" data-title="flag-types">Flag types</a>
+          </li>
+          <li>
+            <a href="#notification-triggers" class="toc-h1 toc-link" data-title="notification-triggers">Notification Triggers</a>
+          </li>
+          <li>
+            <a href="#releases" class="toc-h1 toc-link" data-title="releases">Releases</a>
               <ul class="toc-list-h2">
                   <li>
-                    <a href="#development-1-9-0" class="toc-h2 toc-link" data-title="Releases">Development - 1.9.0</a>
+                    <a href="#development-2-1-0" class="toc-h2 toc-link" data-title="development-2-1-0">Development - 2.1.0</a>
                   </li>
+                    <ul class="toc-list-h3">
+                        <li>
+                          <a href="#new-attributes-to-scheduled-dose-schemas" class="toc-h3 toc-link" data-title="Releases">New attributes to scheduled dose schemas!</a>
+                        </li>
+                    </ul>
                   <li>
-                    <a href="#staging-1-8-0" class="toc-h2 toc-link" data-title="Releases">Staging - 1.8.0</a>
-                  </li>
-                  <li>
-                    <a href="#production-1-8-0" class="toc-h2 toc-link" data-title="Releases">Production - 1.8.0</a>
+                    <a href="#production-2-0-0" class="toc-h2 toc-link" data-title="production-2-0-0">Production - 2.0.0</a>
                   </li>
               </ul>
           </li>
       </div>
         <ul class="toc-footer">
             <li><a href='http://www.mevia.se'>Mevia</a></li>
-            <li><a href='resources'>Resources</a></li>
         </ul>
     </div>
     <div class="page-wrapper">
       <div class="dark-box"></div>
       <div class="content">
         <h1 id='overview'>Overview</h1>
-<p>The API aims to take care of all data related to the MIA module itself, which is sending and receiving information from modules. Developers that use the API can, for instance, obtain all events from a module for a given patient, or register a prescription for a patient which then automatically will set reminders and other logic that interacts with the patient&#39;s mobile phone. This page contains general information about the API, what models are available and what the latest changes are. Documentation about all available resources can be found at <a href="resources/">the resource page</a></p>
+<p>The API aims to take care of all data related to the MIA module itself, which is sending and receiving information from modules. Developers that use the API can, for instance, obtain all events from a module for a given patient, or register a prescription for a patient which then automatically will set reminders and other logic that interacts with the patient&#39;s mobile phone. This page contains general information about the API, what models are available and what the latest changes are. Documentation about all available resources can be found at <a href="resources.html">the resource page</a></p>
 
 <p>The purpose of this setup is that API users will be able to concentrate on their business logic, henceforth not on how the modules work, which is abstracted away through the API. A benefit of this is also that, if the physical module changes, then there will be no impact on API users due to this abstraction.</p>
 
-<p>We are currently updating the API to follow <a href="http://jsonapi.org">JSON API 1.0</a>. While a bit confusing, the current status is that all data sent to the API is still using our old custom standard (as specified in the resources page), all data sent from the API uses the jsonapi standard. V2 of the API will follow the standard completely.</p>
+<p>We follow <a href="http://jsonapi.org">JSON API 1.0</a>. Details about sorting, filtering, resource inclusion and so on will be easiest to find at their site.</p>
 
-<p>The api is available under <span class="red-text">https://api.mevia.se</span>. Most resources are currently scoped under /v1/.</p>
+<p>The api is available under <span class="red-text">https://api.mevia.se</span>. Current version is scoped under V2.</p>
 <h2 id='authentication-and-security'>Authentication and security</h2>
-<p>All API calls are done via HTTPS requests, which means that all data obtained and retrieved from the API is delivered through an encrypted connection. Moreover, an API key must be sent with each request in order to authorize with the API. The key is used to idenfify which user that is connecting to the API and is initially handed out manually by Mevia.</p>
+<p>All API calls are done via HTTPS requests, which means that all data obtained and retrieved from the API is delivered through an encrypted connection. Moreover, JSON Web Tokens(&quot;jwt&quot;) are used for authorization, and a jwt must be included with each request in order to authorize with the API. The token is used to idenfify which user that is connecting to the API and is initially handed out manually by Mevia.</p>
 
-<p>In order to authorize with the API, the API key must be sent with each request as a request parameter in the request header.</p>
+<p>In order to authorize with the API, the jwt must be sent with each request as a request parameter in the request header.</p>
 
-<p>The api key should be specified in the header of every request, in the following fashion:</p>
+<p>The jwt should be specified in the header of every request, in the following fashion:</p>
 
-<p><span class="red-text">Authorization: Token token=&quot;API KEY&quot;</span></p>
-<h2 id='versioning'>Versioning</h2><h3 id='major-versions-span-class-red-text-x-span-y-z'>Major Versions(<span class="red-text">x</span>.y.z)</h3>
+<p><span class="red-text">Authorization: Bearer <em>your_jwt</em></span></p>
+<h2 id='versioning'>Versioning</h2><h3 id='major-versions-x-y-z'>Major Versions(<span class="red-text">x</span>.y.z)</h3>
 <p>The major versions will be seperated through API url namespaces, e.g.
 https://api.mevia.se/v1/:resource and https://api.mevia.se/v2/:resource</p>
 
 <p>Each major version will be supported as long as API users make use of it.</p>
-<h3 id='minor-versions-x-span-class-red-text-y-span-z'>Minor Versions(x.<span class="red-text">y</span>.z)</h3>
+<h3 id='minor-versions-x-y-z'>Minor Versions(x.<span class="red-text">y</span>.z)</h3>
 <p>Includes new requirements, improvements and changes that does not affect API users and their interface with the resources they use. The API might add functionality, but does not change or remove existing API resources.</p>
 
 <p>If an API resource is going to change or be removed, it will be marked as &quot;depricated&quot; long enough for API users to adapt, not breaking any functionality during the transition period for API users.</p>
-<h3 id='bug-fixes-x-y-span-class-red-text-z-span'>Bug Fixes(x.y.<span class="red-text">z</span>)</h3>
+<h3 id='bug-fixes-x-y-z'>Bug Fixes(x.y.<span class="red-text">z</span>)</h3>
 <p>Includes bug fixes that doesn&#39;t change or functionality to the API, only fix behaviour so it works as expected to.</p>
+<h1 id='resources'>Resources</h1><h2 id='flag-policies'>Flag Policies</h2>
+<p>A flag policy is used to monitor a specific type of <a href="#flag-types">Event</a> in the system. All such events generates a <a href="#flags">Flag</a>, if the type of the flag matches the value of flag_type in a flag policy, all recipients will be notified.</p>
+
+<blockquote>
+<p>Example fetch payload (for GET v2/flag_policies)</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1337</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"flag_policies"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Your message goes here"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"flag_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"LOW_BATTERY"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}],</span><span class="w">
+  </span><span class="s2">"jsonapi"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"version"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1.0"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"meta"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"API"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"version"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2.0.0"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre><h3 id='attributes'>Attributes</h3>
+<blockquote>
+<p>Example post payload (POST v2/flag_policies)</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"flag_policies"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Your message goes here"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"flag_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"LOW_BATTERY"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"relationships"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"prescription"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"prescriptions"</span><span class="p">,</span><span class="w"> </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="w"> </span><span class="p">}</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Format/Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>Integer</td>
+<td>ID of the flag policy</td>
+</tr>
+<tr>
+<td>message</td>
+<td>String/Text</td>
+<td>Message sent to recipients when flag of matching flag_type occurs. If not specified, a default message will be sent.</td>
+</tr>
+<tr>
+<td>flag_type</td>
+<td>String</td>
+<td>Type of flag to listen for. See <a href="#flag-types">Flag Types</a></td>
+</tr>
+</tbody></table>
+<h3 id='relationships'>Relationships</h3>
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Relation</th>
+<th>Comments</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>prescription</td>
+<td>belongs_to</td>
+<td></td>
+</tr>
+<tr>
+<td>recipients</td>
+<td>has_many</td>
+<td>Recipients to notify when a flag of flag_type occurs</td>
+</tr>
+<tr>
+<td>flags</td>
+<td>has_many</td>
+<td>All flags of flag_type belonging to prescription</td>
+</tr>
+</tbody></table>
+<h3 id='filters'>Filters</h3>
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>message</td>
+<td>Equal to</td>
+</tr>
+<tr>
+<td>flag_type</td>
+<td>Equal to</td>
+</tr>
+</tbody></table>
+<h3 id='available-resources'>Available resources</h3>
+<ul>
+<li>get/</li>
+<li>get/:id</li>
+<li>post/</li>
+<li>put/:id</li>
+<li>delete/:id</li>
+</ul>
+<h2 id='flags'>Flags</h2>
+<p>Flags are created automatically in response to various events occurring in the system. In order to register as a listener to a certain flag, users should create <a href="#flag-policies">flag policies</a>. To find what flags exists, please read the <a href="/#flag-types">flag types</a>&gt; section of this documentation.</p>
+
+<blockquote>
+<p>Example fetch payload (for GET v2/flags)</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1337</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"flags"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"flag_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"LOW_BATTERY"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"severity"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"A descriptive message that can be passed to users if wanted"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-06-29"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}],</span><span class="w">
+  </span><span class="s2">"jsonapi"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"version"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1.0"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"meta"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"API"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"version"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2.0.0"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre><h3 id='attributes-2'>Attributes</h3>
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Format/Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>Integer</td>
+<td>ID of the flag policy</td>
+</tr>
+<tr>
+<td>description</td>
+<td>String/Text</td>
+<td>Description of what has happened.</td>
+</tr>
+<tr>
+<td>flag_type</td>
+<td>String</td>
+<td>See <a href="/#flag-types">Flag Types</a></td>
+</tr>
+</tbody></table>
+<h3 id='relationships-2'>Relationships</h3>
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Relation</th>
+<th>Comments</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>prescription</td>
+<td>belongs_to</td>
+<td></td>
+</tr>
+<tr>
+<td>flagable</td>
+<td>belongs_to</td>
+<td>The object that was flagged, i.e, the device with low battery, the dose that was taken early, etc.</td>
+</tr>
+<tr>
+<td>flag_policies</td>
+<td>has_many</td>
+<td>All policies of matching type belonging to the same prescription</td>
+</tr>
+</tbody></table>
+<h3 id='filters-2'>Filters</h3>
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>flag_type</td>
+<td>Equal to</td>
+</tr>
+<tr>
+<td>severity</td>
+<td>Equal to</td>
+</tr>
+<tr>
+<td>description</td>
+<td>Equal to</td>
+</tr>
+<tr>
+<td>created_at</td>
+<td>Equal to</td>
+</tr>
+</tbody></table>
+<h3 id='available-resources-2'>Available resources</h3>
+<ul>
+<li>get/</li>
+<li>get/:id</li>
+</ul>
+<h2 id='mia-modules'>Mia Modules</h2>
+<p>The following resources explains basic interaction with MIA Modules.</p>
+<h3 id='attributes-3'>Attributes</h3>
+<blockquote>
+<p>Example fetch payload (for GET v2/mia_modules)</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1337</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"mia_modules"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GAA001"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"is_connected_to_package"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}],</span><span class="w">
+  </span><span class="s2">"jsonapi"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"version"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1.0"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"meta"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"API"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"version"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2.0.0"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Format/Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>Integer</td>
+<td>ID of the mia module</td>
+</tr>
+<tr>
+<td>nane</td>
+<td>String/Text</td>
+<td>Name of the mia module</td>
+</tr>
+<tr>
+<td>is_connected_to_package</td>
+<td>Boolean</td>
+<td>If the device is currently connected to a package</td>
+</tr>
+</tbody></table>
+<h3 id='relationships-3'>Relationships</h3>
+<blockquote>
+<p>Example post request</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"mia_modules"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GAA001"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"is_connected_to_package"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Relation</th>
+<th>Comments</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>prescription</td>
+<td>belongs_to</td>
+<td></td>
+</tr>
+<tr>
+<td>api_user</td>
+<td>belongs_to</td>
+<td>Owner of the device</td>
+</tr>
+<tr>
+<td>packages</td>
+<td>has_many</td>
+<td>All packages that has ever been connected to the device</td>
+</tr>
+<tr>
+<td>taken_pods</td>
+<td>has_many</td>
+<td>All pods taken with the device connected</td>
+</tr>
+<tr>
+<td>mia_module_schedules</td>
+<td>has_many</td>
+<td>All active/future schedules</td>
+</tr>
+</tbody></table>
+<h3 id='filters-3'>Filters</h3>
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>is_connected_to_package</td>
+<td>Equal to</td>
+<td></td>
+</tr>
+<tr>
+<td>name</td>
+<td>Equal to</td>
+<td></td>
+</tr>
+<tr>
+<td>module_number</td>
+<td>Equal to</td>
+<td></td>
+</tr>
+<tr>
+<td>battery_percentage</td>
+<td>Equal to</td>
+<td></td>
+</tr>
+<tr>
+<td>Available</td>
+<td>Equal to (Boolean)</td>
+<td>True if device is not connected to an active prescription</td>
+</tr>
+</tbody></table>
+<h3 id='available-resources-3'>Available resources</h3>
+<ul>
+<li>get/</li>
+<li>get/:id</li>
+</ul>
+<h2 id='notification-policies'>Notification Policies</h2>
+<p>A notification policy is a rule for how to send reminders to a list of recipients. Reminders are sent for every scheduled dose, as long as the dose is not marked as muted/taken when the reminder is supposed to be sent.</p>
+
+<blockquote>
+<p>Example fetch payload (for GET v2/notification_policies)</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1337</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"notification_policies"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Your message goes here"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"trigger"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BEFORE_DOSE_END"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"offset"</span><span class="p">:</span><span class="w"> </span><span class="mi">15</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"notification_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"EMAIL"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"dispatchable"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}],</span><span class="w">
+  </span><span class="s2">"jsonapi"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"version"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1.0"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"meta"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"API"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"version"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2.0.0"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre><h3 id='attributes-4'>Attributes</h3>
+<blockquote>
+<p>Example post payload (POST v2/flag_policies)</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"flag_policies"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Your message goes here"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"trigger"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BEFORE_DOSE_END"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"offset"</span><span class="p">:</span><span class="w"> </span><span class="mi">15</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"notification_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"EMAIL"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"relationships"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"prescription"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"prescriptions"</span><span class="p">,</span><span class="w"> </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="w"> </span><span class="p">}</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"recipients"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w"> </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"recipients"</span><span class="p">,</span><span class="w"> </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"recipients"</span><span class="p">,</span><span class="w"> </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="p">}]</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Format/Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>Integer</td>
+<td>ID of the notification policy</td>
+</tr>
+<tr>
+<td>message</td>
+<td>String/Text</td>
+<td>Message sent to recipients at offset (attribute) from trigger (attribute) for every dose beloning to the same prescription.</td>
+</tr>
+<tr>
+<td>notification_type</td>
+<td>String</td>
+<td>How to dispatch the reminder. Currently, only SMS and EMAIL are supported.</td>
+</tr>
+<tr>
+<td>trigger</td>
+<td>String</td>
+<td>When to dispatch the reminder. See <a href="#notification-triggers">triggers</a></td>
+</tr>
+<tr>
+<td>offset</td>
+<td>Integer</td>
+<td>How long before/after trigger (attribute) to send reminder. A reminder with offset 5 and trigger BEFORE_DOSE_START will be dispatched 5 minutes before the dose begins, etc.</td>
+</tr>
+<tr>
+<td>dispatchable</td>
+<td>Boolean</td>
+<td>Only fetchable. True if the policy is able to dispatch reminders - when there is at least one recipient connected to the policy with data enough to recieve the reminder. If notification_type is set to SMS, a phone is needed. If notification_type is set to EMAIL, an email adress is needed.</td>
+</tr>
+</tbody></table>
+<h3 id='relationships-4'>Relationships</h3>
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Relation</th>
+<th>Comments</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>prescription</td>
+<td>belongs_to</td>
+<td></td>
+</tr>
+<tr>
+<td>recipients</td>
+<td>has_many</td>
+<td>Recipients to notify when dose is not taken/muted at specified time</td>
+</tr>
+<tr>
+<td>notifications</td>
+<td>has_many</td>
+<td>All notifications dispatched by the policy</td>
+</tr>
+<tr>
+<td>scheduled_doses</td>
+<td>has_many</td>
+<td>All doses for which the recipients will be notified (currently: all doses beloning to the same prescription)</td>
+</tr>
+</tbody></table>
+<h3 id='filters-4'>Filters</h3>
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>trigger</td>
+<td>Equal to</td>
+</tr>
+<tr>
+<td>message</td>
+<td>Equal to</td>
+</tr>
+<tr>
+<td>offset</td>
+<td>Equal to</td>
+</tr>
+<tr>
+<td>notification_type</td>
+<td>Equal to</td>
+</tr>
+</tbody></table>
+<h3 id='available-resources-4'>Available resources</h3>
+<ul>
+<li>get/</li>
+<li>get/:id</li>
+<li>post/</li>
+<li>put/:id</li>
+<li>delete/:id</li>
+</ul>
+<h2 id='notifications'>Notifications</h2>
+<p>A notification is simply a reminder sent from the system, via a notification policy. One notification is created for every pair of dose schemas, recipients and doses.
+* Warning: notifications will be drastically changed in the future. Be careful when using. *</p>
+
+<blockquote>
+<p>Example fetch payload (for GET v2/notifications)</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1337</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"notifications"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Your message goes here"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"sent_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-02-14T06:45:04.589Z"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"phone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0761133316"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}],</span><span class="w">
+  </span><span class="s2">"jsonapi"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"version"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1.0"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"meta"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"API"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"version"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2.0.0"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre><h3 id='attributes-5'>Attributes</h3>
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Format/Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>Integer</td>
+<td>ID of the notification</td>
+</tr>
+<tr>
+<td>message</td>
+<td>String/Text</td>
+<td>Message sent to recipient. Inherited from its notification policy</td>
+</tr>
+<tr>
+<td>email</td>
+<td>String</td>
+<td>The email to which it was dispatched. A notification will have either a phone number or an email, never both</td>
+</tr>
+<tr>
+<td>phone</td>
+<td>String</td>
+<td>The phone to which it was dispatched. A notification will have either a phone number or an email, never both</td>
+</tr>
+</tbody></table>
+<h3 id='relationships-5'>Relationships</h3>
+<p>None</p>
+<h3 id='filters-5'>Filters</h3>
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>Equal to</td>
+</tr>
+<tr>
+<td>message</td>
+<td>Equal to</td>
+</tr>
+<tr>
+<td>email</td>
+<td>Equal to</td>
+</tr>
+<tr>
+<td>phone</td>
+<td>Equal to</td>
+</tr>
+</tbody></table>
+<h3 id='available-resources-5'>Available resources</h3>
+<ul>
+<li>get/</li>
+<li>get/:id</li>
+</ul>
+<h2 id='packages'>Packages</h2>
+<p>A package is automatically generated whenever a device detects that a new package has been inserted. Packages are read-only, and is mainly used to group taken_pods.</p>
+
+<blockquote>
+<p>Example fetch payload (for GET v2/packages)</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1337</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"packages"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-02-14T06:45:04.589Z"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"is_current"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"number"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"nr_of_taken_pods"</span><span class="p">:</span><span class="w"> </span><span class="mi">14</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}],</span><span class="w">
+  </span><span class="s2">"jsonapi"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"version"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1.0"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"meta"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"API"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"version"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2.0.0"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre><h3 id='attributes-6'>Attributes</h3>
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Format/Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>Integer</td>
+<td>ID of the package</td>
+</tr>
+<tr>
+<td>created_at</td>
+<td>Timestamp</td>
+<td>Timestamp of when the package was generated</td>
+</tr>
+<tr>
+<td>is_current</td>
+<td>Boolean</td>
+<td>Indicates if the package is the latest generated from its device (i.e., it&#39;s currently inserted and in use)</td>
+</tr>
+<tr>
+<td>number</td>
+<td>Integer</td>
+<td>Index of the package in the list of all packages generated by the device</td>
+</tr>
+</tbody></table>
+<h3 id='relationships-6'>Relationships</h3>
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Relation</th>
+<th>Comments</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>prescription</td>
+<td>belongs_to</td>
+<td></td>
+</tr>
+<tr>
+<td>recipients</td>
+<td>has_many</td>
+<td>Recipients to notify when dose is not taken/muted at specified time</td>
+</tr>
+<tr>
+<td>notifications</td>
+<td>has_many</td>
+<td>All notifications dispatched by the policy</td>
+</tr>
+<tr>
+<td>scheduled_doses</td>
+<td>has_many</td>
+<td>All doses for which the recipients will be notified (currently: all doses beloning to the same prescription)</td>
+</tr>
+</tbody></table>
+<h3 id='filters-6'>Filters</h3>
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>Equal to</td>
+</tr>
+<tr>
+<td>created_at</td>
+<td>Equal to</td>
+</tr>
+<tr>
+<td>number</td>
+<td>Equal to</td>
+</tr>
+<tr>
+<td>nr_of_taken_pods</td>
+<td>Equal to</td>
+</tr>
+</tbody></table>
+<h2 id='available-resources-6'>Available resources</h2>
+<ul>
+<li>get/</li>
+<li>get/:id</li>
+</ul>
+<h2 id='prescriptions'>Prescriptions</h2>
+<p>A prescription is easiest to think of as a patient. A prescription is the owner of dose schedules, reminder policies and recipients.</p>
+
+<blockquote>
+<p>Example fetch payload (for GET v2/prescriptions)</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"105"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"prescriptions"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"links"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"self"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://api.mevia.se/v2/prescriptions/105"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"starts_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-11-06T00:00:00.000Z"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"ends_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-08-31T21:59:00.000Z"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"start_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-11-06"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"end_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-08-31"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"module_activity_starts_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-11-06T00:00:00.000Z"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"module_activity_ends_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-08-31T21:59:00.000Z"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"pod_sequence"</span><span class="p">:</span><span class="w"> </span><span class="s2">"[0,1,2,3,4,5,6,7,8,9,10,11,12,13]"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"patient_reference"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Bertil"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"language"</span><span class="p">:</span><span class="w"> </span><span class="s2">"sv"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}],</span><span class="w">
+  </span><span class="s2">"jsonapi"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"version"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1.0"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"meta"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"API"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"version"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2.0.0"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre><h3 id='attributes-7'>Attributes</h3>
+<blockquote>
+<p>Example post payload (for POST v2/prescriptions)</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"prescriptions"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"starts_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-11-06T00:00:00.000Z"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"ends_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-08-31T21:59:00.000Z"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"start_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-11-06"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"end_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-08-31"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"module_activity_starts_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-11-06T00:00:00.000Z"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"module_activity_ends_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-08-31T21:59:00.000Z"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"pod_sequence"</span><span class="p">:</span><span class="w"> </span><span class="s2">"[0,1,2,3,4,5,6,7,8,9,10,11,12,13]"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"patient_reference"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Bertil"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"language"</span><span class="p">:</span><span class="w"> </span><span class="s2">"sv"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Format/Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>Integer</td>
+<td>ID of the prescription</td>
+</tr>
+<tr>
+<td>starts_at</td>
+<td>Timestamp</td>
+<td>Indicator of when the prescriptions turns active - doses and reminders starts to generate etc.</td>
+</tr>
+<tr>
+<td>start_date</td>
+<td>Date</td>
+<td>Same as above, but in date-format (starts at begining of day)</td>
+</tr>
+<tr>
+<td>ends_at</td>
+<td>Timestamp</td>
+<td>Indicator of when the prescriptions turns inactive - doses and reminders no longer generate etc.</td>
+</tr>
+<tr>
+<td>end_date</td>
+<td>Date</td>
+<td>Same as above, but in date-format (ends at end of day)</td>
+</tr>
+<tr>
+<td>module_activity_starts_at</td>
+<td>Timestamp</td>
+<td>If users want data of device activity before start of prescription, this attribute can be set to an earlier time. Doses and reminders will not start, but a log of taken_pods will be created by the device, if such activity occurs.</td>
+</tr>
+<tr>
+<td>module_activity_ends_at</td>
+<td>Timestamp</td>
+<td>Same as above, but after prescriptions end.</td>
+</tr>
+<tr>
+<td>pod_sequence</td>
+<td>String(array)</td>
+<td>The order of which taken_pods are to be taken. If sequence does not matter (all pods contain same dose for example), leave empty.</td>
+</tr>
+<tr>
+<td>patient_reference</td>
+<td>String</td>
+<td>The name of the patient. Used in some of the default flag messages</td>
+</tr>
+<tr>
+<td>language</td>
+<td>String</td>
+<td>The language the patient prefers. Current supports only sv and en. Default flag descriptions will be sent using this language.</td>
+</tr>
+</tbody></table>
+<h3 id='relationships-7'>Relationships</h3>
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Relation</th>
+<th>Comments</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>api_user</td>
+<td>belongs_to</td>
+<td>Owner of the prescription</td>
+</tr>
+<tr>
+<td>mia_modules</td>
+<td>has_many</td>
+<td>All devices used by the prescription.</td>
+</tr>
+<tr>
+<td>flag_policies</td>
+<td>has_many</td>
+<td>All flag policies in use. If a recipient is present on the policy, all flags of matching type under the prescription will be dispatched to the recipient</td>
+</tr>
+<tr>
+<td>notification_policies</td>
+<td>has_many</td>
+<td>All notification policies in use. If a recipient is present on the policy, all doses that are not taken/muted under the prescription will dispatch a reminder to the recipient</td>
+</tr>
+<tr>
+<td>scheduled_doses</td>
+<td>has_many</td>
+<td>All doses generated by the prescriptions dose schemas</td>
+</tr>
+<tr>
+<td>scheduled_dose_schemas</td>
+<td>has many</td>
+<td>All dose schemas beloning to the prescription.</td>
+</tr>
+<tr>
+<td>recipients</td>
+<td>has_many</td>
+<td>All recipients belonging to the prescription. Recipients are not in use unless also connected to a flag_policy or notification_policy.</td>
+</tr>
+<tr>
+<td>packages</td>
+<td>has_many</td>
+<td>All packages created by the prescriptions mia_modules.</td>
+</tr>
+<tr>
+<td>taken_pods</td>
+<td>has_many</td>
+<td>All taken_pods generated by the prescriptions mia_modules</td>
+</tr>
+<tr>
+<td>notifications</td>
+<td>has_many</td>
+<td>All notifications sent under the prescription (for doses, notification_policies and recipients belonging to the prescription)</td>
+</tr>
+<tr>
+<td>flags</td>
+<td>has_many</td>
+<td>All flags that has occured under the prescription. Will be created even if no matching flag_policy exists (can be displayed without being dispatched)</td>
+</tr>
+<tr>
+<td>mia_module_schedules</td>
+<td>has_many</td>
+<td>All mia_module_schedules belonging to the prescriptions mia_modules. Used to manage temporary module ownerships.</td>
+</tr>
+</tbody></table>
+<h3 id='filters-7'>Filters</h3>
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Type       Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>starts_at</td>
+<td>Equal to</td>
+</tr>
+<tr>
+<td>ends_at</td>
+<td>Equal to</td>
+</tr>
+<tr>
+<td>start_date</td>
+<td>Equal to</td>
+</tr>
+<tr>
+<td>end_date</td>
+<td>Equal to</td>
+</tr>
+<tr>
+<td>module_activity_starts_at</td>
+<td>Equal to</td>
+</tr>
+<tr>
+<td>module_activity_ends_at</td>
+<td>Equal to</td>
+</tr>
+<tr>
+<td>pod_sequence</td>
+<td>Equal to</td>
+</tr>
+<tr>
+<td>patient_reference</td>
+<td>Equal to</td>
+</tr>
+<tr>
+<td>language</td>
+<td>Equal to</td>
+</tr>
+<tr>
+<td>active</td>
+<td>Equal to</td>
+</tr>
+<tr>
+<td>with_patient_reference_like</td>
+<td>Matches</td>
+</tr>
+</tbody></table>
+<h3 id='available-resources-7'>Available resources</h3>
+<ul>
+<li>get/</li>
+<li>get/:id</li>
+<li>put/:id</li>
+<li>post</li>
+<li>delete/:id</li>
+</ul>
+<h2 id='recipients'>Recipients</h2>
+<p>A recipient is a reciever of notifications and flags. A prescription can have several. Easiest to think of as a contact in a contact list.</p>
+
+<blockquote>
+<p>Example fetch payload (for GET v2/recipients)</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"105"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"recipients"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"links"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"self"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://api.mevia.se/v2/recipients/105"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Bertil"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"phone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123456789"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"example@mevia.se"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}],</span><span class="w">
+  </span><span class="s2">"jsonapi"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"version"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1.0"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"meta"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"API"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"version"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2.0.0"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre><h3 id='attributes-8'>Attributes</h3>
+<blockquote>
+<p>Example post payload (for POST v2/recipients)</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"recipients"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Bertil"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"phone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123456789"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"example@mevia.se"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Format/Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>Integer</td>
+<td>ID of the recipient</td>
+</tr>
+<tr>
+<td>name</td>
+<td>String</td>
+<td>Name of the recipient. Used for display purposes only (never used in default messages etc.).</td>
+</tr>
+<tr>
+<td>phone</td>
+<td>String</td>
+<td>Phone number used to receive sms messages</td>
+</tr>
+<tr>
+<td>email</td>
+<td>String</td>
+<td>Email address used to receive emails</td>
+</tr>
+</tbody></table>
+<h3 id='relationships-8'>Relationships</h3>
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Relation</th>
+<th>Comments</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>prescription</td>
+<td>belongs_to</td>
+<td>Owner of the recipient</td>
+</tr>
+<tr>
+<td>flag_policies</td>
+<td>has_many</td>
+<td>Recipient will be notified when a flag is created matching the flag_type of the policy</td>
+</tr>
+<tr>
+<td>notification_policies</td>
+<td>has_many</td>
+<td>Recipient will be reminded when a dose matches the criteria of the policy</td>
+</tr>
+</tbody></table>
+<h3 id='filters-8'>Filters</h3>
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>phone</td>
+<td>Equal to</td>
+</tr>
+<tr>
+<td>name</td>
+<td>Equal to</td>
+</tr>
+<tr>
+<td>email</td>
+<td>Equal to</td>
+</tr>
+</tbody></table>
+<h3 id='available-resources-8'>Available resources</h3>
+<ul>
+<li>get/</li>
+<li>get/:id</li>
+<li>put/:id</li>
+<li>post</li>
+<li>delete/:id</li>
+</ul>
+<h2 id='scheduled-dose-schemas'>Scheduled dose schemas</h2>
+<p>A dose schema is a set of rules on how to generate scheduled doses for its prescription.
+Several attributes will be added in the next version of the API. Keep them in mind when building stuff using schemas :)</p>
+
+<blockquote>
+<p>Example fetch payload (for GET v2/scheduled_dose_schemas)</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"220"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"scheduled_dose_schemas"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"links"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"self"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://api.mevia.se/v2/scheduled_dose_schemas/220"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"start_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"14:30"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"end_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"15:00"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"pod_amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"start_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-11-06"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"end_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-12-31"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"days_between_doses"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"prescription_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">105</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"relationships"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"scheduled_doses"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"links"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"self"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://api.mevia.se/v2/scheduled_dose_schemas/220/relationships/scheduled_doses"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"related"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://api.mevia.se/v2/scheduled_dose_schemas/220/scheduled_doses"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"prescription"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"links"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"self"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://api.mevia.se/v2/scheduled_dose_schemas/220/relationships/prescription"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"related"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://api.mevia.se/v2/scheduled_dose_schemas/220/prescription"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}],</span><span class="w">
+  </span><span class="s2">"jsonapi"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"version"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1.0"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"meta"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"API"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"version"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2.0.0"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre><h3 id='attributes-9'>Attributes</h3>
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Format/Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>Integer</td>
+<td>ID of the dose schema</td>
+</tr>
+<tr>
+<td>start_time</td>
+<td>String(HH:MM)</td>
+<td>Specifies at what time generated doses should start</td>
+</tr>
+<tr>
+<td>end_time</td>
+<td>String(HH:MM)</td>
+<td>Specifies at what time generated doses should end</td>
+</tr>
+<tr>
+<td>pod_amount</td>
+<td>Integer</td>
+<td>Specifies what amount of pods/doses should be taken during the dose period.</td>
+</tr>
+<tr>
+<td>start_date</td>
+<td>Date</td>
+<td>First day to apply scheduling rules on</td>
+</tr>
+<tr>
+<td>end_date</td>
+<td>Date</td>
+<td>Last day to apply scheduling rules on</td>
+</tr>
+<tr>
+<td>days_between_doses</td>
+<td>Integer</td>
+<td>Days between doses. 2 will generate a dose every other day, 7 will generate a weekly dose etc.</td>
+</tr>
+</tbody></table>
+<h3 id='relationships-9'>Relationships</h3>
+<blockquote>
+<p>Example post payload (for POST v2/scheduled_dose_schemas)</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"scheduled_dose_schemas"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"start_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"14:30"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"end_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"15:00"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"pod_amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"start_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-11-06"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"end_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-12-31"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"days_between_doses"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"prescription_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">105</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Relation</th>
+<th>Comments</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>prescription</td>
+<td>belongs_to</td>
+<td></td>
+</tr>
+<tr>
+<td>recipients</td>
+<td>has_many</td>
+<td>Recipients to notify when dose is not taken/muted at specified time</td>
+</tr>
+<tr>
+<td>notifications</td>
+<td>has_many</td>
+<td>All notifications dispatched by the policy</td>
+</tr>
+<tr>
+<td>scheduled_doses</td>
+<td>has_many</td>
+<td>All doses for which the recipients will be notified (currently: all doses beloning to the same prescription)</td>
+</tr>
+</tbody></table>
+<h3 id='filters-9'>Filters</h3>
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>Equal to</td>
+</tr>
+<tr>
+<td>start_time</td>
+<td>Equal to</td>
+</tr>
+<tr>
+<td>end_time</td>
+<td>Equal to</td>
+</tr>
+<tr>
+<td>pod_amount</td>
+<td>Equal to</td>
+</tr>
+<tr>
+<td>start_date</td>
+<td>Equal to</td>
+</tr>
+<tr>
+<td>end_date</td>
+<td>Equal to</td>
+</tr>
+<tr>
+<td>days_between_doses</td>
+<td>Equal to</td>
+</tr>
+</tbody></table>
+<h3 id='available-resources-9'>Available resources</h3>
+<ul>
+<li>get/</li>
+<li>get/:id</li>
+<li>post</li>
+<li>put/:id</li>
+<li>delete/:id</li>
+</ul>
+<h2 id='scheduled-doses'>Scheduled doses</h2>
+<p>A scheduled dose is a planned period of time during which its prescription is supposed to take one or more pods/doses.</p>
+
+<blockquote>
+<p>Example fetch payload (for GET v2/scheduled_doses)</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"15154"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"scheduled_doses"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"links"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"self"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://api.mevia.se/v2/scheduled_doses/15154"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"period_starts_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-11-06T13:30:00.000Z"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"period_ends_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-11-06T14:00:00.000Z"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"taken"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"completed_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-11-06T13:49:22.245Z"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"nr_remaining_pods"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"expected_pods"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"muted"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"nr_remaining_pods_until_mute"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"scheduled_dose_schema_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">220</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"prescription_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">105</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"relationships"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"scheduled_dose_schema"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"links"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"self"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://api.mevia.se/v2/scheduled_doses/15154/relationships/scheduled_dose_schema"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"related"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://api.mevia.se/v2/scheduled_doses/15154/scheduled_dose_schema"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"prescription"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"links"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"self"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://api.mevia.se/v2/scheduled_doses/15154/relationships/prescription"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"related"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://api.mevia.se/v2/scheduled_doses/15154/prescription"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"notifications"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"links"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"self"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://api.mevia.se/v2/scheduled_doses/15154/relationships/notifications"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"related"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://api.mevia.se/v2/scheduled_doses/15154/notifications"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"taken_pods"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"links"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"self"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://api.mevia.se/v2/scheduled_doses/15154/relationships/taken_pods"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"related"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://api.mevia.se/v2/scheduled_doses/15154/taken_pods"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}],</span><span class="w">
+  </span><span class="s2">"jsonapi"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"version"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1.0"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"meta"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"API"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"version"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2.0.0"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre><h3 id='attributes-10'>Attributes</h3>
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Format/Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>Integer</td>
+<td>ID of the dose</td>
+</tr>
+<tr>
+<td>period_starts_at</td>
+<td>Datetime</td>
+<td>Specifies at what time the dose starts</td>
+</tr>
+<tr>
+<td>period_ends_at</td>
+<td>Datetime</td>
+<td>Specifies at what time the dose ends</td>
+</tr>
+<tr>
+<td>taken</td>
+<td>Boolean</td>
+<td>True if the dose has been taken correctly, otherwise false</td>
+</tr>
+<tr>
+<td>completed_at</td>
+<td>Datetime</td>
+<td>Time at which the dose was completed <em>correctly</em></td>
+</tr>
+<tr>
+<td>nr_remaining_pods</td>
+<td>Integer</td>
+<td>How many doses left until dose is taken <em>correctly</em></td>
+</tr>
+<tr>
+<td>nr_remaining_pods_until_mute</td>
+<td>Boolean</td>
+<td>How many doses left until dose is marked as muted (doesn&#39;t care if the pods/doses were taken correctly). A dose with this set to 0 will not send any more notifications</td>
+</tr>
+<tr>
+<td>expected_pods</td>
+<td>String(array)</td>
+<td>The pods that are supposed to be taken during this dose period. Only set if prescription has a pod_sequence.</td>
+</tr>
+<tr>
+<td>muted</td>
+<td>Boolean</td>
+<td>Same behaviour as if nr_remaining_pods_until_mute reaches zero, but manually toggled.</td>
+</tr>
+</tbody></table>
+<h3 id='relationships-10'>Relationships</h3>
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Relation</th>
+<th>Comments</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>prescription</td>
+<td>belongs_to</td>
+<td></td>
+</tr>
+<tr>
+<td>taken_pods</td>
+<td>has_many</td>
+<td>All pods related to this dose. Decided either by timestamp of the pod or by its sequence number</td>
+</tr>
+<tr>
+<td>notifications</td>
+<td>has_many</td>
+<td>All notifications/reminders sent regarding this dose</td>
+</tr>
+<tr>
+<td>scheduled_dose_schema</td>
+<td>belongs_to</td>
+<td>The schema which generated this dose</td>
+</tr>
+</tbody></table>
+<h3 id='filters-10'>Filters</h3>
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>Equal to</td>
+<td></td>
+</tr>
+<tr>
+<td>period_starts_at</td>
+<td>Equal to</td>
+<td></td>
+</tr>
+<tr>
+<td>period_ends_at</td>
+<td>Equal to</td>
+<td></td>
+</tr>
+<tr>
+<td>taken</td>
+<td>Equal to</td>
+<td></td>
+</tr>
+<tr>
+<td>completed_at</td>
+<td>Equal to</td>
+<td></td>
+</tr>
+<tr>
+<td>nr_remaining_pods</td>
+<td>Equal to</td>
+<td></td>
+</tr>
+<tr>
+<td>nr_remaining_pods_until_mute</td>
+<td>Equal to</td>
+<td></td>
+</tr>
+<tr>
+<td>expected_pods</td>
+<td>Equal to</td>
+<td></td>
+</tr>
+<tr>
+<td>muted</td>
+<td>Equal to</td>
+<td></td>
+</tr>
+<tr>
+<td>pod_number</td>
+<td>Matches</td>
+<td>Given a list of numbers, returns all doses in which all numbers are expected</td>
+</tr>
+<tr>
+<td>date_to</td>
+<td>Less than or equal to</td>
+<td>Given a datetime, returns all doses ending before that datetime</td>
+</tr>
+<tr>
+<td>date_from</td>
+<td>Greater than or equal to</td>
+<td>Given a datetime, returns all doses starting after that datetime</td>
+</tr>
+</tbody></table>
+<h3 id='available-resources-10'>Available resources</h3>
+<ul>
+<li>get/</li>
+<li>get/:id</li>
+<li>post</li>
+<li>put/:id</li>
+<li>delete/:id</li>
+</ul>
+<h2 id='taken-pods'>Taken pods</h2>
+<p>A taken pod is generated by a mia_module whenever its owner removes a pill/dose/pod from its package.</p>
+
+<blockquote>
+<p>Example fetch payload (for GET v2/taken_pods)</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"13590"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"taken_pods"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"links"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"self"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://api.mevia.se/v2/taken_pods/13590"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"number"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"taken_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-11-06T12:28:56.000Z"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"prescription_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">105</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"scheduled_dose_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"package_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">4893</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"relationships"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"prescription"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"links"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"self"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://api.mevia.se/v2/taken_pods/13590/relationships/prescription"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"related"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://api.mevia.se/v2/taken_pods/13590/prescription"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"scheduled_dose"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"links"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"self"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://api.mevia.se/v2/taken_pods/13590/relationships/scheduled_dose"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"related"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://api.mevia.se/v2/taken_pods/13590/scheduled_dose"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"package"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"links"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"self"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://api.mevia.se/v2/taken_pods/13590/relationships/package"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"related"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://api.mevia.se/v2/taken_pods/13590/package"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}],</span><span class="w">
+  </span><span class="s2">"jsonapi"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"version"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1.0"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"meta"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"API"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"version"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2.0.0"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre><h3 id='attributes-11'>Attributes</h3>
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Format/Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>Integer</td>
+<td>ID of the pod</td>
+</tr>
+<tr>
+<td>number</td>
+<td>Integer</td>
+<td>The index (in its package) of the pod. Used to match against its prescriptions pod_sequence, if used</td>
+</tr>
+<tr>
+<td>taken_at</td>
+<td>Datetime</td>
+<td>Specifies at what time the pod was taken</td>
+</tr>
+</tbody></table>
+<h3 id='relationships-11'>Relationships</h3>
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Relation</th>
+<th>Comments</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>prescription</td>
+<td>belongs_to</td>
+<td></td>
+</tr>
+<tr>
+<td>package</td>
+<td>belongs_to</td>
+<td></td>
+</tr>
+<tr>
+<td>mia_module</td>
+<td>belongs_to</td>
+<td></td>
+</tr>
+<tr>
+<td>scheduled_dose</td>
+<td>belongs_to</td>
+<td></td>
+</tr>
+</tbody></table>
+<h3 id='filters-11'>Filters</h3>
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>taken_at</td>
+<td>Equal to</td>
+</tr>
+<tr>
+<td>Number</td>
+<td>Equal to</td>
+</tr>
+</tbody></table>
+<h3 id='available-resources-11'>Available resources</h3>
+<ul>
+<li>get/</li>
+<li>get/:id</li>
+</ul>
 <h1 id='flag-types'>Flag types</h1>
 <p>This is a list of all flags that currently exists in the system. Flags are simply events occuring in the system that users can chose to be notified about.</p>
 
@@ -305,8 +2094,8 @@ https://api.mevia.se/v1/:resource and https://api.mevia.se/v2/:resource</p>
 </thead><tbody>
 <tr>
 <td>LOW_BATTERY</td>
-<td>A module is low on battery.</td>
-<td>When a module has a battery status &lt; 20%</td>
+<td>A device is low on battery.</td>
+<td>When a device has a battery status &lt; 20%</td>
 </tr>
 <tr>
 <td>SEQUENCE_ANOMALY</td>
@@ -377,117 +2166,12 @@ https://api.mevia.se/v1/:resource and https://api.mevia.se/v2/:resource</p>
 </tbody></table>
 
 <p>Example: A notification policy with trigger: &#39;BEFORE_DOSE_ENDS&#39; and offset: 15, and a scheduled_dose_schema with start_time: &#39;10:00&#39; and end_time: &#39;11:00&#39; will generate a notification that is scheduled to be sent at 10:45 every day that its prescription is active.</p>
-<h1 id='sequencing'>Sequencing</h1>
-<blockquote>
-<p>Example JSON when posting (creating) prescription:</p>
-</blockquote>
-<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="s2">"prescriptions"</span><span class="p">:{</span><span class="w">
-    </span><span class="s2">"start_date"</span><span class="p">:</span><span class="s2">"2015-01-01"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"end_date"</span><span class="p">:</span><span class="s2">"2015-03-01"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"pod_sequence"</span><span class="p">:</span><span class="w"> </span><span class="s2">"[1,2,3,4]"</span><span class="w">
-  </span><span class="p">}</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre>
-<p>When creating prescriptions, the API user has the option to create scheduled doses according to a package pod sequence. This means that the patient must take their pods according to a specific sequence on the package (tray), which is represented by numbers. The API, as well as the modules, can handle any kind of sequencing pattern.</p>
-<h2 id='practical-assumptions-when-using-sequencing'>Practical assumptions when using sequencing</h2>
-<blockquote>
-<p>Example JSON when retrieving schedule dose which is based on the prescription above:</p>
-</blockquote>
-
+<h1 id='releases'>Releases</h1><h2 id='development-2-1-0'>Development - 2.1.0</h2><h3 id='new-attributes-to-scheduled-dose-schemas'>New attributes to scheduled dose schemas!</h3>
 <ul>
-<li>When taking wrong pods in a sequence, or missing dose completely, the patient moves on to the next set of pods to take for next dose at the next time slot. This means that pods can be untaken when finishing a tray. This does not affect module dose planning, which is very important e.g. for reused modules with set date intervals.</li>
-<li>If no sequence is specified for prescriptions and no expected pods are given for scheduled doses, then any pod can be taken at any dose time interval in order to complete them. This is the default behavior.</li>
+<li>weekdays: Used to plan more complex schemas. With this attribute, a custom weekly schedule can be created.</li>
+<li>day_numbers: Used to plan a schema that is to complex/varied to describe in a ruleset. Here you simply specify the days you want to plan as an array.</li>
 </ul>
-<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-    </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-        </span><span class="p">{</span><span class="w">
-            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"478"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"scheduled_doses"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-                </span><span class="s2">"period_starts_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-09-19T11:00:00.000Z"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"period_ends_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-09-19T12:00:00.000Z"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"taken"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"completed_at"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"nr_remaining_pods"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"expected_pods"</span><span class="p">:</span><span class="w"> </span><span class="s2">"[13]"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"muted"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"nr_remaining_pods_until_mute"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"prescription_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">9</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"scheduled_dose_schema_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">17</span><span class="w">
-            </span><span class="p">}</span><span class="w">
-        </span><span class="p">},</span><span class="w">
-        </span><span class="p">{</span><span class="w">
-            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1315"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"scheduled_doses"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-                </span><span class="s2">"period_starts_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-09-14T09:00:00.000Z"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"period_ends_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-09-14T10:00:00.000Z"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"taken"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"completed_at"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"nr_remaining_pods"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"expected_pods"</span><span class="p">:</span><span class="w"> </span><span class="s2">"[0]"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"muted"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"nr_remaining_pods_until_mute"</span><span class="p">:</span><span class="w"> </span><span class="mi">-1</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"prescription_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">9</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"scheduled_dose_schema_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">19</span><span class="w">
-            </span><span class="p">}</span><span class="w">
-        </span><span class="p">},</span><span class="w">
-        </span><span class="p">{</span><span class="w">
-            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1345"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"scheduled_doses"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-                </span><span class="s2">"period_starts_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-09-14T11:00:00.000Z"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"period_ends_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-09-14T12:00:00.000Z"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"taken"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"completed_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-09-14T11:51:40.000Z"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"nr_remaining_pods"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"expected_pods"</span><span class="p">:</span><span class="w"> </span><span class="s2">"[1]"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"muted"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"nr_remaining_pods_until_mute"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"prescription_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">9</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"scheduled_dose_schema_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">20</span><span class="w">
-            </span><span class="p">}</span><span class="w">
-        </span><span class="p">},</span><span class="w">
-        </span><span class="p">{</span><span class="w">
-            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1316"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"scheduled_doses"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-                </span><span class="s2">"period_starts_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-09-15T09:00:00.000Z"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"period_ends_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-09-15T10:00:00.000Z"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"taken"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"completed_at"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"nr_remaining_pods"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"expected_pods"</span><span class="p">:</span><span class="w"> </span><span class="s2">"[2]"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"muted"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"nr_remaining_pods_until_mute"</span><span class="p">:</span><span class="w"> </span><span class="mi">-1</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"prescription_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">9</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"scheduled_dose_schema_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">19</span><span class="w">
-            </span><span class="p">}</span><span class="w">
-        </span><span class="p">}</span><span class="w">
-    </span><span class="p">],</span><span class="w">
-    </span><span class="s2">"jsonapi"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"version"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1.0"</span><span class="w">
-    </span><span class="p">},</span><span class="w">
-    </span><span class="s2">"meta"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"API"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-            </span><span class="s2">"version"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1.8.0"</span><span class="w">
-        </span><span class="p">}</span><span class="w">
-    </span><span class="p">}</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre><h1 id='releases'>Releases</h1><h2 id='development-1-9-0'>Development - 1.9.0</h2>
-<p>Adding new model &quot;SchemaGroup&quot;. A group will be used to handle more complex scheduling scenarios, such as taking a pill every weekday (skipping weekends), or more specific, such as a morning dose on Mondays, Thursdays and Fridays.</p>
-<h2 id='staging-1-8-0'>Staging - 1.8.0</h2><h2 id='production-1-8-0'>Production - 1.8.0</h2><h3 id='shallow-scopes'>Shallow scopes</h3>
-<p>All resources under v1/ are now as shallow as at all possible. Scoping is only required for POST and GET(index).</p>
-<h3 id='singular-plural-naming'>Singular/plural naming</h3>
-<p>Resources fetched using SHOW, POST, PUT or DELETE will now use singular naming.</p>
-<h3 id='common-filters'>Common filters</h3>
-<p>All index calls now share some common filters. Available (for all index routes) filters are:
-* sort_by
-* direction
-* offset
-* limit</p>
-
+<h2 id='production-2-0-0'>Production - 2.0.0</h2>
       </div>
       <div class="dark-box">
           <div class="lang-selector">
