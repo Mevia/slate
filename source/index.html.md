@@ -34,25 +34,6 @@ The jwt should be specified in the header of every request, in the following fas
 
 <span class="red-text">Authorization: Bearer *your_jwt*</span>
 
-## Versioning
-
-### Major Versions(<span class="red-text">x</span>.y.z)
-
-The major versions will be seperated through API url namespaces, e.g.
-https://api.mevia.se/v1/:resource and https://api.mevia.se/v2/:resource
-
-Each major version will be supported as long as API users make use of it.
-
-### Minor Versions(x.<span class="red-text">y</span>.z)
-
-Includes new requirements, improvements and changes that does not affect API users and their interface with the resources they use. The API might add functionality, but does not change or remove existing API resources.
-
-If an API resource is going to change or be removed, it will be marked as "depricated" long enough for API users to adapt, not breaking any functionality during the transition period for API users.
-
-### Bug Fixes(x.y.<span class="red-text">z</span>)
-
-Includes bug fixes that doesn't change or functionality to the API, only fix behaviour so it works as expected to.
-
 # Resources
 
 ## Flag Policies
@@ -70,13 +51,8 @@ A flag policy is used to monitor a specific type of [Event](#flag-types) in the 
       "flag_type": "LOW_BATTERY"
     }
   }],
-  "jsonapi": {
-    "version": "1.0"
-  },
   "meta": {
-    "API": {
-      "version": "2.0.0"
-    }
+    "record_count": 1
   }
 }
 ```
@@ -146,14 +122,9 @@ Flags are created automatically in response to various events occurring in the s
       "created_at": "2018-06-29"
     }
   }],
-  "jsonapi": {
-    "version": "1.0"
-  },
   "meta": {
-    "API": {
-      "version": "2.0.0"
-    }
-  }
+    "record_count": 1
+  },
 }
 ```
 
@@ -189,6 +160,7 @@ The following resources explains basic interaction with MIA Modules.
 
 ### Attributes
 
+
 > Example fetch payload (for GET v2/mia_modules)
 
 ```json
@@ -198,16 +170,14 @@ The following resources explains basic interaction with MIA Modules.
     "type": "mia_modules",
     "attributes": {
       "name": "GAA001",
-      "is_connected_to_package": true
+      "is_connected_to_package": true,
+      "created_at": "2016-09-13T10:50:26.339Z",
+      "updated_at": "2019-04-27T01:59:01.629Z",
+      "battery_percentage": 100
     }
   }],
-  "jsonapi": {
-    "version": "1.0"
-  },
   "meta": {
-    "API": {
-      "version": "2.0.0"
-    }
+    "record_count": 1
   }
 }
 ```
@@ -215,8 +185,9 @@ The following resources explains basic interaction with MIA Modules.
 Name                    | Format/Type  | Description
 ---------               | ------------ | -----------
 id                      | Integer      | ID of the mia module
-nane                    | String/Text  | Name of the mia module
+name                    | String/Text  | Name of the mia module
 is_connected_to_package | Boolean      | If the device is currently connected to a package
+battery_percentage      | Integer      | Battery status of the device (at last communication cycle)
 
 ### Relationships
 
@@ -273,13 +244,8 @@ A notification policy is a rule for how to send reminders to a list of recipient
       "dispatchable": true
     }
   }],
-  "jsonapi": {
-    "version": "1.0"
-  },
   "meta": {
-    "API": {
-      "version": "2.0.0"
-    }
+    "record_count": 1
   }
 }
 ```
@@ -360,14 +326,9 @@ A notification is simply a reminder sent from the system, via a notification pol
       "email": null
     }
   }],
-  "jsonapi": {
-    "version": "1.0"
-  },
   "meta": {
-    "API": {
-      "version": "2.0.0"
-    }
-  }
+    "record_count": 1
+  },
 }
 ```
 
@@ -412,14 +373,9 @@ A package is automatically generated whenever a device detects that a new packag
       "nr_of_taken_pods": 14
     }
   }],
-  "jsonapi": {
-    "version": "1.0"
-  },
   "meta": {
-    "API": {
-      "version": "2.0.0"
-    }
-  }
+    "record_count": 1
+  },
 }
 ```
 
@@ -448,7 +404,7 @@ created_at       | Equal to
 number           | Equal to
 nr_of_taken_pods | Equal to
 
-## Available resources
+### Available resources
 * get/
 * get/:id
 
@@ -468,8 +424,6 @@ A prescription is easiest to think of as a patient. A prescription is the owner 
     "attributes": {
       "starts_at": "2017-11-06T00:00:00.000Z",
       "ends_at": "2018-08-31T21:59:00.000Z",
-      "start_date": "2017-11-06",
-      "end_date": "2018-08-31",
       "module_activity_starts_at": "2017-11-06T00:00:00.000Z",
       "module_activity_ends_at": "2018-08-31T21:59:00.000Z",
       "pod_sequence": "[0,1,2,3,4,5,6,7,8,9,10,11,12,13]",
@@ -477,13 +431,8 @@ A prescription is easiest to think of as a patient. A prescription is the owner 
       "language": "sv"
     }
   }],
-  "jsonapi": {
-    "version": "1.0"
-  },
   "meta": {
-    "API": {
-      "version": "2.0.0"
-    }
+    "record_count": 1
   }
 }
 ```
@@ -499,8 +448,6 @@ A prescription is easiest to think of as a patient. A prescription is the owner 
     "attributes": {
       "starts_at": "2017-11-06T00:00:00.000Z",
       "ends_at": "2018-08-31T21:59:00.000Z",
-      "start_date": "2017-11-06",
-      "end_date": "2018-08-31",
       "module_activity_starts_at": "2017-11-06T00:00:00.000Z",
       "module_activity_ends_at": "2018-08-31T21:59:00.000Z",
       "pod_sequence": "[0,1,2,3,4,5,6,7,8,9,10,11,12,13]",
@@ -515,9 +462,7 @@ Name                      | Format/Type  | Description
 ---------                 | ------------ | -----------
 id                        | Integer      | ID of the prescription
 starts_at                 | Timestamp    | Indicator of when the prescriptions turns active - doses and reminders starts to generate etc.
-start_date                | Date         | Same as above, but in date-format (starts at begining of day)
 ends_at                   | Timestamp    | Indicator of when the prescriptions turns inactive - doses and reminders no longer generate etc.
-end_date                  | Date         | Same as above, but in date-format (ends at end of day)
 module_activity_starts_at | Timestamp    | If users want data of device activity before start of prescription, this attribute can be set to an earlier time. Doses and reminders will not start, but a log of taken_pods will be created by the device, if such activity occurs.
 module_activity_ends_at   | Timestamp    | Same as above, but after prescriptions end.
 pod_sequence              | String(array)| The order of which taken_pods are to be taken. If sequence does not matter (all pods contain same dose for example), leave empty.
@@ -527,7 +472,7 @@ language                  | String       | The language the patient prefers. Cur
 ### Relationships
 Name                   | Relation   | Comments
 ---------------------  | ---------- | -----------
-api_user               | belongs_to | Owner of the prescription
+organization           | belongs_to | Owner of the prescription
 mia_modules            | has_many   | All devices used by the prescription.
 flag_policies          | has_many   | All flag policies in use. If a recipient is present on the policy, all flags of matching type under the prescription will be dispatched to the recipient
 notification_policies  | has_many   | All notification policies in use. If a recipient is present on the policy, all doses that are not taken/muted under the prescription will dispatch a reminder to the recipient
@@ -545,8 +490,6 @@ Name                        | Type       Description
 -----------------           | ---------- |
 starts_at                   | Equal to   |
 ends_at                     | Equal to   |
-start_date                  | Equal to   |
-end_date                    | Equal to   |
 module_activity_starts_at   | Equal to   |
 module_activity_ends_at     | Equal to   |
 pod_sequence                | Equal to   |
@@ -563,7 +506,7 @@ with_patient_reference_like | Matches    | Search for matches. "Be" matches "Ber
 * delete/:id
 
 ## Recipients
-A recipient is a reciever of notifications and flags. A prescription can have several. Easiest to think of as a contact in a contact list.
+A recipient is a receiver of notifications and flags. A prescription can have several. Easiest to think of as a contact in a contact list.
 
 > Example fetch payload (for GET v2/recipients)
 
@@ -581,13 +524,8 @@ A recipient is a reciever of notifications and flags. A prescription can have se
       "email": "example@mevia.se"
     }
   }],
-  "jsonapi": {
-    "version": "1.0"
-  },
   "meta": {
-    "API": {
-      "version": "2.0.0"
-    }
+    "record_count": 1
   }
 }
 ```
@@ -676,13 +614,8 @@ Several attributes will be added in the next version of the API. Keep them in mi
       }
     }
   }],
-  "jsonapi": {
-    "version": "1.0"
-  },
   "meta": {
-    "API": {
-      "version": "2.0.0"
-    }
+    "record_count": 1
   }
 }
 ```
@@ -798,13 +731,8 @@ A scheduled dose is a planned period of time during which its prescription is su
       }
     }
   }],
-  "jsonapi": {
-    "version": "1.0"
-  },
   "meta": {
-    "API": {
-      "version": "2.0.0"
-    }
+    "record_count": 1
   }
 }
 ```
@@ -896,13 +824,8 @@ A taken pod is generated by a mia_module whenever its owner removes a pill/dose/
       }
     }
   }],
-  "jsonapi": {
-    "version": "1.0"
-  },
   "meta": {
-    "API": {
-      "version": "2.0.0"
-    }
+    "record_count": 1
   }
 }
 ```
