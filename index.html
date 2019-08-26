@@ -224,20 +224,6 @@
                   <li>
                     <a href="#authentication-and-security" class="toc-h2 toc-link" data-title="authentication-and-security">Authentication and security</a>
                   </li>
-                  <li>
-                    <a href="#versioning" class="toc-h2 toc-link" data-title="versioning">Versioning</a>
-                  </li>
-                    <ul class="toc-list-h3">
-                        <li>
-                          <a href="#major-versions-x-y-z" class="toc-h3 toc-link" data-title="Overview">Major Versions(<span class="red-text">x</span>.y.z)</a>
-                        </li>
-                        <li>
-                          <a href="#minor-versions-x-y-z" class="toc-h3 toc-link" data-title="Overview">Minor Versions(x.<span class="red-text">y</span>.z)</a>
-                        </li>
-                        <li>
-                          <a href="#bug-fixes-x-y-z" class="toc-h3 toc-link" data-title="Overview">Bug Fixes(x.y.<span class="red-text">z</span>)</a>
-                        </li>
-                    </ul>
               </ul>
           </li>
           <li>
@@ -341,10 +327,10 @@
                         <li>
                           <a href="#filters-6" class="toc-h3 toc-link" data-title="Resources">Filters</a>
                         </li>
+                        <li>
+                          <a href="#available-resources-6" class="toc-h3 toc-link" data-title="Resources">Available resources</a>
+                        </li>
                     </ul>
-                  <li>
-                    <a href="#available-resources-6" class="toc-h2 toc-link" data-title="available-resources">Available resources</a>
-                  </li>
                   <li>
                     <a href="#prescriptions" class="toc-h2 toc-link" data-title="prescriptions">Prescriptions</a>
                   </li>
@@ -442,15 +428,10 @@
             <a href="#releases" class="toc-h1 toc-link" data-title="releases">Releases</a>
               <ul class="toc-list-h2">
                   <li>
-                    <a href="#development-2-1-0" class="toc-h2 toc-link" data-title="development-2-1-0">Development - 2.1.0</a>
+                    <a href="#development" class="toc-h2 toc-link" data-title="development">Development</a>
                   </li>
-                    <ul class="toc-list-h3">
-                        <li>
-                          <a href="#new-attributes-to-scheduled-dose-schemas" class="toc-h3 toc-link" data-title="Releases">New attributes to scheduled dose schemas!</a>
-                        </li>
-                    </ul>
                   <li>
-                    <a href="#production-2-0-0" class="toc-h2 toc-link" data-title="production-2-0-0">Production - 2.0.0</a>
+                    <a href="#production" class="toc-h2 toc-link" data-title="production">Production</a>
                   </li>
               </ul>
           </li>
@@ -478,17 +459,6 @@
 <p>The jwt should be specified in the header of every request, in the following fashion:</p>
 
 <p><span class="red-text">Authorization: Bearer <em>your_jwt</em></span></p>
-<h2 id='versioning'>Versioning</h2><h3 id='major-versions-x-y-z'>Major Versions(<span class="red-text">x</span>.y.z)</h3>
-<p>The major versions will be seperated through API url namespaces, e.g.
-https://api.mevia.se/v1/:resource and https://api.mevia.se/v2/:resource</p>
-
-<p>Each major version will be supported as long as API users make use of it.</p>
-<h3 id='minor-versions-x-y-z'>Minor Versions(x.<span class="red-text">y</span>.z)</h3>
-<p>Includes new requirements, improvements and changes that does not affect API users and their interface with the resources they use. The API might add functionality, but does not change or remove existing API resources.</p>
-
-<p>If an API resource is going to change or be removed, it will be marked as &quot;depricated&quot; long enough for API users to adapt, not breaking any functionality during the transition period for API users.</p>
-<h3 id='bug-fixes-x-y-z'>Bug Fixes(x.y.<span class="red-text">z</span>)</h3>
-<p>Includes bug fixes that doesn&#39;t change or functionality to the API, only fix behaviour so it works as expected to.</p>
 <h1 id='resources'>Resources</h1><h2 id='flag-policies'>Flag Policies</h2>
 <p>A flag policy is used to monitor a specific type of <a href="#flag-types">Event</a> in the system. All such events generates a <a href="#flags">Flag</a>, if the type of the flag matches the value of flag_type in a flag policy, all recipients will be notified.</p>
 
@@ -504,13 +474,8 @@ https://api.mevia.se/v1/:resource and https://api.mevia.se/v2/:resource</p>
       </span><span class="s2">"flag_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"LOW_BATTERY"</span><span class="w">
     </span><span class="p">}</span><span class="w">
   </span><span class="p">}],</span><span class="w">
-  </span><span class="s2">"jsonapi"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"version"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1.0"</span><span class="w">
-  </span><span class="p">},</span><span class="w">
   </span><span class="s2">"meta"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"API"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-      </span><span class="s2">"version"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2.0.0"</span><span class="w">
-    </span><span class="p">}</span><span class="w">
+    </span><span class="s2">"record_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre><h3 id='attributes'>Attributes</h3>
@@ -620,14 +585,9 @@ https://api.mevia.se/v1/:resource and https://api.mevia.se/v2/:resource</p>
       </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-06-29"</span><span class="w">
     </span><span class="p">}</span><span class="w">
   </span><span class="p">}],</span><span class="w">
-  </span><span class="s2">"jsonapi"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"version"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1.0"</span><span class="w">
-  </span><span class="p">},</span><span class="w">
   </span><span class="s2">"meta"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"API"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-      </span><span class="s2">"version"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2.0.0"</span><span class="w">
-    </span><span class="p">}</span><span class="w">
-  </span><span class="p">}</span><span class="w">
+    </span><span class="s2">"record_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
+  </span><span class="p">},</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre><h3 id='attributes-2'>Attributes</h3>
 <table><thead>
@@ -718,16 +678,14 @@ https://api.mevia.se/v1/:resource and https://api.mevia.se/v2/:resource</p>
     </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"mia_modules"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
       </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GAA001"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"is_connected_to_package"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+      </span><span class="s2">"is_connected_to_package"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-09-13T10:50:26.339Z"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-04-27T01:59:01.629Z"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"battery_percentage"</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="w">
     </span><span class="p">}</span><span class="w">
   </span><span class="p">}],</span><span class="w">
-  </span><span class="s2">"jsonapi"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"version"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1.0"</span><span class="w">
-  </span><span class="p">},</span><span class="w">
   </span><span class="s2">"meta"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"API"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-      </span><span class="s2">"version"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2.0.0"</span><span class="w">
-    </span><span class="p">}</span><span class="w">
+    </span><span class="s2">"record_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
@@ -744,7 +702,7 @@ https://api.mevia.se/v1/:resource and https://api.mevia.se/v2/:resource</p>
 <td>ID of the mia module</td>
 </tr>
 <tr>
-<td>nane</td>
+<td>name</td>
 <td>String/Text</td>
 <td>Name of the mia module</td>
 </tr>
@@ -752,6 +710,11 @@ https://api.mevia.se/v1/:resource and https://api.mevia.se/v2/:resource</p>
 <td>is_connected_to_package</td>
 <td>Boolean</td>
 <td>If the device is currently connected to a package</td>
+</tr>
+<tr>
+<td>battery_percentage</td>
+<td>Integer</td>
+<td>Battery status of the device (at last communication cycle)</td>
 </tr>
 </tbody></table>
 <h3 id='relationships-3'>Relationships</h3>
@@ -858,13 +821,8 @@ https://api.mevia.se/v1/:resource and https://api.mevia.se/v2/:resource</p>
       </span><span class="s2">"dispatchable"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
     </span><span class="p">}</span><span class="w">
   </span><span class="p">}],</span><span class="w">
-  </span><span class="s2">"jsonapi"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"version"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1.0"</span><span class="w">
-  </span><span class="p">},</span><span class="w">
   </span><span class="s2">"meta"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"API"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-      </span><span class="s2">"version"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2.0.0"</span><span class="w">
-    </span><span class="p">}</span><span class="w">
+    </span><span class="s2">"record_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre><h3 id='attributes-4'>Attributes</h3>
@@ -1008,14 +966,9 @@ https://api.mevia.se/v1/:resource and https://api.mevia.se/v2/:resource</p>
       </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
     </span><span class="p">}</span><span class="w">
   </span><span class="p">}],</span><span class="w">
-  </span><span class="s2">"jsonapi"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"version"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1.0"</span><span class="w">
-  </span><span class="p">},</span><span class="w">
   </span><span class="s2">"meta"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"API"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-      </span><span class="s2">"version"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2.0.0"</span><span class="w">
-    </span><span class="p">}</span><span class="w">
-  </span><span class="p">}</span><span class="w">
+    </span><span class="s2">"record_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
+  </span><span class="p">},</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre><h3 id='attributes-5'>Attributes</h3>
 <table><thead>
@@ -1094,14 +1047,9 @@ https://api.mevia.se/v1/:resource and https://api.mevia.se/v2/:resource</p>
       </span><span class="s2">"nr_of_taken_pods"</span><span class="p">:</span><span class="w"> </span><span class="mi">14</span><span class="w">
     </span><span class="p">}</span><span class="w">
   </span><span class="p">}],</span><span class="w">
-  </span><span class="s2">"jsonapi"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"version"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1.0"</span><span class="w">
-  </span><span class="p">},</span><span class="w">
   </span><span class="s2">"meta"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"API"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-      </span><span class="s2">"version"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2.0.0"</span><span class="w">
-    </span><span class="p">}</span><span class="w">
-  </span><span class="p">}</span><span class="w">
+    </span><span class="s2">"record_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
+  </span><span class="p">},</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre><h3 id='attributes-6'>Attributes</h3>
 <table><thead>
@@ -1185,7 +1133,7 @@ https://api.mevia.se/v1/:resource and https://api.mevia.se/v2/:resource</p>
 <td>Equal to</td>
 </tr>
 </tbody></table>
-<h2 id='available-resources-6'>Available resources</h2>
+<h3 id='available-resources-6'>Available resources</h3>
 <ul>
 <li>get/</li>
 <li>get/:id</li>
@@ -1206,8 +1154,6 @@ https://api.mevia.se/v1/:resource and https://api.mevia.se/v2/:resource</p>
     </span><span class="s2">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
       </span><span class="s2">"starts_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-11-06T00:00:00.000Z"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"ends_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-08-31T21:59:00.000Z"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"start_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-11-06"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"end_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-08-31"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"module_activity_starts_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-11-06T00:00:00.000Z"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"module_activity_ends_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-08-31T21:59:00.000Z"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"pod_sequence"</span><span class="p">:</span><span class="w"> </span><span class="s2">"[0,1,2,3,4,5,6,7,8,9,10,11,12,13]"</span><span class="p">,</span><span class="w">
@@ -1215,13 +1161,8 @@ https://api.mevia.se/v1/:resource and https://api.mevia.se/v2/:resource</p>
       </span><span class="s2">"language"</span><span class="p">:</span><span class="w"> </span><span class="s2">"sv"</span><span class="w">
     </span><span class="p">}</span><span class="w">
   </span><span class="p">}],</span><span class="w">
-  </span><span class="s2">"jsonapi"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"version"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1.0"</span><span class="w">
-  </span><span class="p">},</span><span class="w">
   </span><span class="s2">"meta"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"API"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-      </span><span class="s2">"version"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2.0.0"</span><span class="w">
-    </span><span class="p">}</span><span class="w">
+    </span><span class="s2">"record_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre><h3 id='attributes-7'>Attributes</h3>
@@ -1234,8 +1175,6 @@ https://api.mevia.se/v1/:resource and https://api.mevia.se/v2/:resource</p>
     </span><span class="s2">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
       </span><span class="s2">"starts_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-11-06T00:00:00.000Z"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"ends_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-08-31T21:59:00.000Z"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"start_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-11-06"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"end_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-08-31"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"module_activity_starts_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-11-06T00:00:00.000Z"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"module_activity_ends_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-08-31T21:59:00.000Z"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"pod_sequence"</span><span class="p">:</span><span class="w"> </span><span class="s2">"[0,1,2,3,4,5,6,7,8,9,10,11,12,13]"</span><span class="p">,</span><span class="w">
@@ -1263,19 +1202,9 @@ https://api.mevia.se/v1/:resource and https://api.mevia.se/v2/:resource</p>
 <td>Indicator of when the prescriptions turns active - doses and reminders starts to generate etc.</td>
 </tr>
 <tr>
-<td>start_date</td>
-<td>Date</td>
-<td>Same as above, but in date-format (starts at begining of day)</td>
-</tr>
-<tr>
 <td>ends_at</td>
 <td>Timestamp</td>
 <td>Indicator of when the prescriptions turns inactive - doses and reminders no longer generate etc.</td>
-</tr>
-<tr>
-<td>end_date</td>
-<td>Date</td>
-<td>Same as above, but in date-format (ends at end of day)</td>
 </tr>
 <tr>
 <td>module_activity_starts_at</td>
@@ -1312,7 +1241,7 @@ https://api.mevia.se/v1/:resource and https://api.mevia.se/v2/:resource</p>
 </tr>
 </thead><tbody>
 <tr>
-<td>api_user</td>
+<td>organization</td>
 <td>belongs_to</td>
 <td>Owner of the prescription</td>
 </tr>
@@ -1388,14 +1317,6 @@ https://api.mevia.se/v1/:resource and https://api.mevia.se/v2/:resource</p>
 <td>Equal to</td>
 </tr>
 <tr>
-<td>start_date</td>
-<td>Equal to</td>
-</tr>
-<tr>
-<td>end_date</td>
-<td>Equal to</td>
-</tr>
-<tr>
 <td>module_activity_starts_at</td>
 <td>Equal to</td>
 </tr>
@@ -1433,7 +1354,7 @@ https://api.mevia.se/v1/:resource and https://api.mevia.se/v2/:resource</p>
 <li>delete/:id</li>
 </ul>
 <h2 id='recipients'>Recipients</h2>
-<p>A recipient is a reciever of notifications and flags. A prescription can have several. Easiest to think of as a contact in a contact list.</p>
+<p>A recipient is a receiver of notifications and flags. A prescription can have several. Easiest to think of as a contact in a contact list.</p>
 
 <blockquote>
 <p>Example fetch payload (for GET v2/recipients)</p>
@@ -1451,13 +1372,8 @@ https://api.mevia.se/v1/:resource and https://api.mevia.se/v2/:resource</p>
       </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"example@mevia.se"</span><span class="w">
     </span><span class="p">}</span><span class="w">
   </span><span class="p">}],</span><span class="w">
-  </span><span class="s2">"jsonapi"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"version"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1.0"</span><span class="w">
-  </span><span class="p">},</span><span class="w">
   </span><span class="s2">"meta"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"API"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-      </span><span class="s2">"version"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2.0.0"</span><span class="w">
-    </span><span class="p">}</span><span class="w">
+    </span><span class="s2">"record_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre><h3 id='attributes-8'>Attributes</h3>
@@ -1593,13 +1509,8 @@ Several attributes will be added in the next version of the API. Keep them in mi
       </span><span class="p">}</span><span class="w">
     </span><span class="p">}</span><span class="w">
   </span><span class="p">}],</span><span class="w">
-  </span><span class="s2">"jsonapi"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"version"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1.0"</span><span class="w">
-  </span><span class="p">},</span><span class="w">
   </span><span class="s2">"meta"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"API"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-      </span><span class="s2">"version"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2.0.0"</span><span class="w">
-    </span><span class="p">}</span><span class="w">
+    </span><span class="s2">"record_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre><h3 id='attributes-9'>Attributes</h3>
@@ -1789,13 +1700,8 @@ Several attributes will be added in the next version of the API. Keep them in mi
       </span><span class="p">}</span><span class="w">
     </span><span class="p">}</span><span class="w">
   </span><span class="p">}],</span><span class="w">
-  </span><span class="s2">"jsonapi"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"version"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1.0"</span><span class="w">
-  </span><span class="p">},</span><span class="w">
   </span><span class="s2">"meta"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"API"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-      </span><span class="s2">"version"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2.0.0"</span><span class="w">
-    </span><span class="p">}</span><span class="w">
+    </span><span class="s2">"record_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre><h3 id='attributes-10'>Attributes</h3>
@@ -1999,13 +1905,8 @@ Several attributes will be added in the next version of the API. Keep them in mi
       </span><span class="p">}</span><span class="w">
     </span><span class="p">}</span><span class="w">
   </span><span class="p">}],</span><span class="w">
-  </span><span class="s2">"jsonapi"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"version"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1.0"</span><span class="w">
-  </span><span class="p">},</span><span class="w">
   </span><span class="s2">"meta"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"API"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-      </span><span class="s2">"version"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2.0.0"</span><span class="w">
-    </span><span class="p">}</span><span class="w">
+    </span><span class="s2">"record_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre><h3 id='attributes-11'>Attributes</h3>
@@ -2166,12 +2067,7 @@ Several attributes will be added in the next version of the API. Keep them in mi
 </tbody></table>
 
 <p>Example: A notification policy with trigger: &#39;BEFORE_DOSE_ENDS&#39; and offset: 15, and a scheduled_dose_schema with start_time: &#39;10:00&#39; and end_time: &#39;11:00&#39; will generate a notification that is scheduled to be sent at 10:45 every day that its prescription is active.</p>
-<h1 id='releases'>Releases</h1><h2 id='development-2-1-0'>Development - 2.1.0</h2><h3 id='new-attributes-to-scheduled-dose-schemas'>New attributes to scheduled dose schemas!</h3>
-<ul>
-<li>weekdays: Used to plan more complex schemas. With this attribute, a custom weekly schedule can be created.</li>
-<li>day_numbers: Used to plan a schema that is to complex/varied to describe in a ruleset. Here you simply specify the days you want to plan as an array.</li>
-</ul>
-<h2 id='production-2-0-0'>Production - 2.0.0</h2>
+<h1 id='releases'>Releases</h1><h2 id='development'>Development</h2><h2 id='production'>Production</h2>
       </div>
       <div class="dark-box">
           <div class="lang-selector">
