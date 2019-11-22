@@ -340,17 +340,20 @@ id                | Integer      | ID of the notification
 message           | String/Text  | Message sent to recipient. Inherited from its notification policy
 email             | String       | The email to which it was dispatched. A notification will have either a phone number or an email, never both
 phone             | String       | The phone to which it was dispatched. A notification will have either a phone number or an email, never both
+sent_at           | Timestamp    | Time at which the notification was sent. Null for notifications that have not been dispatched
 
 ### Relationships
 None
 
 ### Filters
-Name       | Type
----------- | ----------
-id         | Equal to
-message    | Equal to
-email      | Equal to
-phone      | Equal to
+Name           | Type
+----------     | ----------
+id             | Equal to
+message        | Equal to
+email          | Equal to
+phone          | Equal to
+sent_at_after  | Equal to | Returns notifications have attribute sent_at higher than given timestamp
+sent_at_before | Equal to | Returns notifications have attribute sent_at lower than given timestamp
 
 ### Available resources
 * get/
@@ -497,6 +500,10 @@ patient_reference           | Equal to   |
 language                    | Equal to   |
 active                      | Equal to   | A prescription is active when current time is within starts_at and ends_at of the prescription
 with_patient_reference_like | Matches    | Search for matches. "Be" matches "Bertil", "Bertil!" does not, and so on.
+starts_at_after             | Equal to   | Returns prescriptions have attribute starts_at higher than given timestamp
+starts_at_before            | Equal to   | Returns prescriptions have attribute starts_at lower than given timestamp
+ends_at_after               | Equal to   | Returns prescriptions have attribute ends_at higher than given timestamp
+ends_at_before              | Equal to   | Returns prescriptions have attribute ends_at lower than given timestamp
 
 ### Available resources
 * get/
@@ -671,6 +678,10 @@ pod_amount         | Equal to
 start_date         | Equal to
 end_date           | Equal to
 days_between_doses | Equal to
+start_date_after   | Equal to   | Returns scheduled_dose_schemas that have attribute start_date higher than given timestamp
+start_date_before  | Equal to   | Returns scheduled_dose_schemas that have attribute start_date lower than given timestamp
+end_date_after     | Equal to   | Returns scheduled_dose_schemas that have attribute end_date higher than given timestamp
+end_date_before    | Equal to   | Returns scheduled_dose_schemas that have attribute end_date lower than given timestamp
 
 ### Available resources
 * get/
@@ -847,10 +858,12 @@ mia_module     | belongs_to |
 scheduled_dose | belongs_to |
 
 ### Filters
-Name     | Type
--------- | ---------
-taken_at | Equal to
-Number   | Equal to
+Name            | Type
+--------        | ---------
+taken_at        | Equal to
+Number          | Equal to
+taken_at_after  | Equal to | Returns taken_pods that have attribute taken_at higher than given timestamp
+taken_at_before | Equal to | Returns taken_pods that have attribute taken_at lower than given timestamp
 
 ### Available resources
 * get/
