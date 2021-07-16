@@ -78,24 +78,24 @@ A flag policy is used to monitor a specific type of [Event](#flag-types) in the 
 }
 ```
 
-Name      | Format/Type  | Description
---------- | ------------ | -----------
-id        | Integer      | ID of the flag policy
-message   | String/Text  | Message sent to recipients when flag of matching flag_type occurs. If not specified, a default message will be sent.
-flag_type | String       | Type of flag to listen for. See [Flag Types](#flag-types)
+| Name      | Format/Type | Description                                                                                                          |
+| --------- | ----------- | -------------------------------------------------------------------------------------------------------------------- |
+| id        | Integer     | ID of the flag policy                                                                                                |
+| message   | String/Text | Message sent to recipients when flag of matching flag_type occurs. If not specified, a default message will be sent. |
+| flag_type | String      | Type of flag to listen for. See [Flag Types](#flag-types)                                                            |
 
 ### Relationships
-Name         | Relation    | Comments
------------- | ---------   | -----------
-prescription | belongs_to  |
-recipients   | has_many    | Recipients to notify when a flag of flag_type occurs
-flags        | has_many    | All flags of flag_type belonging to prescription
+| Name         | Relation   | Comments                                             |
+| ------------ | ---------- | ---------------------------------------------------- |
+| prescription | belongs_to |
+| recipients   | has_many   | Recipients to notify when a flag of flag_type occurs |
+| flags        | has_many   | All flags of flag_type belonging to prescription     |
 
 ### Filters
-Name       | Type
----------- | ----------
-message    | Equal to
-flag_type  | Equal to
+| Name      | Type     |
+| --------- | -------- |
+| message   | Equal to |
+| flag_type | Equal to |
 
 ### Available resources
 * get/
@@ -130,26 +130,26 @@ Flags are created automatically in response to various events occurring in the s
 
 ### Attributes
 
-Name        | Format/Type  | Description
----------   | ------------ | -----------
-id          | Integer      | ID of the flag policy
-description | String/Text  | Description of what has happened.
-flag_type   | String       | See [Flag Types](/#flag-types)
+| Name        | Format/Type | Description                       |
+| ----------- | ----------- | --------------------------------- |
+| id          | Integer     | ID of the flag policy             |
+| description | String/Text | Description of what has happened. |
+| flag_type   | String      | See [Flag Types](/#flag-types)    |
 
 ### Relationships
-Name          | Relation    | Comments
-------------  | ---------   | -----------
-prescription  | belongs_to  |
-flagable      | belongs_to  | The object that was flagged, i.e, the device with low battery, the dose that was taken early, etc.
-flag_policies | has_many    | All policies of matching type belonging to the same prescription
+| Name          | Relation   | Comments                                                                                           |
+| ------------- | ---------- | -------------------------------------------------------------------------------------------------- |
+| prescription  | belongs_to |
+| flagable      | belongs_to | The object that was flagged, i.e, the device with low battery, the dose that was taken early, etc. |
+| flag_policies | has_many   | All policies of matching type belonging to the same prescription                                   |
 
 ### Filters
-Name        | Type
-----------  | ----------
-flag_type   | Equal to
-severity    | Equal to
-description | Equal to
-created_at  | Equal to
+| Name        | Type     |
+| ----------- | -------- |
+| flag_type   | Equal to |
+| severity    | Equal to |
+| description | Equal to |
+| created_at  | Equal to |
 
 ### Available resources
 * get/
@@ -182,12 +182,12 @@ The following resources explains basic interaction with MIA Modules.
 }
 ```
 
-Name                    | Format/Type  | Description
----------               | ------------ | -----------
-id                      | Integer      | ID of the mia module
-name                    | String/Text  | Name of the mia module
-is_connected_to_package | Boolean      | If the device is currently connected to a package
-battery_percentage      | Integer      | Battery status of the device (at last communication cycle)
+| Name                    | Format/Type | Description                                                |
+| ----------------------- | ----------- | ---------------------------------------------------------- |
+| id                      | Integer     | ID of the mia module                                       |
+| name                    | String/Text | Name of the mia module                                     |
+| is_connected_to_package | Boolean     | If the device is currently connected to a package          |
+| battery_percentage      | Integer     | Battery status of the device (at last communication cycle) |
 
 ### Relationships
 
@@ -205,26 +205,86 @@ battery_percentage      | Integer      | Battery status of the device (at last c
 }
 ```
 
-Name                 | Relation    | Comments
-------------         | ---------   | -----------
-prescription         | belongs_to  |
-api_user             | belongs_to  | Owner of the device
-packages             | has_many    | All packages that has ever been connected to the device
-taken_pods           | has_many    | All pods taken with the device connected
-mia_module_schedules | has_many    | All active/future schedules
+| Name                 | Relation   | Comments                                                |
+| -------------------- | ---------- | ------------------------------------------------------- |
+| prescription         | belongs_to |
+| api_user             | belongs_to | Owner of the device                                     |
+| packages             | has_many   | All packages that has ever been connected to the device |
+| taken_pods           | has_many   | All pods taken with the device connected                |
+| mia_module_schedules | has_many   | All active/future schedules                             |
 
 ### Filters
-Name                    | Type               | Description
-----------              | ---------          | -------------
-is_connected_to_package | Equal to           |
-name                    | Equal to           |
-module_number           | Equal to           |
-battery_percentage      | Equal to           |
-Available               | Equal to (Boolean) | True if device is not connected to an active prescription
+| Name                    | Type               | Description                                               |
+| ----------------------- | ------------------ | --------------------------------------------------------- |
+| is_connected_to_package | Equal to           |
+| name                    | Equal to           |
+| module_number           | Equal to           |
+| battery_percentage      | Equal to           |
+| Available               | Equal to (Boolean) | True if device is not connected to an active prescription |
 
 ### Available resources
 * get/
 * get/:id
+
+## Mia module schedules
+A mia module schedule is a schedule to indicate a period during which a device is connected to its prescription. Creating a schedule while a device is connected to a prescription will ensure no intake before the schedule starts is counted towards its prescriptions adherence. The device will automatically be disconnected (its prescription_id set to nil) once the schedule is over.
+
+> Example fetch payload (for GET v2/mia_module_schedules)
+
+```json
+{
+  "data": [{
+    "id": "13590",
+    "type": "mia_module_schedules",
+    "links": {
+      "self": "http://api.mevia.se/v2/mia_module_schedules/13590"
+    },
+    "attributes": {
+      "start_date": "2021-01-01",
+      "end_date": "2021-01-28",
+      "mia_module_id": 105,
+    },
+    "relationships": {
+      "mia_module": {
+        "links": {
+          "self": "http://api.mevia.se/v2/mia_module_schedules/13590/relationships/mia_module",
+          "related": "http://api.mevia.se/v2/mia_module_schedules/13590/mia_module"
+        }
+      }
+    }
+  }],
+  "meta": {
+    "record_count": 1
+  }
+}
+```
+
+### Attributes
+
+| Name       | Format/Type | Description                                    |
+| ---------- | ----------- | ---------------------------------------------- |
+| id         | Integer     | ID of the schedule                             |
+| start_date | Date        | The first date in which the schedule is active |
+| end_date   | Date        | The last date in which the schedule is active  |
+
+### Relationships
+| Name       | Relation   | Comments |
+| ---------- | ---------- | -------- |
+| mia_module | belongs_to |
+
+### Filters
+| Name              | Type     |
+| ----------------- | -------- |
+| start_date_after  | Equal to | Returns schedules which start dates are higher than input |
+| start_date_before | Equal to | Returns schedules which start dates are lower than input  |
+| end_date_after    | Equal to | Returns schedules which end dates are higher than input   |
+| end_date_before   | Equal to | Returns schedules which end dates are lower than input    |
+### Available resources
+* get/
+* get/:id
+* put/:id
+* post
+* delete/:id
 
 ## Notification Policies
 A notification policy is a rule for how to send reminders to a list of recipients. Reminders are sent for every scheduled dose, as long as the dose is not marked as muted/taken when the reminder is supposed to be sent.
@@ -276,30 +336,30 @@ A notification policy is a rule for how to send reminders to a list of recipient
 }
 ```
 
-Name              | Format/Type  | Description
----------         | ------------ | -----------
-id                | Integer      | ID of the notification policy
-message           | String/Text  | Message sent to recipients at offset (attribute) from trigger (attribute) for every dose beloning to the same prescription.
-notification_type | String       | How to dispatch the reminder. Currently, only SMS and EMAIL are supported.
-trigger           | String       | When to dispatch the reminder. See [triggers](#notification-triggers)
-offset            | Integer      | How long before/after trigger (attribute) to send reminder. A reminder with offset 5 and trigger BEFORE_DOSE_START will be dispatched 5 minutes before the dose begins, etc.
-dispatchable      | Boolean      | Only fetchable. True if the policy is able to dispatch reminders - when there is at least one recipient connected to the policy with data enough to recieve the reminder. If notification_type is set to SMS, a phone is needed. If notification_type is set to EMAIL, an email adress is needed.
+| Name              | Format/Type | Description                                                                                                                                                                                                                                                                                       |
+| ----------------- | ----------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| id                | Integer     | ID of the notification policy                                                                                                                                                                                                                                                                     |
+| message           | String/Text | Message sent to recipients at offset (attribute) from trigger (attribute) for every dose beloning to the same prescription.                                                                                                                                                                       |
+| notification_type | String      | How to dispatch the reminder. Currently, only SMS and EMAIL are supported.                                                                                                                                                                                                                        |
+| trigger           | String      | When to dispatch the reminder. See [triggers](#notification-triggers)                                                                                                                                                                                                                             |
+| offset            | Integer     | How long before/after trigger (attribute) to send reminder. A reminder with offset 5 and trigger BEFORE_DOSE_START will be dispatched 5 minutes before the dose begins, etc.                                                                                                                      |
+| dispatchable      | Boolean     | Only fetchable. True if the policy is able to dispatch reminders - when there is at least one recipient connected to the policy with data enough to recieve the reminder. If notification_type is set to SMS, a phone is needed. If notification_type is set to EMAIL, an email adress is needed. |
 
 ### Relationships
-Name            | Relation    | Comments
---------------  | ---------   | -----------
-prescription    | belongs_to  |
-recipients      | has_many    | Recipients to notify when dose is not taken/muted at specified time
-notifications   | has_many    | All notifications dispatched by the policy
-scheduled_doses | has_many    | All doses for which the recipients will be notified (currently: all doses beloning to the same prescription)
+| Name            | Relation   | Comments                                                                                                     |
+| --------------- | ---------- | ------------------------------------------------------------------------------------------------------------ |
+| prescription    | belongs_to |
+| recipients      | has_many   | Recipients to notify when dose is not taken/muted at specified time                                          |
+| notifications   | has_many   | All notifications dispatched by the policy                                                                   |
+| scheduled_doses | has_many   | All doses for which the recipients will be notified (currently: all doses beloning to the same prescription) |
 
 ### Filters
-Name               | Type
------------------  | ----------
-trigger            | Equal to
-message            | Equal to
-offset             | Equal to
-notification_type  | Equal to
+| Name              | Type     |
+| ----------------- | -------- |
+| trigger           | Equal to |
+| message           | Equal to |
+| offset            | Equal to |
+| notification_type | Equal to |
 
 ### Available resources
 * get/
@@ -334,26 +394,26 @@ A notification is simply a reminder sent from the system, via a notification pol
 
 ### Attributes
 
-Name              | Format/Type  | Description
----------         | ------------ | -----------
-id                | Integer      | ID of the notification
-message           | String/Text  | Message sent to recipient. Inherited from its notification policy
-email             | String       | The email to which it was dispatched. A notification will have either a phone number or an email, never both
-phone             | String       | The phone to which it was dispatched. A notification will have either a phone number or an email, never both
-sent_at           | Timestamp    | Time at which the notification was sent. Null for notifications that have not been dispatched
+| Name    | Format/Type | Description                                                                                                  |
+| ------- | ----------- | ------------------------------------------------------------------------------------------------------------ |
+| id      | Integer     | ID of the notification                                                                                       |
+| message | String/Text | Message sent to recipient. Inherited from its notification policy                                            |
+| email   | String      | The email to which it was dispatched. A notification will have either a phone number or an email, never both |
+| phone   | String      | The phone to which it was dispatched. A notification will have either a phone number or an email, never both |
+| sent_at | Timestamp   | Time at which the notification was sent. Null for notifications that have not been dispatched                |
 
 ### Relationships
 None
 
 ### Filters
-Name           | Type
-----------     | ----------
-id             | Equal to
-message        | Equal to
-email          | Equal to
-phone          | Equal to
-sent_at_after  | Equal to | Returns notifications have attribute sent_at higher than given timestamp
-sent_at_before | Equal to | Returns notifications have attribute sent_at lower than given timestamp
+| Name           | Type     |
+| -------------- | -------- |
+| id             | Equal to |
+| message        | Equal to |
+| email          | Equal to |
+| phone          | Equal to |
+| sent_at_after  | Equal to | Returns notifications have attribute sent_at higher than given timestamp |
+| sent_at_before | Equal to | Returns notifications have attribute sent_at lower than given timestamp  |
 
 ### Available resources
 * get/
@@ -384,28 +444,28 @@ A package is automatically generated whenever a device detects that a new packag
 
 ### Attributes
 
-Name              | Format/Type  | Description
----------         | ------------ | -----------
-id                | Integer      | ID of the package
-created_at        | Timestamp    | Timestamp of when the package was generated
-is_current        | Boolean      | Indicates if the package is the latest generated from its device (i.e., it's currently inserted and in use)
-number            | Integer      | Index of the package in the list of all packages generated by the device
+| Name       | Format/Type | Description                                                                                                 |
+| ---------- | ----------- | ----------------------------------------------------------------------------------------------------------- |
+| id         | Integer     | ID of the package                                                                                           |
+| created_at | Timestamp   | Timestamp of when the package was generated                                                                 |
+| is_current | Boolean     | Indicates if the package is the latest generated from its device (i.e., it's currently inserted and in use) |
+| number     | Integer     | Index of the package in the list of all packages generated by the device                                    |
 
 ### Relationships
-Name            | Relation    | Comments
---------------  | ---------   | -----------
-prescription    | belongs_to  |
-recipients      | has_many    | Recipients to notify when dose is not taken/muted at specified time
-notifications   | has_many    | All notifications dispatched by the policy
-scheduled_doses | has_many    | All doses for which the recipients will be notified (currently: all doses beloning to the same prescription)
+| Name            | Relation   | Comments                                                                                                     |
+| --------------- | ---------- | ------------------------------------------------------------------------------------------------------------ |
+| prescription    | belongs_to |
+| recipients      | has_many   | Recipients to notify when dose is not taken/muted at specified time                                          |
+| notifications   | has_many   | All notifications dispatched by the policy                                                                   |
+| scheduled_doses | has_many   | All doses for which the recipients will be notified (currently: all doses beloning to the same prescription) |
 
 ### Filters
-Name             | Type
-----------       | ----------
-id               | Equal to
-created_at       | Equal to
-number           | Equal to
-nr_of_taken_pods | Equal to
+| Name             | Type     |
+| ---------------- | -------- |
+| id               | Equal to |
+| created_at       | Equal to |
+| number           | Equal to |
+| nr_of_taken_pods | Equal to |
 
 ### Available resources
 * get/
@@ -461,49 +521,49 @@ A prescription is easiest to think of as a patient. A prescription is the owner 
 }
 ```
 
-Name                      | Format/Type  | Description
----------                 | ------------ | -----------
-id                        | Integer      | ID of the prescription
-starts_at                 | Timestamp    | Indicator of when the prescriptions turns active - doses and reminders starts to generate etc.
-ends_at                   | Timestamp    | Indicator of when the prescriptions turns inactive - doses and reminders no longer generate etc.
-module_activity_starts_at | Timestamp    | If users want data of device activity before start of prescription, this attribute can be set to an earlier time. Doses and reminders will not start, but a log of taken_pods will be created by the device, if such activity occurs.
-module_activity_ends_at   | Timestamp    | Same as above, but after prescriptions end.
-pod_sequence              | String(array)| The order of which taken_pods are to be taken. If sequence does not matter (all pods contain same dose for example), leave empty.
-patient_reference         | String       | The name of the patient. Used in some of the default flag messages
-language                  | String       | The language the patient prefers. Current supports only sv and en. Default flag descriptions will be sent using this language.
+| Name                      | Format/Type   | Description                                                                                                                                                                                                                           |
+| ------------------------- | ------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| id                        | Integer       | ID of the prescription                                                                                                                                                                                                                |
+| starts_at                 | Timestamp     | Indicator of when the prescriptions turns active - doses and reminders starts to generate etc.                                                                                                                                        |
+| ends_at                   | Timestamp     | Indicator of when the prescriptions turns inactive - doses and reminders no longer generate etc.                                                                                                                                      |
+| module_activity_starts_at | Timestamp     | If users want data of device activity before start of prescription, this attribute can be set to an earlier time. Doses and reminders will not start, but a log of taken_pods will be created by the device, if such activity occurs. |
+| module_activity_ends_at   | Timestamp     | Same as above, but after prescriptions end.                                                                                                                                                                                           |
+| pod_sequence              | String(array) | The order of which taken_pods are to be taken. If sequence does not matter (all pods contain same dose for example), leave empty.                                                                                                     |
+| patient_reference         | String        | The name of the patient. Used in some of the default flag messages                                                                                                                                                                    |
+| language                  | String        | The language the patient prefers. Current supports only sv and en. Default flag descriptions will be sent using this language.                                                                                                        |
 
 ### Relationships
-Name                   | Relation   | Comments
----------------------  | ---------- | -----------
-organization           | belongs_to | Owner of the prescription
-mia_modules            | has_many   | All devices used by the prescription.
-flag_policies          | has_many   | All flag policies in use. If a recipient is present on the policy, all flags of matching type under the prescription will be dispatched to the recipient
-notification_policies  | has_many   | All notification policies in use. If a recipient is present on the policy, all doses that are not taken/muted under the prescription will dispatch a reminder to the recipient
-scheduled_doses        | has_many   | All doses generated by the prescriptions dose schemas
-scheduled_dose_schemas | has many   | All dose schemas beloning to the prescription.
-recipients             | has_many   | All recipients belonging to the prescription. Recipients are not in use unless also connected to a flag_policy or notification_policy.
-packages               | has_many   | All packages created by the prescriptions mia_modules.
-taken_pods             | has_many   | All taken_pods generated by the prescriptions mia_modules
-notifications          | has_many   | All notifications sent under the prescription (for doses, notification_policies and recipients belonging to the prescription)
-flags                  | has_many   | All flags that has occured under the prescription. Will be created even if no matching flag_policy exists (can be displayed without being dispatched)
-mia_module_schedules   | has_many   | All mia_module_schedules belonging to the prescriptions mia_modules. Used to manage temporary module ownerships.
+| Name                   | Relation   | Comments                                                                                                                                                                       |
+| ---------------------- | ---------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| organization           | belongs_to | Owner of the prescription                                                                                                                                                      |
+| mia_modules            | has_many   | All devices used by the prescription.                                                                                                                                          |
+| flag_policies          | has_many   | All flag policies in use. If a recipient is present on the policy, all flags of matching type under the prescription will be dispatched to the recipient                       |
+| notification_policies  | has_many   | All notification policies in use. If a recipient is present on the policy, all doses that are not taken/muted under the prescription will dispatch a reminder to the recipient |
+| scheduled_doses        | has_many   | All doses generated by the prescriptions dose schemas                                                                                                                          |
+| scheduled_dose_schemas | has many   | All dose schemas beloning to the prescription.                                                                                                                                 |
+| recipients             | has_many   | All recipients belonging to the prescription. Recipients are not in use unless also connected to a flag_policy or notification_policy.                                         |
+| packages               | has_many   | All packages created by the prescriptions mia_modules.                                                                                                                         |
+| taken_pods             | has_many   | All taken_pods generated by the prescriptions mia_modules                                                                                                                      |
+| notifications          | has_many   | All notifications sent under the prescription (for doses, notification_policies and recipients belonging to the prescription)                                                  |
+| flags                  | has_many   | All flags that has occured under the prescription. Will be created even if no matching flag_policy exists (can be displayed without being dispatched)                          |
+| mia_module_schedules   | has_many   | All mia_module_schedules belonging to the prescriptions mia_modules. Used to manage temporary module ownerships.                                                               |
 
 ### Filters
-Name                        | Type       Description
------------------           | ---------- |
-starts_at                   | Equal to   |
-ends_at                     | Equal to   |
-module_activity_starts_at   | Equal to   |
-module_activity_ends_at     | Equal to   |
-pod_sequence                | Equal to   |
-patient_reference           | Equal to   |
-language                    | Equal to   |
-active                      | Equal to   | A prescription is active when current time is within starts_at and ends_at of the prescription
-with_patient_reference_like | Matches    | Search for matches. "Be" matches "Bertil", "Bertil!" does not, and so on.
-starts_at_after             | Equal to   | Returns prescriptions have attribute starts_at higher than given timestamp
-starts_at_before            | Equal to   | Returns prescriptions have attribute starts_at lower than given timestamp
-ends_at_after               | Equal to   | Returns prescriptions have attribute ends_at higher than given timestamp
-ends_at_before              | Equal to   | Returns prescriptions have attribute ends_at lower than given timestamp
+| Name                        | Type       Description |
+| --------------------------- | ---------------------- |
+| starts_at                   | Equal to               |
+| ends_at                     | Equal to               |
+| module_activity_starts_at   | Equal to               |
+| module_activity_ends_at     | Equal to               |
+| pod_sequence                | Equal to               |
+| patient_reference           | Equal to               |
+| language                    | Equal to               |
+| active                      | Equal to               | A prescription is active when current time is within starts_at and ends_at of the prescription |
+| with_patient_reference_like | Matches                | Search for matches. "Be" matches "Bertil", "Bertil!" does not, and so on.                      |
+| starts_at_after             | Equal to               | Returns prescriptions have attribute starts_at higher than given timestamp                     |
+| starts_at_before            | Equal to               | Returns prescriptions have attribute starts_at lower than given timestamp                      |
+| ends_at_after               | Equal to               | Returns prescriptions have attribute ends_at higher than given timestamp                       |
+| ends_at_before              | Equal to               | Returns prescriptions have attribute ends_at lower than given timestamp                        |
 
 ### Available resources
 * get/
@@ -512,7 +572,7 @@ ends_at_before              | Equal to   | Returns prescriptions have attribute 
 * post
 * delete/:id
 
-## Recipients
+****## Recipients
 A recipient is a receiver of notifications and flags. A prescription can have several. Easiest to think of as a contact in a contact list.
 
 > Example fetch payload (for GET v2/recipients)
@@ -554,26 +614,26 @@ A recipient is a receiver of notifications and flags. A prescription can have se
 }
 ```
 
-Name    | Format/Type  | Description
---------| ------------ | -----------
-id      | Integer      | ID of the recipient
-name    | String       | Name of the recipient. Used for display purposes only (never used in default messages etc.).
-phone   | String       | Phone number used to receive sms messages
-email   | String       | Email address used to receive emails
+| Name  | Format/Type | Description                                                                                  |
+| ----- | ----------- | -------------------------------------------------------------------------------------------- |
+| id    | Integer     | ID of the recipient                                                                          |
+| name  | String      | Name of the recipient. Used for display purposes only (never used in default messages etc.). |
+| phone | String      | Phone number used to receive sms messages                                                    |
+| email | String      | Email address used to receive emails                                                         |
 
 ### Relationships
-Name                   | Relation   | Comments
----------------------  | ---------- | -----------
-prescription           | belongs_to | Owner of the recipient
-flag_policies          | has_many   | Recipient will be notified when a flag is created matching the flag_type of the policy
-notification_policies  | has_many   | Recipient will be reminded when a dose matches the criteria of the policy
+| Name                  | Relation   | Comments                                                                               |
+| --------------------- | ---------- | -------------------------------------------------------------------------------------- |
+| prescription          | belongs_to | Owner of the recipient                                                                 |
+| flag_policies         | has_many   | Recipient will be notified when a flag is created matching the flag_type of the policy |
+| notification_policies | has_many   | Recipient will be reminded when a dose matches the criteria of the policy              |
 
 ### Filters
-Name   | Type
------- | ----------
-phone  | Equal to
-name   | Equal to
-email  | Equal to
+| Name  | Type     |
+| ----- | -------- |
+| phone | Equal to |
+| name  | Equal to |
+| email | Equal to |
 
 
 ### Available resources
@@ -629,15 +689,15 @@ Several attributes will be added in the next version of the API. Keep them in mi
 
 ### Attributes
 
-Name              | Format/Type  | Description
------------------ | ------------ | ----------------------------------------------------------------------------------------------
-id                | Integer      | ID of the dose schema
-start_time        | String(HH:MM)| Specifies at what time generated doses should start
-end_time          | String(HH:MM)| Specifies at what time generated doses should end
-pod_amount        | Integer      | Specifies what amount of pods/doses should be taken during the dose period.
-start_date        | Date         | First day to apply scheduling rules on
-end_date          | Date         | Last day to apply scheduling rules on
-days_between_doses| Integer      | Days between doses. 2 will generate a dose every other day, 7 will generate a weekly dose etc.
+| Name               | Format/Type   | Description                                                                                    |
+| ------------------ | ------------- | ---------------------------------------------------------------------------------------------- |
+| id                 | Integer       | ID of the dose schema                                                                          |
+| start_time         | String(HH:MM) | Specifies at what time generated doses should start                                            |
+| end_time           | String(HH:MM) | Specifies at what time generated doses should end                                              |
+| pod_amount         | Integer       | Specifies what amount of pods/doses should be taken during the dose period.                    |
+| start_date         | Date          | First day to apply scheduling rules on                                                         |
+| end_date           | Date          | Last day to apply scheduling rules on                                                          |
+| days_between_doses | Integer       | Days between doses. 2 will generate a dose every other day, 7 will generate a weekly dose etc. |
 
 
 ### Relationships
@@ -661,27 +721,27 @@ days_between_doses| Integer      | Days between doses. 2 will generate a dose ev
 }
 ```
 
-Name            | Relation    | Comments
---------------- | ----------- | -----------
-prescription    | belongs_to  |
-recipients      | has_many    | Recipients to notify when dose is not taken/muted at specified time
-notifications   | has_many    | All notifications dispatched by the policy
-scheduled_doses | has_many    | All doses for which the recipients will be notified (currently: all doses beloning to the same prescription)
+| Name            | Relation   | Comments                                                                                                     |
+| --------------- | ---------- | ------------------------------------------------------------------------------------------------------------ |
+| prescription    | belongs_to |
+| recipients      | has_many   | Recipients to notify when dose is not taken/muted at specified time                                          |
+| notifications   | has_many   | All notifications dispatched by the policy                                                                   |
+| scheduled_doses | has_many   | All doses for which the recipients will be notified (currently: all doses beloning to the same prescription) |
 
 ### Filters
-Name               | Type
------------------- | ----------
-id                 | Equal to
-start_time         | Equal to
-end_time           | Equal to
-pod_amount         | Equal to
-start_date         | Equal to
-end_date           | Equal to
-days_between_doses | Equal to
-start_date_after   | Equal to   | Returns scheduled_dose_schemas that have attribute start_date higher than given timestamp
-start_date_before  | Equal to   | Returns scheduled_dose_schemas that have attribute start_date lower than given timestamp
-end_date_after     | Equal to   | Returns scheduled_dose_schemas that have attribute end_date higher than given timestamp
-end_date_before    | Equal to   | Returns scheduled_dose_schemas that have attribute end_date lower than given timestamp
+| Name               | Type     |
+| ------------------ | -------- |
+| id                 | Equal to |
+| start_time         | Equal to |
+| end_time           | Equal to |
+| pod_amount         | Equal to |
+| start_date         | Equal to |
+| end_date           | Equal to |
+| days_between_doses | Equal to |
+| start_date_after   | Equal to | Returns scheduled_dose_schemas that have attribute start_date higher than given timestamp |
+| start_date_before  | Equal to | Returns scheduled_dose_schemas that have attribute start_date lower than given timestamp  |
+| end_date_after     | Equal to | Returns scheduled_dose_schemas that have attribute end_date higher than given timestamp   |
+| end_date_before    | Equal to | Returns scheduled_dose_schemas that have attribute end_date lower than given timestamp    |
 
 ### Available resources
 * get/
@@ -750,42 +810,42 @@ A scheduled dose is a planned period of time during which its prescription is su
 
 ### Attributes
 
-Name                         | Format/Type   | Description
------------------            | -----------   | ----------------------------------------------------------------------------------------------
-id                           | Integer       | ID of the dose
-period_starts_at             | Datetime      | Specifies at what time the dose starts
-period_ends_at               | Datetime      | Specifies at what time the dose ends
-taken                        | Boolean       | True if the dose has been taken correctly, otherwise false
-completed_at                 | Datetime      | Time at which the dose was completed *correctly*
-nr_remaining_pods            | Integer       | How many doses left until dose is taken *correctly*
-nr_remaining_pods_until_mute | Boolean       | How many doses left until dose is marked as muted (doesn't care if the pods/doses were taken correctly). A dose with this set to 0 will not send any more notifications
-expected_pods                | String(array) | The pods that are supposed to be taken during this dose period. Only set if prescription has a pod_sequence.
-muted                        | Boolean       | Same behaviour as if nr_remaining_pods_until_mute reaches zero, but manually toggled.
+| Name                         | Format/Type   | Description                                                                                                                                                             |
+| ---------------------------- | ------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| id                           | Integer       | ID of the dose                                                                                                                                                          |
+| period_starts_at             | Datetime      | Specifies at what time the dose starts                                                                                                                                  |
+| period_ends_at               | Datetime      | Specifies at what time the dose ends                                                                                                                                    |
+| taken                        | Boolean       | True if the dose has been taken correctly, otherwise false                                                                                                              |
+| completed_at                 | Datetime      | Time at which the dose was completed *correctly*                                                                                                                        |
+| nr_remaining_pods            | Integer       | How many doses left until dose is taken *correctly*                                                                                                                     |
+| nr_remaining_pods_until_mute | Boolean       | How many doses left until dose is marked as muted (doesn't care if the pods/doses were taken correctly). A dose with this set to 0 will not send any more notifications |
+| expected_pods                | String(array) | The pods that are supposed to be taken during this dose period. Only set if prescription has a pod_sequence.                                                            |
+| muted                        | Boolean       | Same behaviour as if nr_remaining_pods_until_mute reaches zero, but manually toggled.                                                                                   |
 
 
 ### Relationships
-Name                  | Relation   | Comments
---------------------- | ---------- | --------------------------------------------------------------------------------------------
-prescription          | belongs_to |
-taken_pods            | has_many   | All pods related to this dose. Decided either by timestamp of the pod or by its sequence number
-notifications         | has_many   | All notifications/reminders sent regarding this dose
-scheduled_dose_schema | belongs_to | The schema which generated this dose
+| Name                  | Relation   | Comments                                                                                        |
+| --------------------- | ---------- | ----------------------------------------------------------------------------------------------- |
+| prescription          | belongs_to |
+| taken_pods            | has_many   | All pods related to this dose. Decided either by timestamp of the pod or by its sequence number |
+| notifications         | has_many   | All notifications/reminders sent regarding this dose                                            |
+| scheduled_dose_schema | belongs_to | The schema which generated this dose                                                            |
 
 ### Filters
-Name                         | Type                     | Description
----------------------------- | ------------------------ | --------------------
-id                           | Equal to                 |
-period_starts_at             | Equal to                 |
-period_ends_at               | Equal to                 |
-taken                        | Equal to                 |
-completed_at                 | Equal to                 |
-nr_remaining_pods            | Equal to                 |
-nr_remaining_pods_until_mute | Equal to                 |
-expected_pods                | Equal to                 |
-muted                        | Equal to                 |
-pod_number                   | Matches                  | Given a list of numbers, returns all doses in which all numbers are expected
-date_to                      | Less than or equal to    | Given a datetime, returns all doses ending before that datetime
-date_from                    | Greater than or equal to | Given a datetime, returns all doses starting after that datetime
+| Name                         | Type                     | Description                                                                  |
+| ---------------------------- | ------------------------ | ---------------------------------------------------------------------------- |
+| id                           | Equal to                 |
+| period_starts_at             | Equal to                 |
+| period_ends_at               | Equal to                 |
+| taken                        | Equal to                 |
+| completed_at                 | Equal to                 |
+| nr_remaining_pods            | Equal to                 |
+| nr_remaining_pods_until_mute | Equal to                 |
+| expected_pods                | Equal to                 |
+| muted                        | Equal to                 |
+| pod_number                   | Matches                  | Given a list of numbers, returns all doses in which all numbers are expected |
+| date_to                      | Less than or equal to    | Given a datetime, returns all doses ending before that datetime              |
+| date_from                    | Greater than or equal to | Given a datetime, returns all doses starting after that datetime             |
 
 ### Available resources
 * get/
@@ -843,27 +903,27 @@ A taken pod is generated by a mia_module whenever its owner removes a pill/dose/
 
 ### Attributes
 
-Name                         | Format/Type | Description
------------------            | ----------- | ----------------------------------------------------------------------------------------------
-id                           | Integer     | ID of the pod
-number                       | Integer     | The index (in its package) of the pod. Used to match against its prescriptions pod_sequence, if used
-taken_at                     | Datetime    | Specifies at what time the pod was taken
+| Name     | Format/Type | Description                                                                                          |
+| -------- | ----------- | ---------------------------------------------------------------------------------------------------- |
+| id       | Integer     | ID of the pod                                                                                        |
+| number   | Integer     | The index (in its package) of the pod. Used to match against its prescriptions pod_sequence, if used |
+| taken_at | Datetime    | Specifies at what time the pod was taken                                                             |
 
 ### Relationships
-Name           | Relation   | Comments
--------------- | ---------- | --------------------------------------------------------------------------------------------
-prescription   | belongs_to |
-package        | belongs_to |
-mia_module     | belongs_to |
-scheduled_dose | belongs_to |
+| Name           | Relation   | Comments |
+| -------------- | ---------- | -------- |
+| prescription   | belongs_to |
+| package        | belongs_to |
+| mia_module     | belongs_to |
+| scheduled_dose | belongs_to |
 
 ### Filters
-Name            | Type
---------        | ---------
-taken_at        | Equal to
-Number          | Equal to
-taken_at_after  | Equal to | Returns taken_pods that have attribute taken_at higher than given timestamp
-taken_at_before | Equal to | Returns taken_pods that have attribute taken_at lower than given timestamp
+| Name            | Type     |
+| --------------- | -------- |
+| taken_at        | Equal to |
+| Number          | Equal to |
+| taken_at_after  | Equal to | Returns taken_pods that have attribute taken_at higher than given timestamp |
+| taken_at_before | Equal to | Returns taken_pods that have attribute taken_at lower than given timestamp  |
 
 ### Available resources
 * get/
